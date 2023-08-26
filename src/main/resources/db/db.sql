@@ -320,3 +320,13 @@ insert into skill_tb(skill_name) values ("C++");
 insert into skill_tb(skill_name) values ("C");
 insert into skill_tb(skill_name) values ("Golang");
 insert into skill_tb(skill_name) values ("Firebase");
+
+insert into edu_tb(edu_name) values("중학교 졸업");
+insert into edu_tb(edu_name) values("고등학교 재학");
+insert into edu_tb(edu_name) values("고등학교 졸업");
+insert into edu_tb(edu_name) values("대학교 재학");
+insert into edu_tb(edu_name) values("대학교 휴학");
+insert into edu_tb(edu_name) values("대학교 졸업 예정");
+insert into edu_tb(edu_name) values("대학교 졸업");
+insert into edu_tb(edu_name) values("석사");
+insert into edu_tb(edu_name) values("박사");
