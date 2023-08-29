@@ -310,3 +310,23 @@ insert into small_job_tb(smallname,bigjobid) values("반도체,디스플레이",
 insert into small_job_tb(smallname,bigjobid) values("조립 기술자",13);
 insert into small_job_tb(smallname,bigjobid) values("화학자",13);
 insert into small_job_tb(smallname,bigjobid) values("제조 테스트 엔지니어",13);
+
+insert into skill_tb(skill_name) values ("java");
+insert into skill_tb(skill_name) values ("mysql");
+insert into skill_tb(skill_name) values ("kotlin");
+insert into skill_tb(skill_name) values ("python");
+insert into skill_tb(skill_name) values ("C#");
+insert into skill_tb(skill_name) values ("C++");
+insert into skill_tb(skill_name) values ("C");
+insert into skill_tb(skill_name) values ("Golang");
+insert into skill_tb(skill_name) values ("Firebase");
+
+insert into edu_tb(edu_name) values("중학교 졸업");
+insert into edu_tb(edu_name) values("고등학교 재학");
+insert into edu_tb(edu_name) values("고등학교 졸업");
+insert into edu_tb(edu_name) values("대학교 재학");
+insert into edu_tb(edu_name) values("대학교 휴학");
+insert into edu_tb(edu_name) values("대학교 졸업 예정");
+insert into edu_tb(edu_name) values("대학교 졸업");
+insert into edu_tb(edu_name) values("석사");
+insert into edu_tb(edu_name) values("박사");
