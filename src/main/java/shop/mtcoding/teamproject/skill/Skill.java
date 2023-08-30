@@ -15,5 +15,6 @@ public class Skill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
+
     private String skillName;
 }

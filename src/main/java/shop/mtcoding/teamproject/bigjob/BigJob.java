@@ -16,6 +16,6 @@ public class BigJob {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
-    @Column(nullable = false, length = 20)
+    @Column(name = "bigname")
     private String bigname;  //대분류 이름
 }

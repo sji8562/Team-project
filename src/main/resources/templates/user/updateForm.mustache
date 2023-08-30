@@ -1,0 +1,45 @@
+{{> layout/header}}
+<div class="all">
+    <div style="font-weight: bold; font-size: 50px; margin-left: 100px;">
+    회원정보 수정</div>
+    <div style="display: flex; justify-content: center;">
+    <form action="/action_page.php">
+      <div class="mb-3 mt-3">
+        <div class="comucontainer">아이디<span class="necessity">필수</span></div>
+        <input type="id" class="container compjoincontainer" style="margin-left: 100px;" id="id" placeholder="아이디를 입력해주세요" name="userId" value="" required>
+        <button type="button" class="btn btn-warning" onclick="check()">중복체크</button>
+      </div>
+      <div class="mb-3">
+        <div class="comucontainer">비밀번호<span class="necessity">필수</span></div>
+        <input type="password" class="container compjoincontainer" id="pwd" placeholder="비밀번호를 입력해주세요" name="password" value="" onchange="pwcheck()" required>
+      </div>
+      <div class="mb-3">
+        <div class="comucontainer">비밀번호 확인<span class="necessity">필수</span></div>
+        <input type="password" class="container compjoincontainer" id="pwdchk" placeholder="비밀번호를 한번 더 입력해주세요" name="passwordchk" value="" onchange="isSame()" required>
+        <br><span id="same"></span>
+      </div>
+      <div class="mb-3">
+        <div class="comucontainer">이름<span class="necessity">필수</span></div>
+        <input type="name" class="container compjoincontainer" id="name" placeholder="이름을 입력해주세요" name="username" value="" required>
+      </div>
+      <div class="mb-3">
+        <div class="comucontainer">주소:</div>
+        <input type="text" style="width: 400px; height:35px; margin-left:130px;" id="postcode" name="address" readonly><input style="margin: 1px; width:120px;" type="button" value="우편번호 찾기" onclick="Postcode()">
+        <br><input type="text" class="container compjoincontainer" id="address" name="address" readonly>
+        <br><input type="text" class="container compjoincontainer" id="addressDetail" name="addressDetail" placeholder="상세 주소를 입력해주세요">
+    </div>
+      <div class="mb-3">
+          <div class="comucontainer">이메일:</div>
+          <input type="email" class="container compjoincontainer" id="email" placeholder="이메일을 입력해주세요" name="email" value="">
+        </div>
+        <div class="mb-3">
+          <div class="comucontainer">전화번호:</div>
+          <input type="number" class="container compjoincontainer" id="name" placeholder="전화번호를 입력해주세요" name="phoneNum" value="">
+        </div>
+      <button type="submit" class="btn btn-primary" style="margin-left: 60px;">회원 정보 수정</button>
+    </form>
+    </div>
+  </div>   
+  
+
+{{> layout/footer}}

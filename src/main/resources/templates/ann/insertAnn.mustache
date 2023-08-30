@@ -1,0 +1,73 @@
+{{> layout/header}}
+<div class="start">채용 등록 입력 폼</div> 
+            <hr>   
+            
+        <div class="required">
+            <div class="formtitle"><span style="color:blue;">필수항목</span>들을 채워주세요</div>
+                <div class="details">모집 분야명<span class="necessity">필수</span>
+                <input type="text" class="formcontainer" placeholder="ex 프로그램 개발자" name="">
+                <input type="text" class="formcontainer" name=""> 명 모집
+            </div>
+            <div class="details">경력 여부<span class="necessity">필수</span>
+                <div class="checkbox">   
+                    <input type="checkbox" class="checkbox-input"name="#">신입
+                    <input type="checkbox" class="checkbox-input" name="#">경력
+                    <input type="checkbox" class="checkbox-input" name="#">경력무관
+                </div>
+            </div>
+            <div class="details">담당업무
+                <input type="text" class="formcontainer" placeholder="내용을 입력해주세요" name="">
+            </div>
+        </div>
+
+        <div class="optional">
+            <div class="formtitle">기술 스택/우대 조건을 선택할 수 있습니다</div>
+            <div class="details">기술 스택
+                <select class="dropdown" id="skill" name="skillList">
+                    <option>기술 스택1</option>
+                    <option>기술 스택2</option>
+                </select>
+            </div>
+        
+            <div class="details">직급 직책
+                <select class="dropdown" id="skill" name="skillList">
+                    <option value="#">사원</option>
+                    <option value="#">대리</option>
+                </select>
+            </div>
+        
+            <div class="details">필수/우대조건
+                <div class="radio">
+                    <input type="radio" class="form-check-input" id="preference" name="preference">전공/학과
+                    <input type="radio" class="form-check-input" id="preference" name="preference">외국어
+                    <input type="radio" class="form-check-input" id="preference" name="preference">근무경험
+                </div>            
+            </div>
+        </div>
+        <div class="required">
+            <div class="formtitle"><span style="color:blue;">필수항목</span>들을 채워주세요</div>
+                <div class="details">지원자 학력<span class="necessity">필수</span>
+                    <select class="dropdown" id="school" name="school">
+                        <option>대학교 졸업(4년)이상</option>
+                        <option>전문대 졸업</option>
+                    </select>
+            </div>
+            <div class="details">연봉/급여<span class="necessity">필수</span>
+                <input type="text" class="formcontainer" id="salary" name="salary">
+            </div>
+            <div class="details">근무요일
+                <select class="dropdown" id="workday" name="workday">
+                    <option>주5일</option>
+                    <option>주4일</option>
+                </select>
+            </div>
+            <div class="details">근무 시간
+                <input type="text" class="formcontainer" id="salary" name="salary">
+            </div>
+            <div class="details">마감일자<span class="necessity">필수</span>
+                <input class="formcontainer" type="date" name="duedate">
+            </div>
+        </div>
+            <button type="submit" class="btn btn-primary" style="margin: auto; width: 150px; font-size: 20px; display: block;">
+                채용공고 등록</button>
+{{> layout/footer}}
