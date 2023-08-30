@@ -1,0 +1,444 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+html {
+	font-family: sans-serif;
+	/* line-height: 1.15; */
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.pink {
+    width : 800px;
+}
+.black{
+  border :1px solid black;
+}
+.hamberger{
+  width: 25px;
+  height: 25px;
+}
+.blue{
+    color:blue;
+}
+.bg-gray{
+    background-color: #d9d8d8;
+}
+.color-gray{
+    color: #e3e3e3;
+}
+
+.custom-container {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+.form-label {
+    min-width: 120px; /* 필요에 따라 너비 조정 */
+}
+checkbox-label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.start{
+    font-weight: bold;
+    font-size: 40px; 
+    text-align: center;
+}
+.required{
+    margin: 20px;
+    margin-left: 80px; 
+    margin-bottom: 40px;
+    text-align: center;
+}
+.details{
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.necessity{
+    font-size: small;
+    color: red; 
+    margin: 5px;
+}
+.formcontainer{
+    margin: 5px;
+    width:200px;
+    height:19px;
+    font-size: 15px;
+}
+.checkbox{
+    margin: 10px;
+    font-weight: lighter;
+    font-size: 15px;
+}
+.optional{
+    margin: 20px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+}
+.dropdown{
+    margin: 5px;
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    font-size: 15px;
+}
+.formtitle{
+    font-weight: bold;
+    font-size: 27px; 
+    margin: 10px;
+    text-align: center;
+}
+.listtitle{
+    display: block;
+    text-align: center;
+    /* margin-left: 250px; */
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .comucard{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    
+
+}
+
+.comucontainer{
+    padding-top: 50px;
+}
+
+.help{
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+.question{
+    display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+a{
+    text-decoration-line: none;
+    color: black;
+}
+.comuwritecard{
+    font-size: 30px;
+    font-weight: 600;
+    }
+
+.comuwritebtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;     
+    }
+    .compdetailcard {
+        /* 카드 스타일 */
+        margin: 10px;
+        width: 400px;
+    }
+    
+    .compdetailcard img {
+        width: 100%;
+    }
+    /* .all{
+        display: inline-block;
+        align-items: center;
+        text-align: center;
+      } */
+      .compjoincontainer{
+        display:inline-block;
+        align-items: center;
+        text-align: center;
+        margin: 5px;
+        width:400px;
+        height:35px;
+        font-size: 15px;
+    }
+    
+      .necessity{
+        font-size: small;
+        color: red; 
+        margin: 5px;
+      }
+      .compjoindetails{
+        margin: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    
+      }
+      .compupdateall{
+        margin: 150px;
+        margin-left: 300px;
+      }
+
+      
+.total div {
+    width: 500px;
+    height: 500px;
+}
+.search {
+position: relative;
+width: 300px;
+}
+
+input {
+width: 100%;
+border: 1px solid #bbb;
+border-radius: 8px;
+padding: 10px 12px;
+font-size: 14px;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 30px;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.search-icon {
+    margin-right: 5px;
+    color: #666;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+}
+
+.search-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    
+    cursor: pointer;
+}
+
+.cad{
+  display: flex;
+  /* position: absolute; */
+  /* width: auto; */
+  height: 200px;
+  border: 1px solid white;
+  /* left: 18.5%; */
+  margin-top: 30px;
+}
+.marginb{
+  margin-bottom: 9rem!important;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+    gap: 80px;
+    
+    }
+    
+    .joinbtn {
+    padding: 10px 20px; 
+    font-size: 16px;
+    width: 300px;
+    height: 300px;
+    gap: 30px;
+    background-color: 	skyblue;
+    border: none;
+    font-size: 30px;
+    font-weight: 800;
+    }
+    .logincontainer{
+        width: 500px;
+        margin-top: 30px;
+    }
+    
+    .log{
+        text-align: center;
+    }
+    
+    .button-container {
+        display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: auto;
+    width: 300px;
+    gap: 10px;
+    }
+    .index-card{
+        /*index 카드 하나*/
+        width:300px;
+        height:400px;   
+        border: 1px solid white;   
+    }
+    .cads1{
+        /*index 기업 목록 카드 전체*/
+        justify-content: center;
+        display: flex;
+        gap: 100px;
+        padding-top: 100px;
+    }
+    
+    .cads2{
+         /*index 구직 목록 카드 전체*/  
+        justify-content: center;
+        display: flex;
+        gap: 100px;
+        padding-top: 300px;
+    }
+    .skyblue{
+        width:auto;
+         height:500px; 
+         background-color: skyblue;
+    }
+    /*userJoinForm, userUpdateForm, CompjoinForm, CompUpdateForm - 입력칸 위 텍스트(ex 아이디, 비밀번호...)*/
+.comucontainer{
+    top: 10px;
+
+}
+/*userJoinForm, userUpdateForm, CompjoinForm, CompUpdateForm - 전체*/
+ .all{
+        align-items: center;
+        text-align: center;
+      }
+/*userJoinForm, userUpdateForm, CompjoinForm, CompUpdateForm - 입력칸(ex 아이디, 비밀번호...)*/
+.compjoincontainer{
+        display:inline-block;
+        align-items: center;
+        margin: 5px;
+        width:400px;
+        height:35px;
+        font-size: 15px;
+      }
+/*userJoinForm, userUpdateForm, CompjoinForm, CompUpdateForm - 필수 글자*/
+.necessity{
+        font-size: small;
+        color: red; 
+        margin: 5px;
+      }
+      
+      /*announceForm, announceUpdateForm - 맨 위 텍스트(채용공고 등록)*/
+.start{
+    font-weight: bold;
+    font-size: 40px; 
+    text-align: center;
+}
+/*announceForm, announceUpdateForm - 첫 단락, 마지막 단락 */
+.required{
+    margin: 20px;
+    margin-left: 80px; 
+    margin-bottom: 40px;
+    text-align: center;
+}
+/*announceForm, announceUpdateForm - 각 단락 항목*/
+.details{
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/*announceForm, announceUpdateForm - 필수 글자*/
+.necessity{
+    font-size: small;
+    color: red; 
+    margin: 5px;
+}
+/*announceForm, announceUpdateForm - 입력칸*/
+.formcontainer{
+    margin: 5px;
+    width:200px;
+    height:19px;
+    font-size: 15px;
+}
+/*announceForm, announceUpdateForm - 신입, 경력 체크박스 텍스트*/
+.checkbox{
+    font-weight:lighter;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 45px;
+    margin-right: 300px;
+
+}
+/*announceForm, announceUpdateForm - 신입, 경력 체크박스*/
+.checkbox-input{
+    transform: scale(1.2);
+    margin: 0px;
+}
+/*announceForm, announceUpdateForm - 두번째 단락*/
+.optional{
+    margin: 20px;
+    margin-left: 80px;
+    margin-bottom: 40px;
+}
+/*announceForm, announceUpdateForm - 라디오박스*/
+.radio{
+    font-weight:lighter;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    margin-right: 300px;
+}
+/*announceForm, announceUpdateForm - 드롭다운*/
+.dropdown{
+    margin: 5px;
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    font-size: 15px;
+}
+
+/*announceForm, announceUpdateForm - 각 단락의 제목*/
+.formtitle{
+    font-weight: bold;
+    font-size: 27px; 
+    margin: 10px;
+    text-align: center;
+}
+/*announce List - 전체*/
+/* .all{
+    align-items: center;
+    text-align: center;
+  } */
+/*announce List - 공고 칸*/
+.custom-container {
+padding: 1rem;
+margin: 1rem 0;
+border: 1px solid #ccc;
+border-radius: 0.5rem;
+}
+/*announceList - 채용 공고 관리 텍스트*/
+.listtitle{
+display: block;
+text-align: center;
+margin-left: 10px;
+margin-bottom: 10px;
+font-size: 40px;
+font-weight: bold;
+}
+/*announceList - '채용 공고' 텍스트*/
+.details{
+margin: 10px;
+font-size: 20px;
+font-weight: bold;
+text-align: center;
+white-space: nowrap;
+}

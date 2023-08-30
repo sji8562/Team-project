@@ -1,6 +1,4 @@
-package shop.mtcoding.teamproject.board;
-
-import java.sql.Timestamp;
+package shop.mtcoding.teamproject.suggest;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,22 +12,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-@Getter
 @Setter
-@Table(name = "board_tb")
+@Getter
+@Table(name = "suggest_tb")
 @Entity
-public class Board {
+public class Suggest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
-
-    @Column(nullable = false , length = 20)
-    private Integer type;
-
-    private String title;
-    private String content;
-    private Integer count;
-    private Timestamp updateTime;
-    private Integer userIdx;
+    
+    @Column(nullable = false)
+    private Integer resumeIdx;
+    
+    @Column(nullable = false)
     private Integer compIdx;
+
+    @Column(nullable = false)
+    private Integer status;
 }

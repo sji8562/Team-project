@@ -28,20 +28,22 @@ public class User {
 
     @Column(nullable = false, length = 20)
     private String email;
-    @Column(nullable = true)
-    private String picUrl;
 
     @Column(nullable = true)
     private String phoneNumber;
 
     @Column(nullable = true)
-    private String address;
+    private String address1;
+
+    @Column(nullable = true)
+    private String address2;
+
+    @Column(nullable = true)
+    private String picUrl;
 
     private String homepage;
 
-    private String resumeId;
-
-    private String skillId;
+    private int level;
 
     private Timestamp birthday;
 

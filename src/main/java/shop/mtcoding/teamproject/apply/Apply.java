@@ -1,6 +1,4 @@
-package shop.mtcoding.teamproject.board;
-
-import java.sql.Timestamp;
+package shop.mtcoding.teamproject.apply;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,22 +12,21 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-@Getter
 @Setter
-@Table(name = "board_tb")
+@Getter
+@Table(name = "apply_tb")
 @Entity
-public class Board {
+public class Apply {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
+    
+    @Column(nullable = false)
+    private Integer annIdx;
+    
+    @Column(nullable = false)
+    private Integer resumeIdx;
 
-    @Column(nullable = false , length = 20)
-    private Integer type;
-
-    private String title;
-    private String content;
-    private Integer count;
-    private Timestamp updateTime;
-    private Integer userIdx;
-    private Integer compIdx;
+    @Column(nullable = false)
+    private Integer status;
 }

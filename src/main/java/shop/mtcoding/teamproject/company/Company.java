@@ -17,6 +17,7 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
+
     @Column(nullable = false , length = 20, unique = true)
     private String id;  //기업 아이디
 
@@ -42,12 +43,9 @@ public class Company {
 
     private String homepage; //기업 홈페이지
 
-    private String AnnouncementId;  //채용공고 1:N 관계 하나의 기업은 많은 공고를 낼 수 있다
-    
     private Timestamp establishment;  //설립연도
-
     
-    private String resumeId; //이력서 N:N 기업은 많은 이력서를 볼 수 있고 많은 이력서를 받을수있다
+    private int level;
 
     @Builder
     public Company(Integer index, String companyName, String password, String email, String picUrl, Timestamp establishment) {
