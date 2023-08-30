@@ -19,19 +19,10 @@ public class Resume {
 
     @Column(nullable = false , length = 20)
     private String Title;
-    private int education1;
-    private int education2;
-    private int education3;
-    private int education4;
-
-    private String school1;
-    private String school2;
-    private String school3;
-    private String school4;
-
+    private int education;
+    private String school;
     private String skill;
     private String introduce;
-
-    private int representedu;
-
+    private int userId;
+    private String companyId;
 }

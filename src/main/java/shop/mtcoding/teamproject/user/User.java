@@ -41,6 +41,8 @@ public class User {
 
     private String resumeId;
 
+    private String skillId;
+
     private Timestamp birthday;
 
     @Builder
