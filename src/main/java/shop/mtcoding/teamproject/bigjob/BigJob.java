@@ -17,5 +17,5 @@ public class BigJob {
     private Integer index;
 
     @Column(nullable = false, length = 20)
-    private String bigname;
+    private String bigname;  //대분류 이름
 }
