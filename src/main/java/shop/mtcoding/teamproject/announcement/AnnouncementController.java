@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -41,8 +42,10 @@ public class AnnouncementController {
         return "ann/annList";
     }
 
-    @GetMapping("/annDetail")
-    public String AnnDetail(){
+    @GetMapping("/annDetail/{id}")
+    public String AnnDetail(@PathVariable Integer id, Model model){
+        Announcement ann = announcementService.공고상세보기(id);
+        model.addAttribute("ann", ann);
         return "ann/annDetail";
     }
 } 

@@ -1,5 +1,7 @@
 package shop.mtcoding.teamproject.announcement;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +19,10 @@ public class AnnouncementService {
     @Transactional
     public void 공고수정(Announcement announcement){
         
+    }
+
+    public Announcement 공고상세보기(Integer id) {
+        Optional<Announcement> annOP = announcementRepository.findById(id);
+        return annOP.get();
     }
 }
