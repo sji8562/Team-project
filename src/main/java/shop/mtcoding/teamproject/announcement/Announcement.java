@@ -1,5 +1,6 @@
 package shop.mtcoding.teamproject.announcement;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,4 +41,31 @@ public class Announcement {
     private String bigJobId; //1:1 관계 공고는 하나의 대분류를 가지고있다.
     private String smallJobId;  //1:1관계 공고는 하나의 소분류를 가지고있다.
 
+    @Builder
+    public Announcement(Integer index, String workType, String experience, String graduation, String task,
+            String location, Timestamp startTime, Timestamp endTime, String salary, String skill, String preference,
+            String managerName, String position, String pic, String workTime, String workDay, String compId,
+            String bigJobId, String smallJobId) {
+        this.index = index;
+        this.workType = workType;
+        this.experience = experience;
+        this.graduation = graduation;
+        this.task = task;
+        this.location = location;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.salary = salary;
+        this.skill = skill;
+        this.preference = preference;
+        this.managerName = managerName;
+        this.position = position;
+        this.pic = pic;
+        this.workTime = workTime;
+        this.workDay = workDay;
+        this.compId = compId;
+        this.bigJobId = bigJobId;
+        this.smallJobId = smallJobId;
+    }
+
+    
 }

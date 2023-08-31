@@ -1,6 +1,7 @@
 package shop.mtcoding.teamproject.resume;
 
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,5 +37,22 @@ public class Resume {
     private boolean status;
 
     private int userId;
+    
+    @Builder
+    public Resume(Integer index, String title, String education, String school, String skill, String introduce,
+            String experience, String homepage, boolean status, int userId) {
+        this.index = index;
+        Title = title;
+        this.education = education;
+        this.school = school;
+        this.skill = skill;
+        this.introduce = introduce;
+        this.experience = experience;
+        this.homepage = homepage;
+        this.status = status;
+        this.userId = userId;
+    }
+
+    
     
 }
