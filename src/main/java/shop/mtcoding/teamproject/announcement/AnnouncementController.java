@@ -26,6 +26,7 @@ public class AnnouncementController {
     }
     @GetMapping("/annUpdateForm")
     public String annUpdateForm(Announcement announcement, Model model){
+
         return "ann/annUpdate";
     }
 
@@ -35,7 +36,8 @@ public class AnnouncementController {
         return "redirect:/ann/annDetail";
     }
     @GetMapping("/annlist")
-    public String AnnList(){
+    public String AnnList(Model model){
+        
         return "ann/annList";
     }
 

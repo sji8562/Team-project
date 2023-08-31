@@ -9,10 +9,7 @@ import shop.mtcoding.teamproject.user.UserRequest.userJoinDTO;
 
 @Controller
 public class UserController {
-    @GetMapping("/")
-    public String index(){
-        return "/index";
-    }
+    
     @GetMapping("/userloginForm")
     public String loginForm(){
         return "/user/loginForm";
@@ -27,7 +24,7 @@ public class UserController {
     }
     @PostMapping("/userJoin")
     public String userJoin(UserRequest.userJoinDTO joinDTO){
-        userService.usersave(joinDTO);
+        
         return "/";
     }
 }
