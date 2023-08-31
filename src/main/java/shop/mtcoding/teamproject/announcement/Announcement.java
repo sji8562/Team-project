@@ -29,7 +29,7 @@ public class Announcement {
     private String salary; //급여
     private String skill; //기술
     private String preference; //우대조건
-    private String manager; //대표자
+    private String managerName; //대표자
     private String position; //직급
     private String pic;
     private String workTime;
@@ -37,7 +37,7 @@ public class Announcement {
     
     
     private String compId;  // 1:N 관계 회사는 많은 공고를 올릴수있다 
-    private String bigJobId; //1:1 관계 공고는 하나의 대분류를 가지고있다
+    private String bigJobId; //1:1 관계 공고는 하나의 대분류를 가지고있다.
     private String smallJobId;  //1:1관계 공고는 하나의 소분류를 가지고있다.
 
 }

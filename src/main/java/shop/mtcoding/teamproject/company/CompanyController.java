@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CompanyController {
-    @GetMapping("/companyjoinForm")
+    @GetMapping("/companyJoinForm")
     public String cjoin(){
         return "/company/joinForm";
     }
