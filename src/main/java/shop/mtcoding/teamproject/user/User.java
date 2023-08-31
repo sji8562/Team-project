@@ -18,7 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
     @Column(nullable = false, length = 20, unique = true)
-    private String id;
+    private String userId;
 
     @Column(nullable = false, length = 20)
     private String username;
@@ -33,10 +33,10 @@ public class User {
     private String phoneNumber;
 
     @Column(nullable = true)
-    private String address1;
+    private String address;
 
     @Column(nullable = true)
-    private String address2;
+    private String addressDetail;
 
     @Column(nullable = true)
     private String picUrl;
@@ -48,12 +48,17 @@ public class User {
     private Timestamp birthday;
 
     @Builder
-    public User(Integer index, String username, String password, String email, String picUrl, Timestamp birthday) {
+    public User(Integer index,String userid, String username, String password, String email,String address, String addressDetail,String phoneNum, int level) {
         this.index = index;
+        this.userId = userid;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.picUrl = picUrl;
-        this.birthday = birthday;
+        this.phoneNumber = phoneNum;
+        this.address = address;
+        this.addressDetail = addressDetail;
+        this.level = level;
+        // this.picUrl = picUrl;
+        // this.birthday = birthday;
     }
 }

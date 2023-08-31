@@ -26,7 +26,7 @@ public class Reply {
 
     private Integer userIdx;
 
-    private Integer companyIdx;
+    private Integer compIdx;
 
     private Integer boardIdx;
 }

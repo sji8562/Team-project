@@ -311,15 +311,41 @@ insert into small_job_tb(small_name,big_job_idx) values('조립 기술자',13);
 insert into small_job_tb(small_name,big_job_idx) values('화학자',13);
 insert into small_job_tb(small_name,big_job_idx) values('제조 테스트 엔지니어',13);
 
-insert into skill_tb(skill_name) values ('java');
-insert into skill_tb(skill_name) values ('mysql');
-insert into skill_tb(skill_name) values ('kotlin');
-insert into skill_tb(skill_name) values ('python');
-insert into skill_tb(skill_name) values ('C#');
-insert into skill_tb(skill_name) values ('C++');
+insert into skill_tb(skill_name) values ('Java');
 insert into skill_tb(skill_name) values ('C');
-insert into skill_tb(skill_name) values ('Golang');
-insert into skill_tb(skill_name) values ('Firebase');
+insert into skill_tb(skill_name) values ('PyThon');
+insert into skill_tb(skill_name) values ('Go');
+insert into skill_tb(skill_name) values ('PHP');
+insert into skill_tb(skill_name) values ('Ruby');
+insert into skill_tb(skill_name) values ('C#');
+insert into skill_tb(skill_name) values ('Swift');
+insert into skill_tb(skill_name) values ('Kotlin');
+insert into skill_tb(skill_name) values ('Java Script');
+insert into skill_tb(skill_name) values ('React');
+insert into skill_tb(skill_name) values ('Angula');
+insert into skill_tb(skill_name) values ('Vue.js');
+insert into skill_tb(skill_name) values ('Ember.js');
+insert into skill_tb(skill_name) values ('RubyOnRails');
+insert into skill_tb(skill_name) values ('Node.js');
+insert into skill_tb(skill_name) values ('Django');
+insert into skill_tb(skill_name) values ('Flask');
+insert into skill_tb(skill_name) values ('Lalavel');
+insert into skill_tb(skill_name) values ('Spring Boot');
+insert into skill_tb(skill_name) values ('Asp.net');
+insert into skill_tb(skill_name) values ('Express.js');
+insert into skill_tb(skill_name) values ('MySQL');
+insert into skill_tb(skill_name) values ('PostgreSQL');
+insert into skill_tb(skill_name) values ('MongoDB');
+insert into skill_tb(skill_name) values ('Redis');
+insert into skill_tb(skill_name) values ('SQLite');
+insert into skill_tb(skill_name) values ('MSSQL');
+insert into skill_tb(skill_name) values ('AWS');
+insert into skill_tb(skill_name) values ('MS Azure');
+insert into skill_tb(skill_name) values ('Google Cloud Platform');
+insert into skill_tb(skill_name) values ('Hreoku');
+insert into skill_tb(skill_name) values ('Git');
+insert into skill_tb(skill_name) values ('SubVersion');
+
 
 insert into edu_tb(edu_name) values('중학교 졸업');
 insert into edu_tb(edu_name) values('고등학교 재학');
@@ -331,15 +357,11 @@ insert into edu_tb(edu_name) values('대학교 졸업');
 insert into edu_tb(edu_name) values('석사');
 insert into edu_tb(edu_name) values('박사');
 
-insert into user_tb(id, password, username, email, phone_number, address1, address2, birthday, level) values('ssar', 'kkkk1111@', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', '1');
-
-insert into user_tb(id, password, username, email, phone_number, address1, address2, birthday, level) values('heidi', 'dddd1312!', '김하얀', 'heidi@nate.com', '01033072211', '부산광역시 영도구 영도새싹길 2', '1000번지 1층', '19940319', '1');
-
-insert into user_tb(id, password, username, email, phone_number, address1, address2, birthday, level) values('yhlim', 'hhhh2211$', '윤혜림', 'cutie@naver.com', '01098762345', '부산광역시 수영구 수영로 371(남천동,부광빌딩)', '301호', '19960413', '1');
-
-insert into user_tb(id, password, username, email, phone_number, address1, address2, birthday, level) values('smkyoung', 'eeee333@', '성민경', 'sungsung@gmail.com', '01057638322', '부산광역시 해운대구 해운대로 95-10', '500번지', '19921021', '1');
-
-insert into user_tb(id, password, username, email, phone_number, address1, address2, birthday, level) values('sjaeick', 'pppp7777@', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', '1');
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('ssar', 'kkkk1111@', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', '1');
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('heidi', 'dddd1312!', '김하얀', 'heidi@nate.com', '01033072211', '부산광역시 영도구 영도새싹길 2', '1000번지 1층', '19940319', '1');
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('yhlim', 'hhhh2211$', '윤혜림', 'cutie@naver.com', '01098762345', '부산광역시 수영구 수영로 371(남천동,부광빌딩)', '301호', '19960413', '1');
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('smkyoung', 'eeee333@', '성민경', 'sungsung@gmail.com', '01057638322', '부산광역시 해운대구 해운대로 95-10', '500번지', '19921021', '1');
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('sjaeick', 'pppp7777@', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', '1');
 
 
 
@@ -390,3 +412,33 @@ Insert into board_tb(type,title,content) values(2,'’중복할인 가능한가�
 Insert into board_tb(type,title,content) values(2,'’통 세척은 어떻게 하나요?’','’통 세척은 어떻게 하나요? 물로 세척하고 말린 다음 리필액 추가해주면 되는 건가요? 리필용기 세척방법은 어디서 확인할 수 있나요?’');
 Insert into board_tb(type,title,content) values(2,'’각질제거 제품과 함께 사용해도 되나요?’','’각질 제거 제품과 함께 사용해도 되나요? 각질 제거 기능도 함께 있는 것인지 궁금합니다. 혹시 각질제거 제품과 함께 쓰면 피부에 무리가 가진 않을까요?’');
 
+
+insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
+values('정규직','신입','대졸','온라인 프로모션','서울',' 2016-09-22',' 2016-12-22','3000만원','python','엑셀', '사원','9~6','주5일','김하얀',1,1,2);
+
+insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
+values('인턴','경력','대졸','코드 리뷰, 개발 일정 수립','부산','2023-01-03','2023-05-03','1억','java','파이썬', '대리','9~4','주4일', '최주호', 2,2,3);
+
+insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
+values('계약직','신입','대졸','신제품 런칭','대구','2023-03-05','2023-07-05','5000만원','mysql','oracle', '사원','8시~5시','주5일','송재익',1,3,4);
+
+insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
+values('정규직','경력','학력 무관','영업 관리','하동','2023-03-18','2023-08-18','100000000','kotlin','스프링부트','과장', '9시~4시','월~금','윤혜림',3,1,2);
+
+insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
+values('정규직','경력무관','학력 무관','팀 트레이닝, 팀 관리','광주','2023-08-31','2023-12-31','30000000','C+','자바','사원', '9~3', '화~금', '성민경',5,1,2);
+
+insert into reply_tb (comment, user_idx, board_idx)
+values('저 저번주 수요일에 시켰는데 금요일에 도착했어요',1,1);
+
+insert into reply_tb (comment, user_idx, board_idx)
+values('저도 이거 궁금해요',2,2);
+
+insert into reply_tb (comment, comp_idx, board_idx)
+values('등록한 채용 공고가 안 보이네요', 4, 5);
+
+insert into reply_tb(comment, comp_idx, board_idx)
+values('그거 그냥 하면 되던데요', 3, 2);
+
+insert into reply_tb(comment, user_idx, board_idx)
+values('절대 그러지 마세여', 4, 3);
