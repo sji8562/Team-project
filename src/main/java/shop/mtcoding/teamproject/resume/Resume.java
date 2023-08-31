@@ -18,15 +18,15 @@ public class Resume {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
-    @Column(nullable = false , length = 20)
+    
     private String Title;
 
-    private int education;
+    private String education;
 
     private String school;
 
     private String skill;
-
+    @Column(nullable = false, length = 10000)
     private String introduce;
 
     private String experience;

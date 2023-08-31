@@ -41,7 +41,7 @@ public class User {
     @Column(nullable = true)
     private String picUrl;
 
-    private String homepage;
+    
 
     private int level;
 

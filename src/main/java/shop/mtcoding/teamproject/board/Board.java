@@ -23,7 +23,7 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
-    @Column(nullable = false , length = 20)
+    
     private Integer type;
 
     private String title;

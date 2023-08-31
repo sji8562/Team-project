@@ -13,4 +13,5 @@ public class CompanyController {
     public String cupdate(){
         return "/company/updateForm";
     }
+    
 }

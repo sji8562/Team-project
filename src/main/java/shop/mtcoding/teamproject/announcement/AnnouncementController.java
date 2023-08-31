@@ -8,14 +8,19 @@ public class AnnouncementController {
     
     @GetMapping("/annsave")
     public String Annsave(){
-        return "ann/insertAnn";
+        return "ann/annSave";
     }
     @GetMapping("/annupdate")
     public String Annupdate(){
-        return "ann/updateAnn";
+        return "ann/annUpdate";
     }
     @GetMapping("/annlist")
     public String Annlist(){
-        return "ann/listAnn";
+        return "ann/annList";
     }
-}
+
+    @GetMapping("/anndetail")
+    public String Anndatil(){
+        return "ann/annDetail";
+    }
+} 
