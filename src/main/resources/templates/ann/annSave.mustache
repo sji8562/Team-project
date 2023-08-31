@@ -1,18 +1,18 @@
 {{> layout/header}}
 <div class="start">채용 등록 입력 폼</div> 
             <hr>   
-            
+        
+        <form action="/annsave" method="post" enctype="multipart/form-data">
         <div class="required">
             <div class="formtitle"><span style="color:blue;">필수항목</span>들을 채워주세요</div>
                 <div class="details">모집 분야명<span class="necessity">필수</span>
                 <input type="text" class="formcontainer" placeholder="ex 프로그램 개발자" name="">
-                <input type="text" class="formcontainer" name=""> 명 모집
             </div>
             <div class="details">경력 여부<span class="necessity">필수</span>
                 <div class="checkbox">   
-                    <input type="checkbox" class="checkbox-input"name="#">신입
-                    <input type="checkbox" class="checkbox-input" name="#">경력
-                    <input type="checkbox" class="checkbox-input" name="#">경력무관
+                    <input type="checkbox" class="checkbox-input"name="experience">신입
+                    <input type="checkbox" class="checkbox-input" name="experience">경력
+                    <input type="checkbox" class="checkbox-input" name="experience">경력무관
                 </div>
             </div>
             <div class="details">담당업무
@@ -47,7 +47,7 @@
         <div class="required">
             <div class="formtitle"><span style="color:blue;">필수항목</span>들을 채워주세요</div>
                 <div class="details">지원자 학력<span class="necessity">필수</span>
-                    <select class="dropdown" id="school" name="school">
+                    <select class="dropdown" id="school" name="graduation">
                         <option>대학교 졸업(4년)이상</option>
                         <option>전문대 졸업</option>
                     </select>
@@ -70,4 +70,5 @@
         </div>
             <button type="submit" class="btn btn-primary" style="margin: auto; width: 150px; font-size: 20px; display: block;">
                 채용공고 등록</button>
+            </form>
 {{> layout/footer}}

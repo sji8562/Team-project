@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class UserController {
+    
     @GetMapping("/")
     public String index(){
-        return "/index";
+        return "index";
     }
     @GetMapping("/userloginForm")
     public String loginForm(){
