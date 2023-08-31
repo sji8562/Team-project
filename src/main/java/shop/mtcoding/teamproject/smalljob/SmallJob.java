@@ -16,9 +16,9 @@ public class SmallJob {
     private Integer index;
 
     
-    private String smallname;
+    private String smallName;
 
 
-    private int bigjobid;
+    private int bigJobIdx;
 }
 
