@@ -12,14 +12,47 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import shop.mtcoding.teamproject._core.error.ex.MyException;
+import shop.mtcoding.teamproject.announcement.AnnouncementRequest.UpdateDTO;
+
 @Service
 public class AnnouncementService {
     @Autowired
     private AnnouncementRepository announcementRepository;
-    
+
     @Transactional
     public void 공고등록(Announcement announcement){
         announcementRepository.save(announcement);
+    }
+
+    @Transactional
+    public Announcement 공고수정(Integer id, UpdateDTO updateDTO){
+        Optional<Announcement> annOP = announcementRepository.findById(id);
+        if (annOP.isPresent()) {
+            Announcement ann = annOP.get();
+            ann.setWorkType(updateDTO.getWorkType());
+            ann.setExperience(updateDTO.getExperience());
+            ann.setGraduation(updateDTO.getGraduation());
+            ann.setTask(updateDTO.getTask());
+            ann.setLocation(updateDTO.getLocation());
+            ann.setStartTime(updateDTO.getStartTime());
+            ann.setEndTime(updateDTO.getEndTime());
+            ann.setSalary(updateDTO.getSalary());
+            ann.setSkill(updateDTO.getSkill());
+            ann.setPreference(updateDTO.getPreference());
+            ann.setManagerName(updateDTO.getManager());
+            ann.setPosition(updateDTO.getPosition());
+            ann.setPic(updateDTO.getPic());
+            ann.setWorkTime(updateDTO.getWorkTime());
+            ann.setWorkDay(updateDTO.getWorkDay());
+            return ann;
+    
+            } else {
+                throw new MyException("수정에 실패했습니다");
+            }
+
+            
+      
     }
 
     public Announcement 공고상세보기(Integer id) {
@@ -29,7 +62,6 @@ public class AnnouncementService {
 
     public Page<Announcement> 공고목록보기(Integer page) {
         Pageable pageable = PageRequest.of(page, 5, Sort.Direction.ASC, "index");
-        //이 페이지 객체가 다른 메소드에서도 필요해서 이렇게 따로 객체 선언해줌
         Page<Announcement> pageContent = announcementRepository.findAll(pageable);
         return pageContent;
     }

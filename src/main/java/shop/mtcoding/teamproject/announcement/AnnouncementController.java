@@ -35,19 +35,13 @@ public class AnnouncementController {
     public String annUpdateForm(@PathVariable Integer id, Model model){
         Announcement ann = announcementService.공고상세보기(id);
         model.addAttribute("ann", ann);
-        return "redirect:/ann/annDetail/" + id;
+        return "ann/annUpdate";
     }
 
     @PostMapping("/annUpdate/{id}")
-    public String annUpdate(){
-        
-        return "redirect:/ann/annDetail";
-    }
-
-     @PostMapping("/annUpdateForm/{id}")
-    public String annDelete(){
-        
-        return "ann/annUpdate";
+    public String annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO){
+         announcementService.공고수정(id, updateDTO);
+        return "redirect:/annDetail/" + id;
     }
 
     @GetMapping("/annlist")
