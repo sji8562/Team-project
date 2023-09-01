@@ -36,13 +36,9 @@ public class Announcement {
     private String workTime;
     private String workDay;
     
-    @OneToMany(mappedBy="announcement", fetch = FetchType.LAZY)
     private String compIdx;  // 1:N 관계 회사는 많은 공고를 올릴수있다 
-    @OneToMany(mappedBy="announcement", fetch = FetchType.LAZY)
-    private String bigJobIdx; //1:1 관계 공고는 하나의 대분류를 가지고있다.
-    @OneToMany(mappedBy="announcement", fetch = FetchType.LAZY)
+    private String bigJobIdx;
     private String smallJobIdx;  //1:1관계 공고는 하나의 소분류를 가지고있다.
-
     @Builder
     public Announcement(Integer index, String workType, String experience, String graduation, String task,
             String location, Timestamp startTime, Timestamp endTime, String salary, String skill, String preference,
@@ -64,8 +60,8 @@ public class Announcement {
         this.pic = pic;
         this.workTime = workTime;
         this.workDay = workDay;
-        this.compIdx = compIdx;
         this.bigJobIdx = bigJobIdx;
+        this.compIdx = compIdx;
         this.smallJobIdx = smallJobIdx;
     }
 

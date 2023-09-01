@@ -27,7 +27,6 @@ public class Resume {
     private String experience;
     private String homepage;
     private boolean status;
-    @OneToMany(mappedBy="resume", fetch = FetchType.LAZY)
     private int userId;
     
     @Builder

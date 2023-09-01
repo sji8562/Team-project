@@ -1,1 +1,37 @@
-{{> layout/header}} {{> layout/footer}}
+{{> layout/header}}
+<div class="width-auto border">
+</div>
+<meta charset="utf-8">
+<title></title>
+</head>
+<body>
+<div class="all">
+<div class="container">
+    <div class="title">이력서 관리</div>
+    <div class="button">
+    <a href="/resSaveForm">
+    <button type="button" name="button" class="btn btn-primary"><span style="color: black; font-weight: bold;">+</span>이력서 등록</button>
+    </a>
+    </div>
+  </div>
+
+{{#res}}
+<div class="container">
+  <div class="container custom-container d-flex justify-content-between align-items-center">
+      <a href="/resDetail/{{index}}">
+      <div class="details">{{title}}</div>
+      </a>
+      <div class="d-flex flex-column align-items-center" style="margin-right: 60px;">
+        <a href="/resUpdateForm/{{index}}">
+        <button type="button" name="button" class="btn text-white w-100 mb-2" style="background-color: orange; font-size: 0.8rem;">Edit</button>
+        </a>
+        <a href="/resDelete/{{index}}">
+        <button type="button" name="button" class="btn btn-danger w-100" style="font-size: 0.8rem;">Delete</button>
+        </a>
+      </div>
+  </div>
+  <hr>
+</div>
+{{/res}}
+</div>
+{{> layout/footer}}
