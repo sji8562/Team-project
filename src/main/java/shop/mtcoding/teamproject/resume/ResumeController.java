@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class ResumeController {
@@ -41,8 +43,23 @@ public class ResumeController {
     }
 
     @GetMapping("/resUpdateForm/{id}")
-    public String resumeUpdateForm() {
+    public String resumeUpdateForm(@PathVariable Integer id, Model model) {
+        Resume res = resumeService.이력서상세보기(id);
+        model.addAttribute("res", res);
         return "resume/resumeUpdate";
     }
+
+    @PostMapping("/resUpdate/{id}")
+    public String resumeUpdate(@PathVariable Integer id, Resume res) {
+        resumeService.이력서수정(id,res);
+        return "redirect:/resDetail/"+id;
+    }
+
+    @PostMapping("/resDelete/{id}")
+    public String resumeDelete(@PathVariable Integer id){
+        resumeService.이력서삭제(id);
+        return "redirect:/resList";
+    }
+    
 
 }
