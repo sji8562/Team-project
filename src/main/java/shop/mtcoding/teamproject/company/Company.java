@@ -19,7 +19,7 @@ public class Company {
     private Integer index;
 
     @Column(nullable = false , length = 20, unique = true)
-    private String id;  //기업 아이디
+    private String companyId;  //기업 아이디
 
     @Column(nullable = false, length = 20)
     private String companyName;  //기업명
@@ -34,27 +34,35 @@ public class Company {
     private String picUrl; //기업 사진
 
     @Column(nullable = true)
-    private String phoneNumber; //기업 대표 번호
+    private String phoneNum; //기업 대표 번호
 
     @Column(nullable = true)
-    private String address1;  //기업 주소
+    private String address;  //기업 주소
 
-    private String address2;  //기업주소
+    private String addressDetail;  //기업주소
 
     private String homepage; //기업 홈페이지
 
     private Timestamp establishment;  //설립연도
-    
-    private int level;
 
+    private String businessNum = "11111-1111-111-11111";
+
+    private int level;
     @Builder
-    public Company(Integer index, String companyName, String password, String email, String picUrl, Timestamp establishment) {
+    public Company(Integer index,String companyId, String companyName, String password, String email, String picUrl,String phoneNum,String address, String addressDetail, String homepage , Timestamp establishment , String businessNum, int level) {
         this.index = index;
+        this.companyId = companyId;
         this.companyName = companyName;
         this.password = password;
         this.email = email;
         this.picUrl = picUrl;
+        this.phoneNum = phoneNum;
+        this.address = address;
+        this.addressDetail = addressDetail;
+        this.homepage = homepage;
         this.establishment = establishment;
+        this.businessNum = businessNum;
+        this.level = level;
     }
 
 }

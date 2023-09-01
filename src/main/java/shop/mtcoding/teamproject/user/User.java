@@ -41,14 +41,13 @@ public class User {
     @Column(nullable = true)
     private String picUrl;
 
-    
 
     private int level;
 
     private Timestamp birthday;
 
     @Builder
-    public User(Integer index,String userid, String username, String password, String email,String address, String addressDetail,String phoneNum, int level) {
+    public User(Integer index,String userid, String username, String password, String email,String address, String addressDetail,String phoneNum,String picUrl,Timestamp birthday,int level) {
         this.index = index;
         this.userId = userid;
         this.username = username;
@@ -57,8 +56,7 @@ public class User {
         this.phoneNumber = phoneNum;
         this.address = address;
         this.addressDetail = addressDetail;
-        this.level = level;
-        // this.picUrl = picUrl;
-        // this.birthday = birthday;
+        this.picUrl = picUrl;
+        this.birthday = birthday;
     }
 }
