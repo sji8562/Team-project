@@ -34,5 +34,10 @@ public class UserService {
         User user = userRepository.findByUserIdAndPassword(loginDTO.getUserId(),loginDTO.getPassword());
         return user;
     }
+
+
+    public void getKakaoAccessToken(String code) {
+    }
+    
     
 }
