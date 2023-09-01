@@ -3,9 +3,11 @@
     <main>
         <div class="formmain">
             <div class="detailtop" name="resume_title">
-                <div>이력서 제목</div>
+                <div>{{res.title}}</div>
                 <div class="update">
+                    <a href="">
                     <button type="submit" class="btn btn-primary form-control">수정하기</button>
+                    </a>
                 </div>
             </div>
             <section>
@@ -16,7 +18,7 @@
                         </div>
                         <div class="infodetails">
                             <dl>
-                                <dt name="user_name">이름</dt>
+                                <dt name="user_name"></dt>
                                 <dd>기업</dd>
                                 <dt name="birth">생년월일</dt>
                                 <dd>1111년</dd>
@@ -27,7 +29,7 @@
                                 <dt name="email">이메일</dt>
                                 <dd>a@asd.com</dd>
                                 <dt name="homepage">홈페이지(Git)</dt>
-                                <dd>www.abcd.efg</dd>
+                                <dd>{{res.homepage}}</dd>
                             </dl>
                         </div>
                     </div>

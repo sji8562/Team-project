@@ -23,4 +23,9 @@ public class ResumeService {
     public Resume 이력서등록() {
         return null;
     }
+
+    public Resume 이력서상세보기(Integer id) {
+        Resume res = resumeRepository.findById(id).get();
+        return res;
+    }
 }

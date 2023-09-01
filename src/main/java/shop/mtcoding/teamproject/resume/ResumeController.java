@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,11 +33,10 @@ public class ResumeController {
         return "redirect:/resList";
     }
 
-  
-
-
     @GetMapping("/resDetail/{id}")
-    public String resumeDetail() {
+    public String resumeDetail(@PathVariable Integer id, Model model) {
+        Resume resume = resumeService.이력서상세보기(id);
+        model.addAttribute("res", resume);
         return "resume/resumeDetail";
     }
 
