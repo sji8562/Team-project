@@ -26,7 +26,7 @@ public class Resume {
     private String school;
 
     private String skill;
-    @Column(nullable = false, length = 10000)
+    @Column(nullable = true, length = 10000)
     private String introduce;
 
     private String experience;

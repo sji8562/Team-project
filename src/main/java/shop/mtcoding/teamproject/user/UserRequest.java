@@ -8,7 +8,8 @@ import lombok.Setter;
 public class UserRequest {
     
     
-    @Getter @Setter
+    @Getter 
+    @Setter
     public static class userJoinDTO{
         private String userId;
         private String password;
@@ -19,5 +20,12 @@ public class UserRequest {
         private String phoneNum;
 
         // private MultipartFile pic;
+    }
+
+    @Getter 
+    @Setter
+    public static class userLoginDTO{
+        private String userId;
+        private String password;
     }
 }
