@@ -1,13 +1,18 @@
 package shop.mtcoding.teamproject.announcement;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AnnouncementController {
@@ -37,7 +42,11 @@ public class AnnouncementController {
         return "redirect:/ann/annDetail";
     }
     @GetMapping("/annlist")
-    public String AnnList(Model model){
+    public String annList(@RequestParam(defaultValue = "0")Integer page, HttpServletRequest request){
+        Page<Announcement> annPG = announcementService.공고목록보기(page);
+        request.setAttribute("annPG", annPG);
+        request.setAttribute("prevPage", annPG.getNumber()-1);
+        request.setAttribute("nextPage", annPG.getNumber()+1);
         
         return "ann/annList";
     }
