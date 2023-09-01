@@ -36,8 +36,8 @@ public class Announcement {
     private String workDay;
     
     
-    private String compIdx;  // 1:N 관계 회사는 많은 공고를 올릴수있다 
-    private String bigJobIdx; //1:1 관계 공고는 하나의 대분류를 가지고있다.
-    private String smallJobIdx;  //1:1관계 공고는 하나의 소분류를 가지고있다.
+    private String compId;  // 1:N 관계 회사는 많은 공고를 올릴수있다 
+    private String bigJobId; //1:1 관계 공고는 하나의 대분류를 가지고있다.
+    private String smallJobId;  //1:1관계 공고는 하나의 소분류를 가지고있다.
 
 }

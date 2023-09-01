@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
+<<<<<<< HEAD
 
     @Autowired
     private UserService userService;
@@ -23,6 +24,13 @@ public class UserController {
 
 
     @GetMapping("/userLoginForm")
+=======
+    @GetMapping("/")
+    public String index(){
+        return "/index";
+    }
+    @GetMapping("/userloginForm")
+>>>>>>> heidi
     public String loginForm(){
         return "/user/loginForm";
     }
