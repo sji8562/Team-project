@@ -16,14 +16,10 @@ import org.springframework.stereotype.Service;
 public class AnnouncementService {
     @Autowired
     private AnnouncementRepository announcementRepository;
-
-    public void 공고등록(Announcement announcement){
-        announcementRepository.save(announcement);
-    }
     
     @Transactional
-    public void 공고수정(Announcement announcement){
-        
+    public void 공고등록(Announcement announcement){
+        announcementRepository.save(announcement);
     }
 
     public Announcement 공고상세보기(Integer id) {
@@ -33,6 +29,11 @@ public class AnnouncementService {
 
     public Page<Announcement> 공고목록보기(Integer page) {
         Pageable pageable = PageRequest.of(page, 5, Sort.Direction.ASC, "index");
-        return announcementRepository.findAll(pageable);
+        //이 페이지 객체가 다른 메소드에서도 필요해서 이렇게 따로 객체 선언해줌
+        Page<Announcement> pageContent = announcementRepository.findAll(pageable);
+        return pageContent;
     }
+
+    
+    
 }

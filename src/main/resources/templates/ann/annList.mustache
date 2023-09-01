@@ -12,14 +12,14 @@
     {{#annPG}}
     <div class="container">
       <div class="container custom-container d-flex justify-content-between align-items-center">
-          <a href="/annDetail">
-          <div class="details">채용공고 제목</div>
+          <a href="/annDetail/{{index}}">
+          <div class="details">제목</div>
           </a>
           <div class="d-flex flex-column align-items-center" style="margin-right: 60px;">
-            <a href="/annUpdateForm">
+            <a href="/annUpdateForm/{{index}}">
             <button type="button" name="button" class="btn text-white w-100 mb-2" style="background-color: orange; font-size: 0.8rem;">Edit</button>
             </a>
-            <form action="/annDelete" method="post">
+            <form action="/annDelete/{{index}}" method="post">
             <button type="button" name="button" class="btn btn-danger w-100" style="font-size: 0.8rem;">Delete</button>
             </form>
             </div>

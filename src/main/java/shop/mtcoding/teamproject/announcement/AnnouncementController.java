@@ -30,24 +30,33 @@ public class AnnouncementController {
         announcementService.공고등록(announcement);
         return "redirect:/ann/annList"; 
     }
-    @GetMapping("/annUpdateForm")
-    public String annUpdateForm(Announcement announcement, Model model){
 
-        return "ann/annUpdate";
+    @GetMapping("/annUpdateForm/{id}")
+    public String annUpdateForm(@PathVariable Integer id, Model model){
+        Announcement ann = announcementService.공고상세보기(id);
+        model.addAttribute("ann", ann);
+        return "redirect:/ann/annDetail/" + id;
     }
 
-    @PostMapping("/annUpdate")
-    public String annUpdate(Announcement announcement){
+    @PostMapping("/annUpdate/{id}")
+    public String annUpdate(){
         
         return "redirect:/ann/annDetail";
     }
+
+     @PostMapping("/annUpdateForm/{id}")
+    public String annDelete(){
+        
+        return "ann/annUpdate";
+    }
+
     @GetMapping("/annlist")
     public String annList(@RequestParam(defaultValue = "0")Integer page, HttpServletRequest request){
         Page<Announcement> annPG = announcementService.공고목록보기(page);
-        request.setAttribute("annPG", annPG);
+        request.setAttribute("annPG", annPG.getContent());
         request.setAttribute("prevPage", annPG.getNumber()-1);
         request.setAttribute("nextPage", annPG.getNumber()+1);
-        
+
         return "ann/annList";
     }
 
