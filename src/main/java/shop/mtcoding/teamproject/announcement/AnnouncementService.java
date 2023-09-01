@@ -65,6 +65,11 @@ public class AnnouncementService {
         Page<Announcement> pageContent = announcementRepository.findAll(pageable);
         return pageContent;
     }
+    @Transactional
+    public void 공고삭제(Integer id) {
+        System.out.println("여ㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕ");
+        announcementRepository.deleteById(id);
+    }
 
     
     
