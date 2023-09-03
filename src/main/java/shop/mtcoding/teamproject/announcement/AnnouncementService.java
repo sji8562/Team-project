@@ -48,16 +48,19 @@ public class AnnouncementService {
             return ann;
     
             } else {
-                throw new MyException("수정에 실패했습니다");
+                throw new MyException(id+"를 찾을 수 없습니다");
             }
-
-            
       
     }
 
     public Announcement 공고상세보기(Integer id) {
         Optional<Announcement> annOP = announcementRepository.findById(id);
-        return annOP.get();
+        if (annOP.isPresent()) {
+            return annOP.get();
+        } else {
+            throw new MyException(id+"는 찾을 수 없습니다");
+        }
+        
     }
 
     public Page<Announcement> 공고목록보기(Integer page) {
@@ -67,8 +70,12 @@ public class AnnouncementService {
     }
     @Transactional
     public void 공고삭제(Integer id) {
-        System.out.println("여ㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕㅕ");
-        announcementRepository.deleteById(id);
+        
+       try {
+         announcementRepository.deleteById(id);
+       } catch (Exception e) {
+         throw new MyException(id+"를 찾을 수 없습니다");
+       }
     }
 
     

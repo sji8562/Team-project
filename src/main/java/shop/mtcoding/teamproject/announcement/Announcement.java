@@ -35,7 +35,6 @@ public class Announcement {
     private String pic;
     private String workTime;
     private String workDay;
-    
     private String compIdx;  // 1:N 관계 회사는 많은 공고를 올릴수있다 
     private String bigJobIdx;
     private String smallJobIdx;  //1:1관계 공고는 하나의 소분류를 가지고있다.
