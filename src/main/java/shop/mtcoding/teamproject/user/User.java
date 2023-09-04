@@ -41,21 +41,14 @@ public class User {
     @Column(nullable = true)
     private String picUrl;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> Skilltb2
     private int level;
 
     private Timestamp birthday;
 
     @Builder
-<<<<<<< HEAD
     public User(Integer index, String userid, String username, String password, String email, String address,
             String addressDetail, String phoneNum, String picUrl, Timestamp birthday, int level) {
-=======
-    public User(Integer index,String userid, String username, String password, String email,String address, String addressDetail,String phoneNum,String picUrl,Timestamp birthday,int level) {
->>>>>>> Skilltb2
+
         this.index = index;
         this.userId = userid;
         this.username = username;
