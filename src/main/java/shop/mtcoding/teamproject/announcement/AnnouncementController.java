@@ -1,6 +1,7 @@
 package shop.mtcoding.teamproject.announcement;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,21 +15,42 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import shop.mtcoding.teamproject.skill.HasSkill;
+import shop.mtcoding.teamproject.skill.HasSkillService;
+import shop.mtcoding.teamproject.skill.Skill;
+import shop.mtcoding.teamproject.skill.SkillService;
+import shop.mtcoding.teamproject.skill.HasSkillRequest.annSaveDTO;
+
 @Controller
 public class AnnouncementController {
 
     @Autowired
     private AnnouncementService announcementService;
+    @Autowired
+    private SkillService skillService;
+    @Autowired
+    private HasSkillService hasSkillService;
+
+
+    
     
     @GetMapping("/annSaveForm")
-    public String annSaveForm(){
+    public String annSaveForm(Model model){
+        List<Skill> skills = skillService.스킬목록보기();
+        model.addAttribute("skills", skills);
         return "ann/annSave";
     }
 
     @PostMapping("/annSave")
-    public String annSave(Announcement announcement){
+    public String annSave(Announcement announcement, Skill skills){
         announcementService.공고등록(announcement);
-        return "redirect:/ann/annList"; 
+
+        HasSkill hasSkill = new HasSkill();
+        hasSkill.setAnnouncement(announcement);
+        hasSkill.setSkill(skills);
+        hasSkillService.등록(hasSkill);
+        
+        return "redirect:/annlist";
     }
 
     @GetMapping("/annUpdateForm/{id}")

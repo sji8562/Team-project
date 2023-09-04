@@ -38,7 +38,6 @@ public class AnnouncementService {
             ann.setStartTime(updateDTO.getStartTime());
             ann.setEndTime(updateDTO.getEndTime());
             ann.setSalary(updateDTO.getSalary());
-            ann.setSkill(updateDTO.getSkill());
             ann.setPreference(updateDTO.getPreference());
             ann.setManagerName(updateDTO.getManager());
             ann.setPosition(updateDTO.getPosition());
@@ -46,13 +45,9 @@ public class AnnouncementService {
             ann.setWorkTime(updateDTO.getWorkTime());
             ann.setWorkDay(updateDTO.getWorkDay());
             return ann;
-    
             } else {
                 throw new MyException("수정에 실패했습니다");
             }
-
-            
-      
     }
 
     public Announcement 공고상세보기(Integer id) {

@@ -4,9 +4,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.teamproject.bigjob.BigJob;
+import shop.mtcoding.teamproject.company.Company;
+import shop.mtcoding.teamproject.skill.HasSkill;
+import shop.mtcoding.teamproject.smalljob.SmallJob;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -28,7 +34,6 @@ public class Announcement {
     private Timestamp startTime; //접수시작시간
     private Timestamp endTime;  //접수 마감시간
     private String salary; //급여
-    private String skill; //기술
     private String preference; //우대조건
     private String managerName; //대표자
     private String position; //직급
@@ -36,14 +41,20 @@ public class Announcement {
     private String workTime;
     private String workDay;
     
-    private String compIdx;  // 1:N 관계 회사는 많은 공고를 올릴수있다 
-    private String bigJobIdx;
-    private String smallJobIdx;  //1:1관계 공고는 하나의 소분류를 가지고있다.
+    @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY)
+    private List<HasSkill> skills = new ArrayList<>();
+    //아직 컴퍼니 더미데이터 없어서 Integer, company로 나중에 바꿔야함
+     private Integer company_id;  // 1:N 관계 회사는 많은 공고를 올릴수있다
+    @ManyToOne(fetch = FetchType.LAZY) 
+    private BigJob bigJob;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private SmallJob smallJob;  //1:1관계 공고는 하나의 소분류를 가지고있다.
+
     @Builder
     public Announcement(Integer index, String workType, String experience, String graduation, String task,
-            String location, Timestamp startTime, Timestamp endTime, String salary, String skill, String preference,
-            String managerName, String position, String pic, String workTime, String workDay, String compId,
-            String bigJobId, String smallJobId) {
+            String location, Timestamp startTime, Timestamp endTime, String salary, String preference,
+            String managerName, String position, String pic, String workTime, String workDay, Integer company_id,
+            BigJob bigJob, SmallJob smallJob) {
         this.index = index;
         this.workType = workType;
         this.experience = experience;
@@ -53,17 +64,19 @@ public class Announcement {
         this.startTime = startTime;
         this.endTime = endTime;
         this.salary = salary;
-        this.skill = skill;
         this.preference = preference;
         this.managerName = managerName;
         this.position = position;
         this.pic = pic;
         this.workTime = workTime;
         this.workDay = workDay;
-        this.bigJobIdx = bigJobIdx;
-        this.compIdx = compIdx;
-        this.smallJobIdx = smallJobIdx;
+        this.company_id = company_id;
+        this.bigJob = bigJob;
+        this.smallJob = smallJob;
     }
+
+    
+    
 
     
 }

@@ -85,7 +85,22 @@ function isSame() {
     document.getElementById("same").style.color = "blue";
   }
 }
+//sessiouUserId 나중에 넣어줘야함
+async function saveSkills() {
+  let requestBody = {
+    skill: document.querySelector("#skill").value
+  };
+  
+  let response = await fetch("/api/skills/save", {
+    method: "post",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body: JSON.stringify(requestBody)
+  });
 
+
+}
 $(function () {
   $("#slider-div").slick({
     slide: "div", //슬라이드 되어야 할 태그 ex) div, li
