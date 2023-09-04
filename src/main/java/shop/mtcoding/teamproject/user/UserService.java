@@ -2,6 +2,8 @@ package shop.mtcoding.teamproject.user;
 
 import java.util.Date;
 import java.util.UUID;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Base64.Encoder;
