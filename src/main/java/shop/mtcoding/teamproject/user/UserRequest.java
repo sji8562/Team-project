@@ -9,18 +9,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 public class UserRequest {
-<<<<<<< HEAD
 
     @Getter
     @Setter
     public static class userJoinDTO {
-=======
-    
-    
-    @Getter 
-    @Setter
-    public static class userJoinDTO{
->>>>>>> Skilltb2
         private String userId;
         private String password;
         private String email;
@@ -32,7 +24,6 @@ public class UserRequest {
         // private MultipartFile pic;
     }
 
-<<<<<<< HEAD
     @Getter
     @Setter
     public static class userLoginDTO {
@@ -100,12 +91,4 @@ public class UserRequest {
         public String thumbnail_image;
 
     }
-=======
-    @Getter 
-    @Setter
-    public static class userLoginDTO{
-        private String userId;
-        private String password;
-    }
->>>>>>> Skilltb2
 }
