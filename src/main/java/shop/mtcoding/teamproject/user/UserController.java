@@ -59,7 +59,7 @@ public class UserController {
         //Http 요청하기 - Post방식으로 - 그리고 response 변수의 응답 받음
         ResponseEntity<String> response = rt.exchange("https://kauth.kakao.com/oauth/token", HttpMethod.POST, kakaoTokenRequest, String.class);
 
-        return "카카오 토큰 요청 완료 토큰 요청에 대한 응답 : " +response.getBody()+ "  \n\n\n\n " +response.getHeaders();
+        return "카카오 토큰 요청 완료 토큰 요청에 대한 응답 : " +response.getBody()+ "  " +response.getHeaders();
         
     }
     @GetMapping("/userLoginForm")
