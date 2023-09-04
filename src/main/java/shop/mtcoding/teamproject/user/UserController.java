@@ -1,11 +1,13 @@
 package shop.mtcoding.teamproject.user;
 
 import java.io.IOException;
-import java.util.HashMap;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.util.http.parser.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -20,11 +22,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import shop.mtcoding.teamproject.user.UserRequest.Kakaologin;
+import shop.mtcoding.teamproject.user.UserRequest.OAuthToken;
 
 @Controller
 public class UserController {
-
 
     @Autowired
     private UserService userService;
@@ -32,63 +38,47 @@ public class UserController {
     @Autowired
     private HttpSession session;
 
-    
     @GetMapping("/user/kakao")
-    public @ResponseBody String kakao(String code){
-        //POST방식으로 key=value 데이터를 요청(카카오쪽으로 )
-        //Retrofit2 안드로이드에서 많이 씀
-        //OkHttp
-        //RestTemplate
-        
+    public @ResponseBody String kakao(String code, HttpServletResponse response)
+            throws IOException {
+        // POST방식으로 key=value 데이터를 요청(카카오쪽으로 )
+        // Retrofit2 안드로이드에서 많이 씀
+        // OkHttp
+        // RestTemplate
 
-        RestTemplate rt = new RestTemplate();
+        User sessionUser = userService.kakaologin(code);
+        session.setAttribute("sessionUser", sessionUser);
+        response.sendRedirect("/");
+        return "로그인 성공";
 
-        //HttpHeader 오브젝트 생성
-        HttpHeaders headers  = new HttpHeaders();
-        headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-
-        //HttpBody 오브젝트 생성
-        MultiValueMap<String,String> params = new LinkedMultiValueMap<>();
-        params.add("grant_type", "authorization_code");
-        params.add("client_id", "b72f0eb872a2a7ac5a3292bbd93c185c");
-        params.add("redirect_uri", "http://localhost:8080/user/kakao");
-        params.add("code", code);
-
-        //HttpHeader와 HttpBody를 하나의 오브젝트에 담기
-        HttpEntity<MultiValueMap<String,String>> kakaoTokenRequest = new HttpEntity<MultiValueMap<String,String>>(params, headers);
-        //Http 요청하기 - Post방식으로 - 그리고 response 변수의 응답 받음
-        ResponseEntity<String> response = rt.exchange("https://kauth.kakao.com/oauth/token", HttpMethod.POST, kakaoTokenRequest, String.class);
-
-        return "카카오 토큰 요청 완료 토큰 요청에 대한 응답 : " +response.getBody()+ "  \n\n\n\n " +response.getHeaders();
-        
     }
+
     @GetMapping("/userLoginForm")
-    public String loginForm(){
+    public String loginForm() {
         return "/user/loginForm";
     }
+
     @GetMapping("/userJoinForm")
-    public String joinForm(){
+    public String joinForm() {
         return "/user/joinForm";
     }
+
     @GetMapping("/userupdateForm")
-    public String updateForm(){
+    public String updateForm() {
         return "/user/updateForm";
     }
 
-
     @PostMapping("/userJoin")
-    public void userJoin(UserRequest.userJoinDTO joinDTO,HttpServletResponse response) throws IOException{
+    public void userJoin(UserRequest.userJoinDTO joinDTO, HttpServletResponse response) throws IOException {
         userService.usersave(joinDTO);
         response.sendRedirect("/userloginForm");
     }
-    
 
     @PostMapping("/userLogin")
-    public void userLogin(UserRequest.userLoginDTO loginDTO,HttpServletResponse response) throws IOException{
+    public void userLogin(UserRequest.userLoginDTO loginDTO, HttpServletResponse response) throws IOException {
         User sessionUser = userService.userlogin(loginDTO);
         session.setAttribute("sessionUser", sessionUser);
         response.sendRedirect("/");
     }
 
-    
 }

@@ -17,7 +17,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
-    @Column(nullable = false, length = 20, unique = true)
+    @Column(nullable = false, length = 100, unique = true)
     private String userId;
 
     @Column(nullable = false, length = 20)
@@ -41,13 +41,13 @@ public class User {
     @Column(nullable = true)
     private String picUrl;
 
-
     private int level;
 
     private Timestamp birthday;
 
     @Builder
-    public User(Integer index,String userid, String username, String password, String email,String address, String addressDetail,String phoneNum,String picUrl,Timestamp birthday,int level) {
+    public User(Integer index, String userid, String username, String password, String email, String address,
+            String addressDetail, String phoneNum, String picUrl, Timestamp birthday, int level) {
         this.index = index;
         this.userId = userid;
         this.username = username;

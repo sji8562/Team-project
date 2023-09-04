@@ -8,4 +8,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
     User findByUserIdAndPassword(String userId, String password);
+
+    User findByUserId(String userId);
 }
