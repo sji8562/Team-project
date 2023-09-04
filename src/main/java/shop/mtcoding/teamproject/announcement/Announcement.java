@@ -40,7 +40,6 @@ public class Announcement {
     private String pic;
     private String workTime;
     private String workDay;
-<<<<<<< HEAD
     
     @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY)
     private List<HasSkill> skills = new ArrayList<>();
@@ -51,11 +50,6 @@ public class Announcement {
     @ManyToOne(fetch = FetchType.LAZY)
     private SmallJob smallJob;  //1:1관계 공고는 하나의 소분류를 가지고있다.
 
-=======
-    private String compIdx;  // 1:N 관계 회사는 많은 공고를 올릴수있다 
-    private String bigJobIdx;
-    private String smallJobIdx;  //1:1관계 공고는 하나의 소분류를 가지고있다.
->>>>>>> 6f2d4906fa4ce257efcdb97dd3a9d46b8d2c7165
     @Builder
     public Announcement(Integer index, String workType, String experience, String graduation, String task,
             String location, Timestamp startTime, Timestamp endTime, String salary, String preference,

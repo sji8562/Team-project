@@ -48,10 +48,7 @@ public class AnnouncementService {
             } else {
                 throw new MyException(id+"를 찾을 수 없습니다");
             }
-<<<<<<< HEAD
-=======
       
->>>>>>> 6f2d4906fa4ce257efcdb97dd3a9d46b8d2c7165
     }
 
     public Announcement 공고상세보기(Integer id) {
