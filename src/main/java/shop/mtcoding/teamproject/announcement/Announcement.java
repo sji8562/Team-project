@@ -48,7 +48,7 @@ public class Announcement {
     @ManyToOne(fetch = FetchType.LAZY) 
     private BigJob bigJob;
     @ManyToOne(fetch = FetchType.LAZY)
-    private SmallJob smallJob;  //1:1관계 공고는 하나의 소분류를 가지고있다.
+    private SmallJob smallJob;  //1:1관계 공고는 하나의 소분류 가지고있다.
 
     @Builder
     public Announcement(Integer index, String workType, String experience, String graduation, String task,
