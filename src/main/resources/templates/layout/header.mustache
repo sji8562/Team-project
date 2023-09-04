@@ -126,23 +126,75 @@
               <!-- This is the hamburger icon -->
             </button>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/joinselectForm">회원가입</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/loginselectForm">로그인</a>
-              </li>
+              {{#sessionUser}}
               <li class="nav-item">
                 <a class="nav-link border-radius" href="/user/updateForm"
                   >이미지</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/logout">이름</a>
+                <a class="nav-link" href="/logout">{{ username }}</a>
               </li>
+              {{/sessionUser}}
+              {{^sessionUser}}
+              {{#sessionCompany}}
+
+              {{/sessionCompany}}
+              {{^sessionCompany}}
+              <li class="nav-item">
+                <a class="nav-link" href="/joinselectForm">회원가입</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/loginselectForm">로그인</a>
+              </li>
+              {{/sessionCompany}}
+              {{/sessionUser}}
+              {{#sessionCompany}}
+              <li class="nav-item">
+                <a class="nav-link border-radius" href="/company/updateForm"
+                  >이미지</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">{{ companyName }}</a>
+              </li>
+              {{/sessionCompany}}
+              {{^sessionCompany}}
+
+              {{/sessionCompany}}
             </ul>
           </div>
-          <a
+          
+            {{#sessionCompany}}
+            <a
+            class="nav-link"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              class="hamberger"
+              src="/images/hamberger.jpg"
+              alt="hamburger"
+            />
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">회사 페이지</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">채용공고 관리</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">지원/제안현황</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="/logout">로그아웃</a></li>
+        </ul>
+    </div>
+            {{/sessionCompany}}
+            {{^sessionCompany}}
+
+            {{/sessionCompany}}
+            {{#sessionUser}}
+            <a
             class="nav-link"
             href="#"
             role="button"
@@ -162,9 +214,14 @@
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">지원/제안현황</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">로그아웃</a></li>
-          </ul>
-        </div>
+            <li><a class="dropdown-item" href="logout">로그아웃</a></li>
+        </ul>
+    </div>
+            {{/sessionUser}}
+            {{^sessionUser}}
+
+            {{/sessionUser}}
+          
       </nav>
     </div>
     <div class="width-auto border"></div>

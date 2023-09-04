@@ -357,7 +357,7 @@ insert into edu_tb(edu_name) values('대학교 졸업');
 insert into edu_tb(edu_name) values('석사');
 insert into edu_tb(edu_name) values('박사');
 
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('ssar', 'kkkk1111@', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', '1');
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('ssar', '1234', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', '1');
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('heidi', 'dddd1312!', '김하얀', 'heidi@nate.com', '01033072211', '부산광역시 영도구 영도새싹길 2', '1000번지 1층', '19940319', '1');
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('yhlim', 'hhhh2211$', '윤혜림', 'cutie@naver.com', '01098762345', '부산광역시 수영구 수영로 371(남천동,부광빌딩)', '301호', '19960413', '1');
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('smkyoung', 'eeee333@', '성민경', 'sungsung@gmail.com', '01057638322', '부산광역시 해운대구 해운대로 95-10', '500번지', '19921021', '1');
@@ -442,3 +442,5 @@ values('그거 그냥 하면 되던데요', 3, 2);
 
 insert into reply_tb(comment, user_idx, board_idx)
 values('절대 그러지 마세여', 4, 3);
+insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1234','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
+insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('5678','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);

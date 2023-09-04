@@ -2,21 +2,18 @@ package shop.mtcoding.teamproject.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.teamproject.user.UserRequest.userJoinDTO;
+import shop.mtcoding.teamproject.user.UserRequest.userLoginDTO;
 
 @Service
 public class UserService {
 
     @Autowired
     UserRepository userRepository;
-    // private String userId;
-    // private String password;
-    // private String email;
-    // private String username;
-    // private String address;
-    // private String addressDetail;
-    // private String phoneNum;
+    
+    @Transactional
     public void usersave(userJoinDTO joinDTO) {
         User user = User.builder()
                 .userid(joinDTO.getUserId())
@@ -31,5 +28,16 @@ public class UserService {
         userRepository.save(user);
         
     }
+
+    
+    public User userlogin(userLoginDTO loginDTO) {
+        User user = userRepository.findByUserIdAndPassword(loginDTO.getUserId(),loginDTO.getPassword());
+        return user;
+    }
+
+
+    public void getKakaoAccessToken(String code) {
+    }
+    
     
 }
