@@ -1,1 +1,114 @@
-{{> layout/header}} {{> layout/footer}}
+{{> layout/header}}
+
+<div class="container mt-3">
+    <h2>이력서 등록</h2>
+    <form action="/resSave" method="post">
+      <div class="mb-3">
+        <label for="title">이력서 제목:</label>
+        <input type="title" class="form-control" id="title" name="title" value="" required>
+      </div>
+      <div class="mb-3">
+        <label for="name">이름:</label>
+        <input type="text" class="form-control" id="name" name="name" value="">
+      </div>
+      <div class="mb-3">
+        <label for="address">주소:</label>
+        <input type="text" id="postcode" placeholder="우편번호">
+        <input type="button" onclick="DaumPostcode()" value="우편번호 찾기"><br>
+        <input type="text" id="address" placeholder="주소"><br>
+        <input type="text" id="detailAddress" placeholder="상세주소">
+        <input type="text" id="extraAddress" placeholder="참고항목">
+      </div>
+      <div class="mb-3">
+        <label for="phoneNum">전화번호:</label>
+        <input type="number" class="form-control" id="phoneNum" name="phoneNum" value="">
+      </div>
+      <div class="mb-3">
+        <label for="email">이메일:</label>
+        <input type="email" class="form-control" id="email" name="email" value="">
+      </div>
+      <div class="mb-3">
+        <label for="homepage">깃허브 주소:</label>
+        <input type="text" class="form-control" id="homepage" name="homepage" value="">
+      </div>
+      <div class="mb-3 d-flex justify-content-between align-items-center">
+        <label class="form-label" for="edu">
+          <div class="d-flex">
+            <select name="lastedu">
+              <option>학력 선택</option>
+              <option value="중졸">중학교 졸업</option>
+              <option value="고졸">고등학교 졸업</option>
+              <option value="대재">대학교 재학</option>
+              <option value="대졸예정">대학교 졸업예정</option>
+              <option value="대졸">대학교 졸업</option>
+              <option value="석사">석사</option>
+              <option value="박사">박사</option>
+            </select>
+            <input type="text" class="form-control" name="edu" id="edu" style="width: 1172px;">
+          </div>
+        </label>
+      </div>
+  
+      <div class="mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <label class="checkbox-label">
+              <input type="checkbox" name="stack1" value="java">자바
+              <input type="checkbox" name="stack2" value="C">C
+              <input type="checkbox" name="stack3" value="PyThon">파이썬
+              <input type="checkbox" name="stack4" value="Golang">Go
+              <input type="checkbox" name="stack5" value="php">php
+              <input type="checkbox" name="stack6" value="Ruby">Ruby
+              <input type="checkbox" name="stack7" value="C#">C#
+              <input type="checkbox" name="stack8" value="swift">swift
+              <input type="checkbox" name="stack9" value="kotlin">kotlin
+              <input type="checkbox" name="stack10" value="javascript">javascript
+          </div>
+          <div class="col-md-3">
+            <input type="checkbox" name="stack11" value="react">react
+            <input type="checkbox" name="stack12" value="angular">angular
+            <input type="checkbox" name="stack13" value="vue.js">vue.js
+            <input type="checkbox" name="stack14" value="ember.js">ember.js
+            <input type="checkbox" name="stack15" value="RubyonRails">RubyonRails
+            <input type="checkbox" name="stack16" value="node.js">node.js
+            <input type="checkbox" name="stack17" value="Django">Django
+            <input type="checkbox" name="stack18" value="Flask">Flask
+            <input type="checkbox" name="stack19" value="laravel">laravel
+            <input type="checkbox" name="stack20" value="Springboot">Springboot
+          </div>
+          <div class="col-md-3">
+            <input type="checkbox" name="stack21" value="Asp.net">asp.net
+            <input type="checkbox" name="stack22" value="Express.js">Express.js
+            <input type="checkbox" name="stack23" value="mysql">mysql
+            <input type="checkbox" name="stack24" value="postgresql">PostgreSql
+            <input type="checkbox" name="stack25" value="mongodb">MongoDB
+            <input type="checkbox" name="stack26" value="redis">Redis
+            <input type="checkbox" name="stack27" value="sqlite">SQLite
+            <input type="checkbox" name="stack28" value="mssql">MSSQL
+            <input type="checkbox" name="stack29" value="aws">Amazon Web Services
+            <input type="checkbox" name="stack30" value="msazure">MS Azure
+          </div>
+          <div class="col-md-3">
+            <input type="checkbox" name="stack31" value="googlecloud">Google Cloud Platform
+            <input type="checkbox" name="stack32" value="heroku">Heroku
+            <input type="checkbox" name="stack33" value="git">Git
+            <input type="checkbox" name="stack34" value="svn">SubVersion
+          </div>
+          </label>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label" for="introduce">자기소개서 :</label>
+  
+      </div>
+      <textarea name="introduce" id="introduce" cols="150" rows="10"></textarea>
+      
+      <button type="submit" class="btn btn-primary w-100 mb-2" style=" font-size: 0.8rem;">
+        수정
+      </button>
+    </form>
+  
+  </div>
+
+{{> layout/footer}}

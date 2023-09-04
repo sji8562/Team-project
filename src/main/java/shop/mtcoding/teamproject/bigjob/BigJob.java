@@ -15,7 +15,5 @@ public class BigJob {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
-
-    
     private String bigName;  //대분류 이름
 }

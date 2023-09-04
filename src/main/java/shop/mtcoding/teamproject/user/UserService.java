@@ -1,10 +1,16 @@
 package shop.mtcoding.teamproject.user;
 
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.UUID;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Base64.Encoder;
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+>>>>>>> Skilltb2
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ParseException;
@@ -32,7 +38,11 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> Skilltb2
     @Transactional
     public void usersave(userJoinDTO joinDTO) {
         User user = User.builder()
@@ -49,6 +59,7 @@ public class UserService {
 
     }
 
+<<<<<<< HEAD
     public User userlogin(userLoginDTO loginDTO) {
         User user = userRepository.findByUserIdAndPassword(loginDTO.getUserId(), loginDTO.getPassword());
         return user;
@@ -136,4 +147,17 @@ public class UserService {
         }
     }
 
+=======
+    
+    public User userlogin(userLoginDTO loginDTO) {
+        User user = userRepository.findByUserIdAndPassword(loginDTO.getUserId(),loginDTO.getPassword());
+        return user;
+    }
+
+
+    public void getKakaoAccessToken(String code) {
+    }
+    
+    
+>>>>>>> Skilltb2
 }

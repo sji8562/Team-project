@@ -1,1 +1,53 @@
-{{> layout/header}} {{> layout/footer}}
+{{> layout/header}} 
+<body>
+    <main>
+        <div class="formmain">
+            <div class="detailtop" name="resume_title">
+                <div>{{res.title}}</div>
+                <div class="update">
+                    <a href="/resUpdateForm/{{res.index}}">
+                    <button type="submit" class="btn btn-primary form-control">수정하기</button>
+                    </a>
+                </div>
+            </div>
+            <section>
+                <div class="formsection">
+                    <div class="pubinfo">
+                        <div class="user_pic" name="user_pic">
+                            <img id="preview" src="/images/basic.jpg" style="display: inline-block;">
+                        </div>
+                        <div class="infodetails">
+                            <dl>
+                                <dt name="user_name"></dt>
+                                <dd>기업</dd>
+                                <dt name="birth">생년월일</dt>
+                                <dd>1111년</dd>
+                                <dt name="user_address">주소</dt>
+                                <dd>부산시</dd>
+                                <dt name="tel">연락처</dt>
+                                <dd>1234</dd>
+                                <dt name="email">이메일</dt>
+                                <dd>a@asd.com</dd>
+                                <dt name="homepage">홈페이지(Git)</dt>
+                                <dd>{{res.homepage}}</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="formsection">
+                    <div class="form_info_area" name="edu">학력</div>
+                    <div class="form_info_area" name="carrer">경력</div>
+                </div>
+            </section>
+            <section>
+                <div class="formsection">
+                    <div class="form_info_area" name="skill_list">기술스택</div>
+                    <div class="form_info_area" name="introduce">자소서</div>
+                </div>
+            </section>
+        </div>
+    </main>
+{{> layout/footer}}

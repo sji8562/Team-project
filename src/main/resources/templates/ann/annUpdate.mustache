@@ -2,7 +2,7 @@
 <div class="start">채용 공고 수정</div> 
 <hr>   
 
-<form action="/annUpdate" method="post">
+<form action="/annUpdate/{{id}}" method="post">
 <div class="required">
 <div class="formtitle"><span style="color:blue;">필수항목</span>들을 채워주세요</div>
     <div class="details">모집 분야명<span class="necessity">필수</span>
@@ -50,7 +50,7 @@
         </select>
 </div>
 <div class="details">연봉/급여<span class="necessity">필수</span>
-    <input type="text" class="formcontainer" id="salary" name="salary" value="">
+    <input type="text" class="formcontainer" id="salary" name="salary" value="{{ann.salary}}">
 </div>
 <div class="details">근무요일
     <select class="dropdown" id="workday" name="workday">

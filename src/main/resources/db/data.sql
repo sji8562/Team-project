@@ -413,20 +413,20 @@ Insert into board_tb(type,title,content) values(2,'’통 세척은 어떻게 �
 Insert into board_tb(type,title,content) values(2,'’각질제거 제품과 함께 사용해도 되나요?’','’각질 제거 제품과 함께 사용해도 되나요? 각질 제거 기능도 함께 있는 것인지 궁금합니다. 혹시 각질제거 제품과 함께 쓰면 피부에 무리가 가진 않을까요?’');
 
 
-insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
-values('정규직','신입','대졸','온라인 프로모션','서울',' 2016-09-22',' 2016-12-22','3000만원','python','엑셀', '사원','9~6','주5일','김하얀',1,1,2);
+insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('정규직','신입','대졸','온라인 프로모션','서울',' 2016-09-22',' 2016-12-22','3000만원','엑셀', '사원','9~6','주5일','김하얀',3,1,1);
 
-insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
-values('인턴','경력','대졸','코드 리뷰, 개발 일정 수립','부산','2023-01-03','2023-05-03','1억','java','파이썬', '대리','9~4','주4일', '최주호', 2,2,3);
+insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('인턴','경력','대졸','코드 리뷰, 개발 일정 수립','부산','2023-01-03','2023-05-03','1억','파이썬', '대리','9~4','주4일', '최주호', 2,1,1);
 
-insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
-values('계약직','신입','대졸','신제품 런칭','대구','2023-03-05','2023-07-05','5000만원','mysql','oracle', '사원','8시~5시','주5일','송재익',1,3,4);
+insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('계약직','신입','대졸','신제품 런칭','대구','2023-03-05','2023-07-05','5000만원','oracle', '사원','8시~5시','주5일','송재익',1,1,1);
 
-insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
-values('정규직','경력','학력 무관','영업 관리','하동','2023-03-18','2023-08-18','100000000','kotlin','스프링부트','과장', '9시~4시','월~금','윤혜림',3,1,2);
+insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('정규직','경력','학력 무관','영업 관리','하동','2023-03-18','2023-08-18','100000000','스프링부트','과장', '9시~4시','월~금','윤혜림',3,1,1);
 
-insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
-values('정규직','경력무관','학력 무관','팀 트레이닝, 팀 관리','광주','2023-08-31','2023-12-31','30000000','C+','자바','사원', '9~3', '화~금', '성민경',5,1,2);
+insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('정규직','경력무관','학력 무관','팀 트레이닝, 팀 관리','광주','2023-08-31','2023-12-31','30000000','자바','사원', '9~3', '화~금', '성민경',5,1,1);
 
 insert into reply_tb (comment, user_idx, board_idx)
 values('저 저번주 수요일에 시켰는데 금요일에 도착했어요',1,1);
@@ -443,6 +443,7 @@ values('그거 그냥 하면 되던데요', 3, 2);
 insert into reply_tb(comment, user_idx, board_idx)
 values('절대 그러지 마세여', 4, 3);
 insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1234','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
+<<<<<<< HEAD
 insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('5678','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
 insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('red','qqqq0000!','카카오','red@nate.com','01011111111','부산광역시 동래구 명륜동 456번지','탑타워101호',2);
 
@@ -451,3 +452,6 @@ insert into company_tb (company_id,password,company_name,email,phone_num,address
 insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('green','qqqq2222!','삼성물산','green@nate.com','01011111111','부산광역시 해운대구 좌동 123번지','황금하이츠501호', 2);
 
 insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('blue','blue3333!','바론','blue@nate.com','01011111111','서울특별시 마포구 서교동 456번지','세실빌딩201호',2);
+=======
+insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('5678','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
+>>>>>>> Skilltb2
