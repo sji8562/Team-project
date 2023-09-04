@@ -24,38 +24,35 @@ public class Announcement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
-    private String workType; //근무형태
+    private String workType; // 근무형태
 
-    private String experience; //경력
+    private String experience; // 경력
 
-    private String graduation; //학력
-    private String task; //직무
-    private String location; //근무지역
-    private Timestamp startTime; //접수시작시간
-    private Timestamp endTime;  //접수 마감시간
-    private String salary; //급여
-    private String preference; //우대조건
-    private String managerName; //대표자
-    private String position; //직급
+    private String graduation; // 학력
+    private String task; // 직무
+    private String location; // 근무지역
+    private Timestamp startTime; // 접수시작시간
+    private Timestamp endTime; // 접수 마감시간
+    private String salary; // 급여
+    private String preference; // 우대조건
+    private String managerName; // 대표자
+    private String position; // 직급
     private String pic;
     private String workTime;
     private String workDay;
-    
-<<<<<<< HEAD
-    
-    private String compIdx;  // 1:N 관계 회사는 많은 공고를 올릴수있다 
-    private String bigJobIdx; //1:1 관계 공고는 하나의 대분류를 가지고있다.
-    private String smallJobIdx;  //1:1관계 공고는 하나의 소분류를 가지고있다.
-=======
+
+    private String compIdx; // 1:N 관계 회사는 많은 공고를 올릴수있다
+    private String bigJobIdx; // 1:1 관계 공고는 하나의 대분류를 가지고있다.
+    private String smallJobIdx; // 1:1관계 공고는 하나의 소분류를 가지고있다.
+
     @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY)
     private List<HasSkill> skills = new ArrayList<>();
-    //아직 컴퍼니 더미데이터 없어서 Integer, company로 나중에 바꿔야함
-     private Integer company_id;  // 1:N 관계 회사는 많은 공고를 올릴수있다
-    @ManyToOne(fetch = FetchType.LAZY) 
+    // 아직 컴퍼니 더미데이터 없어서 Integer, company로 나중에 바꿔야함
+    private Integer company_id; // 1:N 관계 회사는 많은 공고를 올릴수있다
+    @ManyToOne(fetch = FetchType.LAZY)
     private BigJob bigJob;
     @ManyToOne(fetch = FetchType.LAZY)
-    private SmallJob smallJob;  //1:1관계 공고는 하나의 소분류 가지고있다.
->>>>>>> Skilltb2
+    private SmallJob smallJob; // 1:1관계 공고는 하나의 소분류 가지고있다.
 
     @Builder
     public Announcement(Integer index, String workType, String experience, String graduation, String task,
@@ -82,8 +79,4 @@ public class Announcement {
         this.smallJob = smallJob;
     }
 
-    
-    
-
-    
 }
