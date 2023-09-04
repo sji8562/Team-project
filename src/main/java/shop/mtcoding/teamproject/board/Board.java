@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,7 +24,6 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
-    
     private Integer type;
 
     private String title;
@@ -32,4 +32,17 @@ public class Board {
     private Timestamp updateTime;
     private Integer userIdx;
     private Integer compIdx;
+
+    @Builder
+    public Board(Integer index, Integer type, String title, String content, Integer count, Timestamp updateTime,
+            Integer userIdx, Integer compIdx) {
+        this.index = index;
+        this.type = type;
+        this.title = title;
+        this.content = content;
+        this.count = count;
+        this.updateTime = updateTime;
+        this.userIdx = userIdx;
+        this.compIdx = compIdx;
+    }
 }
