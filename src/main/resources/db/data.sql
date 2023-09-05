@@ -451,4 +451,17 @@ insert into company_tb (company_id,password,company_name,email,phone_num,address
 
 insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('green','qqqq2222!','삼성물산','green@nate.com','01011111111','부산광역시 해운대구 좌동 123번지','황금하이츠501호', 2);
 
+
 insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('blue','blue3333!','바론','blue@nate.com','01011111111','서울특별시 마포구 서교동 456번지','세실빌딩201호',2);
+<<<<<<< HEAD
+=======
+
+insert into Has_Skill_tb(announcement_index, skill_index) values(1,1);
+insert into Has_Skill_tb(announcement_index, skill_index) values(2,3);
+insert into Has_Skill_tb(announcement_index, skill_index) values(3,4);
+insert into Has_Skill_tb(announcement_index, skill_index) values(4,5);
+insert into Has_Skill_tb(announcement_index, skill_index) values(5,1);
+
+insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('blue','blue3333!','바론','blue@nate.com','01011111111','서울특별시 마포구 서교동 456번지','세실빌딩201호',2);
+
+>>>>>>> d498d061050a411470d90daca604649a035e95a1

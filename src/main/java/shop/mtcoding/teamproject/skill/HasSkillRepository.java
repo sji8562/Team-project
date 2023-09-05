@@ -9,7 +9,8 @@ import org.springframework.data.repository.query.Param;
 import shop.mtcoding.teamproject.reply.Reply;
 
 public interface HasSkillRepository extends JpaRepository<HasSkill, Integer> {
-
+    @Query(value = "select * from Has_Skill_tb where announcement_index = :announcement_index", nativeQuery = true)
+    HasSkill findByAnnIdx(@Param("announcement_index") Integer announcement_index);
      
     
 }
