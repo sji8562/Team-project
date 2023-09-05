@@ -22,8 +22,14 @@ public class HasSkillService {
     }
 
     @Transactional
-    public HasSkill 스킬수정(Integer annId, Skill skills) {
+    public HasSkill 공고스킬수정(Integer annId, Skill skills) {
         HasSkill hasSkill = hasSkillRepository.findByAnnIdx(annId);
+        hasSkill.setSkill(skills);
+        return hasSkill;
+    }
+    @Transactional
+    public HasSkill 이력서스킬수정(Integer resId, Skill skills) {
+        HasSkill hasSkill = hasSkillRepository.findByresIdx(resId);
         hasSkill.setSkill(skills);
         return hasSkill;
     }

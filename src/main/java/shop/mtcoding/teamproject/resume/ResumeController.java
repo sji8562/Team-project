@@ -69,14 +69,18 @@ public class ResumeController {
 
     @GetMapping("/resUpdateForm/{id}")
     public String resumeUpdateForm(@PathVariable Integer id, Model model) {
+        List<Skill> skills = skillService.스킬목록보기();
         Resume res = resumeService.이력서상세보기(id);
         model.addAttribute("res", res);
+        model.addAttribute("skills", skills);
+        System.out.println("++++++++++++++++++++++"+skills);
         return "resume/resumeUpdate";
     }
 
     @PostMapping("/resUpdate/{id}")
-    public String resumeUpdate(@PathVariable Integer id, Resume res) {
+    public String resumeUpdate(@PathVariable Integer id, Resume res, Skill skills) {
         resumeService.이력서수정(id,res);
+        hasSkillService.이력서스킬수정(id, skills);
         return "redirect:/resDetail/"+id;
     }
 

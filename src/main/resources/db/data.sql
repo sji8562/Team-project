@@ -459,5 +459,9 @@ insert into Has_Skill_tb(announcement_index, skill_index) values(3,4);
 insert into Has_Skill_tb(announcement_index, skill_index) values(4,5);
 insert into Has_Skill_tb(announcement_index, skill_index) values(5,1);
 
-insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('blue','blue3333!','바론','blue@nate.com','01011111111','서울특별시 마포구 서교동 456번지','세실빌딩201호',2);
+insert into Has_Skill_tb(resume_index, skill_index) values(1,1);
+insert into Has_Skill_tb(resume_index, skill_index) values(2,1);
+insert into Has_Skill_tb(resume_index, skill_index) values(3,1);
+insert into Has_Skill_tb(resume_index, skill_index) values(4,1);
+insert into Has_Skill_tb(resume_index, skill_index) values(5,1);
 
