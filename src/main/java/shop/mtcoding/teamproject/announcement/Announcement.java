@@ -31,6 +31,7 @@ public class Announcement {
     private String graduation; // 학력
     private String task; // 직무
     private String location; // 근무지역
+    private Timestamp updateTime;
     private Timestamp startTime; // 접수시작시간
     private Timestamp endTime; // 접수 마감시간
     private String salary; // 급여
