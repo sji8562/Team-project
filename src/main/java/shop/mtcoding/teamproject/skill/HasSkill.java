@@ -21,8 +21,10 @@ public class HasSkill {
     @JoinColumn(name = "announcement_index")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     private Announcement announcement;
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "resume_index")
+    private Resume resume;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "skill_index")
     private Skill skill;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Resume resume;
+    
 }

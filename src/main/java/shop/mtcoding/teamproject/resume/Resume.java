@@ -5,6 +5,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.teamproject.skill.HasSkill;
+import shop.mtcoding.teamproject.user.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -22,16 +27,21 @@ public class Resume {
     private String education;
     private String school;
     private String skill;
-    @Column(nullable = true, length = 10000)
+    @Lob
+    @Column(nullable = true)
     private String introduce;
     private String experience;
     private String homepage;
     private boolean status;
-    private int userId;
-    
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
+    @OneToMany(mappedBy = "resume", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    private List<HasSkill> hasSkill = new ArrayList<>();
+
     @Builder
     public Resume(Integer index, String title, String education, String school, String skill, String introduce,
-            String experience, String homepage, boolean status, int userId) {
+            String experience, String homepage, boolean status, User user, List<HasSkill> hasSkill) {
         this.index = index;
         Title = title;
         this.education = education;
@@ -41,8 +51,12 @@ public class Resume {
         this.experience = experience;
         this.homepage = homepage;
         this.status = status;
-        this.userId = userId;
+        this.user = user;
+        this.hasSkill = hasSkill;
     }
+
+   
+    
 
     
     
