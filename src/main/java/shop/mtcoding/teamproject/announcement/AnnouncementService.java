@@ -21,12 +21,12 @@ public class AnnouncementService {
     private AnnouncementRepository announcementRepository;
 
     @Transactional
-    public void 공고등록(Announcement announcement){
+    public void 공고등록(Announcement announcement) {
         announcementRepository.save(announcement);
     }
 
     @Transactional
-    public Announcement 공고수정(Integer id, UpdateDTO updateDTO){
+    public Announcement 공고수정(Integer id, UpdateDTO updateDTO) {
         Optional<Announcement> annOP = announcementRepository.findById(id);
         if (annOP.isPresent()) {
             Announcement ann = annOP.get();
@@ -45,10 +45,10 @@ public class AnnouncementService {
             ann.setWorkTime(updateDTO.getWorkTime());
             ann.setWorkDay(updateDTO.getWorkDay());
             return ann;
-            } else {
-                throw new MyException(id+"를 찾을 수 없습니다");
-            }
-      
+        } else {
+            throw new MyException(id + "를 찾을 수 없습니다");
+        }
+
     }
 
     public Announcement 공고상세보기(Integer id) {
@@ -56,9 +56,9 @@ public class AnnouncementService {
         if (annOP.isPresent()) {
             return annOP.get();
         } else {
-            throw new MyException(id+"는 찾을 수 없습니다");
+            throw new MyException(id + "는 찾을 수 없습니다");
         }
-        
+
     }
 
     public Page<Announcement> 공고목록보기(Integer page) {
@@ -66,16 +66,21 @@ public class AnnouncementService {
         Page<Announcement> pageContent = announcementRepository.findAll(pageable);
         return pageContent;
     }
-    @Transactional
-    public void 공고삭제(Integer id) {
-        
-       try {
-         announcementRepository.deleteById(id);
-       } catch (Exception e) {
-         throw new MyException(id+"를 찾을 수 없습니다");
-       }
+
+    public Page<Announcement> index공고목록보기(Integer page) {
+        Pageable pageable = PageRequest.of(page, 10, Sort.Direction.ASC, "index");
+        Page<Announcement> pageContent = announcementRepository.findAll(pageable);
+        return pageContent;
     }
 
-    
-    
+    @Transactional
+    public void 공고삭제(Integer id) {
+
+        try {
+            announcementRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new MyException(id + "를 찾을 수 없습니다");
+        }
+    }
+
 }
