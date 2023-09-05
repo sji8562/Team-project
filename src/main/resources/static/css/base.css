@@ -1443,3 +1443,11 @@ input {
 .helpmain_qnalist {
   margin-top: 8px;
 }
+
+.footerform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #f2f4f7;
+}
