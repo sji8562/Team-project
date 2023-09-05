@@ -413,20 +413,20 @@ Insert into board_tb(type,title,content) values(2,'’통 세척은 어떻게 �
 Insert into board_tb(type,title,content) values(2,'’각질제거 제품과 함께 사용해도 되나요?’','’각질 제거 제품과 함께 사용해도 되나요? 각질 제거 기능도 함께 있는 것인지 궁금합니다. 혹시 각질제거 제품과 함께 쓰면 피부에 무리가 가진 않을까요?’');
 
 
-insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
-values('정규직','신입','대졸','온라인 프로모션','서울',' 2016-09-22',' 2016-12-22','3000만원','엑셀', '사원','9~6','주5일','김하얀',3,1,1);
+insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('이런사람 뽑습니다1','정규직','신입','대졸','온라인 프로모션','서울',' 2016-09-22',' 2016-12-22','3000만원','엑셀', '사원','9~6','주5일','김하얀',3,1,1);
 
-insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
-values('인턴','경력','대졸','코드 리뷰, 개발 일정 수립','부산','2023-01-03','2023-05-03','1억','파이썬', '대리','9~4','주4일', '최주호', 2,1,1);
+insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('이런사람 뽑습니다2','인턴','경력','대졸','코드 리뷰, 개발 일정 수립','부산','2023-01-03','2023-05-03','1억','파이썬', '대리','9~4','주4일', '최주호', 2,1,1);
 
-insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
-values('계약직','신입','대졸','신제품 런칭','대구','2023-03-05','2023-07-05','5000만원','oracle', '사원','8시~5시','주5일','송재익',1,1,1);
+insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('이런사람 뽑습니다3','계약직','신입','대졸','신제품 런칭','대구','2023-03-05','2023-07-05','5000만원','oracle', '사원','8시~5시','주5일','송재익',1,1,1);
 
-insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
-values('정규직','경력','학력 무관','영업 관리','하동','2023-03-18','2023-08-18','100000000','스프링부트','과장', '9시~4시','월~금','윤혜림',3,1,1);
+insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('이런사람 뽑습니다4','정규직','경력','학력 무관','영업 관리','하동','2023-03-18','2023-08-18','100000000','스프링부트','과장', '9시~4시','월~금','윤혜림',3,1,1);
 
-insert into announcement_tb (work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
-values('정규직','경력무관','학력 무관','팀 트레이닝, 팀 관리','광주','2023-08-31','2023-12-31','30000000','자바','사원', '9~3', '화~금', '성민경',5,1,1);
+insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index)
+values('이런사람 뽑습니다5','정규직','경력무관','학력 무관','팀 트레이닝, 팀 관리','광주','2023-08-31','2023-12-31','30000000','자바','사원', '9~3', '화~금', '성민경',5,1,1);
 
 insert into reply_tb (comment, user_idx, board_idx)
 values('저 저번주 수요일에 시켰는데 금요일에 도착했어요',1,1);

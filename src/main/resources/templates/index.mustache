@@ -29,7 +29,7 @@
 
     <div class="four">
       <img
-        src="/images/기업이미지.png"
+        src="https://placehold.it/432x432"
         width="400"
         height="300"
         alt="기업 이미지"
@@ -42,6 +42,14 @@
         height="300"
         alt="기업 이미지"
       />
+    </div>
+  </div>
+  <div id="pager">
+    <div class="prev">
+      <span>이전</span>
+    </div>
+    <div class="next">
+      <span>다음</span>
     </div>
   </div>
 </div>
@@ -57,40 +65,32 @@
 </div>
 
 <h1>기업목록</h1>
-<div class="container mt-3 cads1">
+
+<div class="container mt-3 cads1" id="ann-div">
+  {{#annPG}}
   <div class="card index-card">
     <img src="/images/IMG.jpeg" alt="" />
     <div class="card-body">
-      <h1>기업명</h1>
+      <h1>{{ title }}</h1>
       <br />
       <h3>설명</h3>
       <a href="#" class="btn btn-primary">상세보기</a>
     </div>
   </div>
-
-  <div class="card index-card">
-    <img src="/images/IMG.jpeg" alt="" />
-    <div class="card-body">
-      <h1>기업명</h1>
-      <br />
-      <h3>설명</h3>
-      <a href="#" class="btn btn-primary">상세보기</a>
-    </div>
+  {{/annPG}}
+</div>
+<div id="pager">
+  <div class="ann-prev">
+    <span>이전</span>
   </div>
-
-  <div class="card index-card">
-    <img src="/images/IMG.jpeg" alt="" />
-    <div class="card-body">
-      <h1>기업명</h1>
-      <br />
-      <h3>설명</h3>
-      <a href="#" class="btn btn-primary">상세보기</a>
-    </div>
+  <div class="ann-next">
+    <span>다음</span>
   </div>
 </div>
 
 <h1>구직목록</h1>
-<div class="container mt-3 cads2">
+<div class="container mt-3 cads2" id="comp-div">
+  {{#comPG}}
   <div class="card index-card">
     <img src="/images/IMG.jpeg" alt="" />
     <div class="card-body">
@@ -100,25 +100,14 @@
       <a href="#" class="btn btn-primary">상세보기</a>
     </div>
   </div>
-
-  <div class="card index-card">
-    <img src="/images/IMG.jpeg" alt="" />
-    <div class="card-body">
-      <h1>기업명</h1>
-      <br />
-      <h3>설명</h3>
-      <a href="#" class="btn btn-primary">상세보기</a>
-    </div>
+  {{/comPG}}
+</div>
+<div id="pager">
+  <div class="comp-prev">
+    <span>이전</span>
   </div>
-
-  <div class="card index-card">
-    <img src="/images/IMG.jpeg" alt="" />
-    <div class="card-body">
-      <h1>기업명</h1>
-      <br />
-      <h3>설명</h3>
-      <a href="#" class="btn btn-primary">상세보기</a>
-    </div>
+  <div class="comp-next">
+    <span>다음</span>
   </div>
 </div>
 
