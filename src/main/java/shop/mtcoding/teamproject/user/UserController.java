@@ -31,14 +31,16 @@ public class UserController {
     private HttpSession session;
 
     @GetMapping("/user/kakao")
-    public @ResponseBody String kakao(String code) throws JsonMappingException, JsonProcessingException {
+    public @ResponseBody String kakao(String code, HttpServletResponse response)
+            throws IOException {
         // POST방식으로 key=value 데이터를 요청(카카오쪽으로 )
         // Retrofit2 안드로이드에서 많이 씀
         // OkHttp
         // RestTemplate
 
-        userService.kakaologin(code);
-
+        User sessionUser = userService.kakaologin(code);
+        session.setAttribute("sessionUser", sessionUser);
+        response.sendRedirect("/");
         return "로그인 완료";
 
     }
