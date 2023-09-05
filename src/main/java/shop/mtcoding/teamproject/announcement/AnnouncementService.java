@@ -63,11 +63,13 @@ public class AnnouncementService {
         UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌
         String fileName = uuid+"_"+updateDTO.getPic().getOriginalFilename();
         Path filePath = Paths.get(MyPath.IMG_PATH+fileName);
+
         try {
             Files.write(filePath, updateDTO.getPic().getBytes());
         } catch (Exception e) {
             throw new MyException(e.getMessage());
         }
+        System.out.println("++++++++++++++++++++++"+ fileName);
 
         if (annOP.isPresent()) {
             Announcement ann = annOP.get();
