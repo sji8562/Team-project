@@ -428,19 +428,19 @@ values('정규직','경력','학력 무관','영업 관리','하동','2023-03-18
 insert into announcement_tb (work_type,experience,graduation,task,location,start_time,end_time,salary,skill,preference,position,work_time,work_day,manager_name,comp_idx,big_job_idx,small_job_idx)
 values('정규직','경력무관','학력 무관','팀 트레이닝, 팀 관리','광주','2023-08-31','2023-12-31','30000000','C+','자바','사원', '9~3', '화~금', '성민경',5,1,2);
 
-insert into reply_tb (comment, user_idx, board_idx)
+insert into reply_tb (comment, user_index, board_index)
 values('저 저번주 수요일에 시켰는데 금요일에 도착했어요',1,1);
 
-insert into reply_tb (comment, user_idx, board_idx)
+insert into reply_tb (comment, user_index, board_index)
 values('저도 이거 궁금해요',2,2);
 
-insert into reply_tb (comment, comp_idx, board_idx)
+insert into reply_tb (comment, user_index, board_index)
 values('등록한 채용 공고가 안 보이네요', 4, 5);
 
-insert into reply_tb(comment, comp_idx, board_idx)
+insert into reply_tb(comment, user_index, board_index)
 values('그거 그냥 하면 되던데요', 3, 2);
 
-insert into reply_tb(comment, user_idx, board_idx)
+insert into reply_tb(comment, user_index, board_index)
 values('절대 그러지 마세여', 4, 3);
 insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1234','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
 insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('5678','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
