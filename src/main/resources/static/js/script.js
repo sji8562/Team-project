@@ -139,7 +139,7 @@ $(function () {
 
 $(function () {
   $("#ann-div").slick({
-    slide: "div", //슬라이드 되어야 할 태그 ex) div, li
+    slide: "a", //슬라이드 되어야 할 태그 ex) div, li
     infinite: true, //무한 반복 옵션
     slidesToShow: 4, // 한 화면에 보여질 컨텐츠 개수
     slidesToScroll: 1, //스크롤 한번에 움직일 컨텐츠 개수
@@ -174,9 +174,10 @@ $(function () {
     ],
   });
 });
+
 $(function () {
   $("#comp-div").slick({
-    slide: "div", //슬라이드 되어야 할 태그 ex) div, li
+    slide: "a", //슬라이드 되어야 할 태그 ex) div, li
     infinite: true, //무한 반복 옵션
     slidesToShow: 4, // 한 화면에 보여질 컨텐츠 개수
     slidesToScroll: 1, //스크롤 한번에 움직일 컨텐츠 개수
@@ -256,10 +257,10 @@ function getCookie(name) {
 
   // join
   function UserJoinForm() {
-    window.location.href = "./user/UserJoinForm.html";
+    window.location.href = "/userJoinForm";
   }
   function CompJoinForm() {
-    window.location.href = "./company/CompJoinForm.html";
+    window.location.href = "/compJoinForm";
   }
 
   // skill
@@ -279,15 +280,17 @@ function getCookie(name) {
   });
 }
 
-
 // nav
 
 $(document).ready(function () {
-  $('.dropdown-submenu').hover(function () {
-      $(this).find('.dropdown-menu').addClass('show');
-  }, function () {
-      $(this).find('.dropdown-menu').removeClass('show');
-  });
+  $(".dropdown-submenu").hover(
+    function () {
+      $(this).find(".dropdown-menu").addClass("show");
+    },
+    function () {
+      $(this).find(".dropdown-menu").removeClass("show");
+    }
+  );
 });
 
 // join
@@ -304,12 +307,12 @@ $(document).ready(function () {
   $(".row > div").hide();
 
   $(".class-select").click(function () {
-      var selectedClass = $(this).data("class");
+    var selectedClass = $(this).data("class");
 
-      // 모든 체크박스 컨테이너를 숨깁니다.
-      $(".row > div").hide();
+    // 모든 체크박스 컨테이너를 숨깁니다.
+    $(".row > div").hide();
 
-      // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
-      $(".리스트" + selectedClass).show();
+    // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
+    $(".리스트" + selectedClass).show();
   });
 });

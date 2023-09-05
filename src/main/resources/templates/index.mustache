@@ -1,4 +1,4 @@
-{{> layout/header}}
+ddㅇ{{> layout/header}}
 
 <div class="border skyblue">
   <div id="slider-div" style="margin-top: 100px; margin-left: 20px">
@@ -64,50 +64,49 @@
   <div class="col"></div>
 </div>
 
-<h1>기업목록</h1>
-
-<div class="container mt-3 cads1" id="ann-div">
-  {{#annPG}}
-  <div class="card index-card">
-    <img src="/images/IMG.jpeg" alt="" />
-    <div class="card-body">
-      <h1>{{ title }}</h1>
-      <br />
-      <h3>설명</h3>
-      <a href="#" class="btn btn-primary">상세보기</a>
+<div class="container my-2 p-1 text-center">
+  <h1>채용공고</h1>
+  <div class="index_fourcad" id="ann-div">
+    {{#annPG}}
+    <a class="card fourcard_form" href="#">
+      <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+      <div class="card-body">
+        <h4 class="card-title">{{ title }}</h4>
+        <p class="card-text">기업설명</p>
+      </div>
+    </a>
+    {{/annPG}}
+    <div id="pager">
+      <div class="ann-prev">
+        <span>이전</span>
+      </div>
+      <div class="ann-next">
+        <span>다음</span>
+      </div>
     </div>
   </div>
-  {{/annPG}}
-</div>
-<div id="pager">
-  <div class="ann-prev">
-    <span>이전</span>
-  </div>
-  <div class="ann-next">
-    <span>다음</span>
-  </div>
 </div>
 
-<h1>구직목록</h1>
-<div class="container mt-3 cads2" id="comp-div">
-  {{#comPG}}
-  <div class="card index-card">
-    <img src="/images/IMG.jpeg" alt="" />
-    <div class="card-body">
-      <h1>기업명</h1>
-      <br />
-      <h3>설명</h3>
-      <a href="#" class="btn btn-primary">상세보기</a>
+<div class="container my-2 p-1 text-center">
+  <h1>추천 기업</h1>
+  <div class="index_fourcad" id="comp-div">
+    {{#comPG}}
+    <a class="card fourcard_form" href="#">
+      <img class="Card_fourcard" src="./images/comp4.jpg" alt="Card image" />
+      <div class="card-body">
+        <h4 class="card-title">기업명</h4>
+        <p class="card-text">기업설명</p>
+      </div>
+    </a>
+    {{/comPG}}
+    <div id="pager">
+      <div class="comp-prev">
+        <span>이전</span>
+      </div>
+      <div class="comp-next">
+        <span>다음</span>
+      </div>
     </div>
-  </div>
-  {{/comPG}}
-</div>
-<div id="pager">
-  <div class="comp-prev">
-    <span>이전</span>
-  </div>
-  <div class="comp-next">
-    <span>다음</span>
   </div>
 </div>
 

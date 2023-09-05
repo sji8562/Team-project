@@ -20,7 +20,6 @@ import shop.mtcoding.teamproject.skill.SkillService;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @Controller
 public class ResumeController {
     @Autowired
@@ -56,7 +55,7 @@ public class ResumeController {
         hasSkill.setResume(res);
         hasSkill.setSkill(skills);
         hasSkillService.등록(hasSkill);
-        
+
         return "redirect:/resList";
     }
 
@@ -76,15 +75,14 @@ public class ResumeController {
 
     @PostMapping("/resUpdate/{id}")
     public String resumeUpdate(@PathVariable Integer id, Resume res) {
-        resumeService.이력서수정(id,res);
-        return "redirect:/resDetail/"+id;
+        resumeService.이력서수정(id, res);
+        return "redirect:/resDetail/" + id;
     }
 
     @PostMapping("/resDelete/{id}")
-    public String resumeDelete(@PathVariable Integer id){
+    public String resumeDelete(@PathVariable Integer id) {
         resumeService.이력서삭제(id);
         return "redirect:/resList";
     }
-    
 
 }
