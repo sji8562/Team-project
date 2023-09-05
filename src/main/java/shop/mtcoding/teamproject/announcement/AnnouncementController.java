@@ -51,15 +51,24 @@ public class AnnouncementController {
     }
 
     @GetMapping("/annUpdateForm/{id}")
-    public String annUpdateForm(@PathVariable Integer id, Model model) {
+
+    public String annUpdateForm(@PathVariable Integer id, Model model){
+        List<Skill> skills = skillService.스킬목록보기();
         Announcement ann = announcementService.공고상세보기(id);
         model.addAttribute("ann", ann);
+        model.addAttribute("skills", skills);
         return "ann/annUpdate";
     }
 
     @PostMapping("/annUpdate/{id}")
+
+    public String annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO, Skill skills){
+         announcementService.공고수정(id, updateDTO);
+         hasSkillService.스킬수정(id, skills);
+
     public String annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO) {
         announcementService.공고수정(id, updateDTO);
+
         return "redirect:/annDetail/" + id;
     }
 

@@ -444,7 +444,6 @@ insert into reply_tb(comment, user_idx, board_idx)
 values('절대 그러지 마세여', 4, 3);
 insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1234','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
 
-
 insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('5678','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
 insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('red','qqqq0000!','카카오','red@nate.com','01011111111','부산광역시 동래구 명륜동 456번지','탑타워101호',2);
 
@@ -452,4 +451,14 @@ insert into company_tb (company_id,password,company_name,email,phone_num,address
 
 insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('green','qqqq2222!','삼성물산','green@nate.com','01011111111','부산광역시 해운대구 좌동 123번지','황금하이츠501호', 2);
 
+
 insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('blue','blue3333!','바론','blue@nate.com','01011111111','서울특별시 마포구 서교동 456번지','세실빌딩201호',2);
+
+insert into Has_Skill_tb(announcement_index, skill_index) values(1,1);
+insert into Has_Skill_tb(announcement_index, skill_index) values(2,3);
+insert into Has_Skill_tb(announcement_index, skill_index) values(3,4);
+insert into Has_Skill_tb(announcement_index, skill_index) values(4,5);
+insert into Has_Skill_tb(announcement_index, skill_index) values(5,1);
+
+insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('blue','blue3333!','바론','blue@nate.com','01011111111','서울특별시 마포구 서교동 456번지','세실빌딩201호',2);
+
