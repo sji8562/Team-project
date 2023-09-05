@@ -19,7 +19,7 @@
                    
                     <hr />
                     <div class="m-4 p-2">
-                        {{board.content}}
+                        {{{board.content}}}
                     </div>
                 </div>
               
@@ -28,39 +28,93 @@
                 <div class="card mt-3 qnareply">
                     <!-- 댓글등록 -->
                     <div class="card-body qnareply">
+                      
                         <form>
+                            <input type="hidden" id="boardId" value="{{board.index}}">
                             <textarea class="form-control" rows="2" id="comment"></textarea>
                             <div class="d-flex justify-content-end">
                                 <a href="/comunityDetail">
-                                <button type="button" class="btn btn-outline-primary mt-1">댓글등록</button>
+                                <button type="button" class="btn btn-outline-primary mt-1" onclick="saveReply()">댓글등록</button>
                             </a>
                             </div>
                         </form>
                     </div>
 
                     <!-- 댓글목록 -->
+                   
                     <div class="card-footer qnareply">
-                        <b>댓글리스트</b>
-                    </div>
                     <div class="list-group qnareply">
-                        {{#board.replies}}
+                       
+        
                         <!-- 댓글아이템 -->
+                        {{#replies}}
                         <div class="list-group-item d-flex justify-content-between align-items-center">
-                            <div class="d-flex">
-                                <div class="px-1 me-1 bg-primary text-white rounded">관리자</div>
-                                <div>{{comment}}</div>
-                            </div>
+                            {{comment}} 
                             <form>
-                                <button type="button" class="btn">🗑</button>
+                                <button type="button" class="btn" onclick="deleteReply('{{id}}')">🗑</button>
                             </form>
                         </div>
-                        {{/board.replies}}
+                            <br>
+                        {{/replies}}
+                        
+                            <div class="d-flex">
+                              
+                               
+                            </div>
+                           
+                           
+                           
+                        </div>
+                       
+                    </div>
+                    
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
+    <script>
+          async function deleteReply(id) {
+        let response = await fetch(`/api/reply/${id}/delete`,{
+            method: "delete"
+        });
+        let responseBody = await response.json();
+        if(responseBody.sucuess){
+            location.reload();
+        }else{
+            alert(responseBody.data);
+        }
+    }
+
+    async function saveReply() {
+        let requestBody = {
+            boardId: document.querySelector("#boardId").value,
+            comment: document.querySelector("#comment").value
+        };
+
+        console.log(requestBody);
+
+        let response = await fetch("/api/reply/save", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+        let responseBody = await response.json();
+        console.log(responseBody);
+
+        if (responseBody.sucuess) {
+            location.reload(); 
+        } else {
+            alert(responseBody.data);
+        }
+    }
+    </script>
 </body>
+
+
 
 {{> layout/footer}}
