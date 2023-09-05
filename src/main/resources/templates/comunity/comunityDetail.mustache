@@ -1,1 +1,66 @@
-{{> layout/header}} {{> layout/footer}}
+{{> layout/header}}
+
+    <main>
+        <div class="formmain">
+            <div class="container p-5">
+
+                <!-- 수정삭제버튼 -->
+                <div class="d-flex justify-content-end">
+                    <a class="btn btn-warning me-1" href="/comunity/{{board.index}}/update">수정</a>
+                    <form action="/comunity/{{board.index}}/delete" method="post">
+                        <button type="submit" class="btn btn-danger" >삭제</button>
+                    </form>
+                </div>
+
+                <!-- 게시글내용 -->
+               
+                <div>
+                    <h2><b>{{board.title}}</b></h2>
+                   
+                    <hr />
+                    <div class="m-4 p-2">
+                        {{board.content}}
+                    </div>
+                </div>
+              
+
+                <!-- 댓글 -->
+                <div class="card mt-3 qnareply">
+                    <!-- 댓글등록 -->
+                    <div class="card-body qnareply">
+                        <form>
+                            <textarea class="form-control" rows="2" id="comment"></textarea>
+                            <div class="d-flex justify-content-end">
+                                <a href="/comunityDetail">
+                                <button type="button" class="btn btn-outline-primary mt-1">댓글등록</button>
+                            </a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 댓글목록 -->
+                    <div class="card-footer qnareply">
+                        <b>댓글리스트</b>
+                    </div>
+                    <div class="list-group qnareply">
+                        {{#board.replies}}
+                        <!-- 댓글아이템 -->
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="d-flex">
+                                <div class="px-1 me-1 bg-primary text-white rounded">관리자</div>
+                                <div>{{comment}}</div>
+                            </div>
+                            <form>
+                                <button type="button" class="btn">🗑</button>
+                            </form>
+                        </div>
+                        {{/board.replies}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+{{> layout/footer}}
