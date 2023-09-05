@@ -37,7 +37,6 @@ public class AnnouncementRequest {
         private Timestamp startTime; //접수시작시간
         private Timestamp endTime;  //접수 마감시간
         private String salary; //급여
-        private String skill; //기술
         private String preference; //우대조건
         private String manager; //대표자
         private String position; //직급

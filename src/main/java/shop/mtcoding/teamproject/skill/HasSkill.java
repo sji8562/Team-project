@@ -20,7 +20,7 @@ public class HasSkill {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "announcement_index")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     private Announcement announcement;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "skill_index")
     private Skill skill;
     @ManyToOne(fetch = FetchType.LAZY)
