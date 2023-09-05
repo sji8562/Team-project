@@ -1,0 +1,71 @@
+{{> layout/header}}
+    <div class="card bg-dark text-white container">
+        <div class="card-body">고객센터</div>
+      </div>
+
+      <div class="comucontainer mt-3 container" >
+        <div class="help">
+          
+            <h2>문의 게시판</h2>
+        </div>
+        <div class="question">
+          <a href="/comunitywrite">
+            <button type="button" class="btn btn-primary" onclick="" >문의글 작성하기</button>
+          </a>
+        </div>
+        
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>NO.</th>
+              <th>제목</th>
+              <th>날짜</th>
+            </tr>
+          </thead>
+          {{#boardPG}}
+          <tbody>
+            <tr>
+              <td>{{index}}</td>
+              <td><a href="/comunity/comunitydetail/{{index}}">{{title}}</a></td>
+              <td></td>
+            </tr>
+          </tbody>
+          {{/boardPG}}
+        </table>
+      </div>
+      
+ 
+      <div class="comucontainer mt-3 container">
+        <div class="help">
+            <h2>자주 찾는 도움말</h2>
+            <div></div>
+        </div>
+        
+        <table class="table">
+          <thead>
+            
+            <tr>
+              <th>NO.</th>
+              <th>제목</th>
+              <th>날짜</th>
+            </tr>
+          </thead>
+          {{#boardPG}}
+          <tbody>
+            
+            <tr>
+              <td>{{index}}</td>
+              <td><a href="/comunity/comunitydetail/{{index}}">{{title}}</a></td>
+              <td></td>
+            </tr>
+          </tbody>
+          {{/boardPG}}
+          
+        </table>
+
+      </div>
+
+    
+      
+{{> layout/footer}}

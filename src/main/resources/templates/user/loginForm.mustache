@@ -1,0 +1,70 @@
+{{> layout/header}}
+<div class="container">
+  <div class="log">
+    <h1>LogIn</h1>
+  </div>
+
+  <form action="/userLogin" method="post" class="was-validated">
+    <div class="mb-3 mt-3">
+      <label for="uname" class="form-label">아이디</label>
+      <input
+        type="text"
+        class="form-control"
+        id="uname"
+        placeholder="회원/기업 아이디"
+        name="userId"
+        required
+      />
+      <div class="valid-feedback">입력이 완료되었습니다.</div>
+      <div class="invalid-feedback">회원 또는 기업 아이디를 입력하세요.</div>
+    </div>
+    <div class="mb-3">
+      <label for="pwd" class="form-label">비밀번호</label>
+      <input
+        type="password"
+        class="form-control"
+        id="pwd"
+        placeholder="비밀번호"
+        name="password"
+        required
+      />
+      <div class="valid-feedback">입력이 완료되었습니다.</div>
+      <div class="invalid-feedback">비밀번호를 입력하세요.</div>
+    </div>
+    <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="myCheck"
+        name="remember"
+      />
+      <label class="form-check-label" for="myCheck"
+        >자동 로그인 설정하시겠습니까?</label
+      >
+      <div class="valid-feedback">자동 로그인이 설정되었습니다.</div>
+      <div class="invalid-feedback">자동 로그인 박스에 체크 해주세요.</div>
+    </div>
+
+    <span class="button-container">
+      <a
+        id="kakao-login-btn"
+        href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=b72f0eb872a2a7ac5a3292bbd93c185c&redirect_uri=http://localhost:8080/user/kakao"
+      >
+        <img
+          src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+          width="222"
+          alt="카카오 로그인 버튼"
+        />
+      </a>
+      <p id="token-result"></p>
+      <button type="button" class="btn btn-primary">
+        <a
+          href="https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=AIzaSyCFQJfQA8tT7uj-VbKc6gnmm0CAFtIgAe0"
+        ></a
+        >구글 계정 로그인
+      </button>
+      <button type="submit" class="btn btn-dark">로그인</button>
+    </span>
+  </form>
+</div>
+{{> layout/footer}}
