@@ -4,69 +4,35 @@
     <h2>이력서 작성</h2>
   </div>
   <div>
+    <form action="/resSave" method="post">
     <div class="mb-3">
       <label for="title" class="title">이력서 제목:</label>
-      <input
-        type="title"
-        class="form-control"
-        id="title"
-        name="title"
-        value=""
-        required
-      />
+      <input type="title" class="form-control" id="title" name="Title" required />
     </div>
     <div class="mb-3">
       <label for="name">이름</label>
-      <input type="text" class="form-control" id="name" name="name" value="" />
+      <input type="text" class="form-control" id="name" name="name" />
     </div>
     <div class="mb-3">
       <div>
         <label for="address">주소</label>
       </div>
-      <input
-        class="resume_postcode"
-        type="text"
-        id="postcode"
-        placeholder="우편번호"
-      />
-      <input
-        class="resume_addclick"
-        type="button"
-        onclick="DaumPostcode()"
-        value="우편번호 찾기"
-      /><br />
+      <input class="resume_postcode" type="text" id="postcode" placeholder="우편번호" />
+      <input class="resume_addclick" type="button" onclick="DaumPostcode()" value="우편번호 찾기" /><br />
       <input type="text" id="address" placeholder="주소" /><br />
       <input type="text" id="detailAddress" placeholder="상세주소" />
     </div>
     <div class="mb-3">
       <label for="phoneNum">전화번호</label>
-      <input
-        type="number"
-        class="form-control"
-        id="phoneNum"
-        name="phoneNum"
-        value=""
-      />
+      <input type="number" class="form-control" id="phoneNum" name="phoneNum" />
     </div>
     <div class="mb-3">
       <label for="email">이메일</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        name="email"
-        value=""
-      />
+      <input type="email" class="form-control" id="email" name="email" />
     </div>
     <div class="mb-3">
       <label for="homepage">깃허브 주소</label>
-      <input
-        type="text"
-        class="form-control"
-        id="homepage"
-        name="homepage"
-        value=""
-      />
+      <input type="text" class="form-control" id="homepage" name="homepage" />
     </div>
     <div class="mb-3 d-flex justify-content-between align-items-center">
       <label class="form-label" for="edu">
@@ -81,79 +47,67 @@
             <option value="석사">석사</option>
             <option value="박사">박사</option>
           </select>
-          <input
-            type="text"
-            class="form-control"
-            name="edu"
-            id="edu"
-            style="width: 1172px"
-          />
+          <input type="text" class="form-control" name="edu" id="edu" style="width: 1172px" />
         </div>
       </label>
     </div>
 
     {{! <div class="mb-3">
       <div class="skilldropdown">
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="classListDropdown"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          클래스 선택
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="classListDropdown" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          기술 선택
         </button>
         <ul class="dropdown-menu" aria-labelledby="classListDropdown">
           <li>
-            <a class="dropdown-item class-select" data-class="a">리스트 A</a>
-          </li>
-          <li>
-            <a class="dropdown-item class-select" data-class="b">리스트 B</a>
-          </li>
-          <li>
-            <a class="dropdown-item class-select" data-class="c">리스트 C</a>
-          </li>
-          <li>
-            <a class="dropdown-item class-select" data-class="d">리스트 D</a>
+            <a class="dropdown-item class-select" data-class="a">기술 선택하기</a>
           </li>
         </ul>
       </div>
     </div> }}
 
     <!-- 체크박스 그룹 -->
-    <div class="mb-3">
+    
+    <div class>
       <div class="row" style="font-size: 18px">
         <div class="리스트a">
-          
-            {{#skills}}
-            <div class="form-check form-check-inline stack-item">
-            <button class="btn btn-primary" type="button" value="{{index}}" onclick="console.log('{{index}}')">{{ skillName }}</button>
-            </div>
-            {{/skills}}
-        </div>  
-      <hr/>
-      <div>
-
-      </div>
-          
+           <h5>백엔드</h5>
+          {{#listA}}
+          <div class="form-check form-check-inline stack-item">
+            <button class="btn btn-primary" type="submit" value="{{index}}" name="skills">{{ skillName }}</button>
+          </div>
+          {{/listA}}
+          <h5>프론트엔드</h5>
+          {{#listB}}
+          <div class="form-check form-check-inline stack-item">
+            <button class="btn btn-primary" type="submit" value="{{index}}" name="skills">{{ skillName }}</button>
+          </div>
+          {{/listB}}
+          <h5>데이터베이스</h5>
+          {{#listC}}
+          <div class="form-check form-check-inline stack-item">
+            <button class="btn btn-primary" type="submit" value="{{index}}" name="skills">{{ skillName }}</button>
+          </div>
+          {{/listC}}
+          <h5>기타</h5>
+          {{#listD}}
+          <div class="form-check form-check-inline stack-item">
+            <button class="btn btn-primary" type="submit" value="{{index}}" name = "skills">{{ skillName }}</button>
+          </div>
+          {{/listD}}
         </div>
       </div>
     </div>
     <div class="mb-3">
       <label class="form-label" for="introduce">자기소개서 :</label>
     </div>
-    <textarea
-      style="width: 77.5vh"
-      name="introduce"
-      id="introduce"
-      cols="150"
-      rows="10"
-    ></textarea>
+    <textarea style="width: 77.5vh" name="introduce" id="introduce" cols="150" rows="10"></textarea>
     <div class="col-md-12 d-flex justify-content-end">
       <button type="submit" class="btn btn-primary mb-2 finishbtn">
         작성 완료
       </button>
+      </form>
     </div>
   </div>
-</div>
-{{> layout/footer}}
+
+  {{> layout/footer}}
