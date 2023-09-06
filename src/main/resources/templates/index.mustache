@@ -1,0 +1,113 @@
+{{> layout/header}}
+
+<div class="border skyblue">
+  <div id="slider-div" style="margin-top: 100px; margin-left: 20px">
+    <div class="one">
+      <img
+        src="/images/기업이미지.png"
+        width="400"
+        height="300"
+        alt="기업 이미지"
+      />
+    </div>
+    <div class="two">
+      <img
+        src="/images/기업이미지.png"
+        width="400"
+        height="300"
+        alt="기업 이미지"
+      />
+    </div>
+    <div class="three">
+      <img
+        src="/images/기업이미지.png"
+        width="400"
+        height="300"
+        alt="기업 이미지"
+      />
+    </div>
+
+    <div class="four">
+      <img
+        src="https://placehold.it/432x432"
+        width="400"
+        height="300"
+        alt="기업 이미지"
+      />
+    </div>
+    <div class="five">
+      <img
+        src="/images/기업이미지.png"
+        width="400"
+        height="300"
+        alt="기업 이미지"
+      />
+    </div>
+  </div>
+  <div id="pager">
+    <div class="prev">
+      <span>이전</span>
+    </div>
+    <div class="next">
+      <span>다음</span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col"></div>
+  <div class="search-container col">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" class="search-input" placeholder="검색어를 입력하세요" />
+    <button class="search-button">검색</button>
+  </div>
+  <div class="col"></div>
+</div>
+
+<div class="container my-2 p-1 text-center">
+  <h1>채용공고</h1>
+  <div class="index_fourcad" id="ann-div">
+    {{#annPG}}
+    <a class="card fourcard_form" href="#">
+      <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+      <div class="card-body">
+        <h4 class="card-title">{{ title }}</h4>
+        <p class="card-text">기업설명</p>
+      </div>
+    </a>
+    {{/annPG}}
+    <div id="pager">
+      <div class="ann-prev">
+        <span>이전</span>
+      </div>
+      <div class="ann-next">
+        <span>다음</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-2 p-1 text-center">
+  <h1>추천 기업</h1>
+  <div class="index_fourcad" id="comp-div">
+    {{#comPG}}
+    <a class="card fourcard_form" href="#">
+      <img class="Card_fourcard" src="./images/comp4.jpg" alt="Card image" />
+      <div class="card-body">
+        <h4 class="card-title">기업명</h4>
+        <p class="card-text">기업설명</p>
+      </div>
+    </a>
+    {{/comPG}}
+    <div id="pager">
+      <div class="comp-prev">
+        <span>이전</span>
+      </div>
+      <div class="comp-next">
+        <span>다음</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{> layout/footer}}
