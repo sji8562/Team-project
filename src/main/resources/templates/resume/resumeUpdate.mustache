@@ -135,6 +135,7 @@
             />
             <label class="form-check-label" for="stack1">자바</label>
           </div>
+<<<<<<< HEAD
           <div class="form-check form-check-inline stack-item">
             <input
               class="form-check-input stack_check a"
@@ -484,6 +485,36 @@
   </form>
   <div class="mb-3">
     <label class="form-label" for="introduce">자기소개서 :</label>
+=======
+        </label>
+      </div>
+      
+      <div class="mb-3">  
+        <div class="row">
+          {{#skills}}
+            <label class="checkbox-label">
+              <div class="col-md-3">
+              <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+              </div>
+            </label>
+          {{/skills}}
+        </div>
+      </div>
+      
+      
+  
+      <div class="mb-3">
+        <label class="form-label" for="introduce">자기소개서 :</label>
+  
+      </div>
+      <textarea name="introduce" id="introduce" cols="150" rows="10"></textarea>
+  
+      <button type="submit" class="btn text-white w-100 mb-2" style="background-color: orange; font-size: 0.8rem;">
+        수정
+      </button>
+    </form>
+  
+>>>>>>> Pic2
   </div>
   <textarea
     style="width: 77.5vh"

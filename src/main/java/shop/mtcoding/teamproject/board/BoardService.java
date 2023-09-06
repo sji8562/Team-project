@@ -54,7 +54,7 @@ public class BoardService {
 
         // // 보드레파지토리에서 페이징을 해서 리턴함
     }
-
+    
     @Transactional
     public Board 상세보기(Integer id) {
 

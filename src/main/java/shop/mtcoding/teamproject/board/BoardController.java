@@ -61,8 +61,6 @@ public class BoardController {
         Page<Board> boardQna = boardService.문의목록보기(page);
         request.setAttribute("boardHelp", boardHelp.getContent());
         request.setAttribute("boardQna", boardQna.getContent());
-        // request.setAttribute("prevPage", boardPG.getNumber() - 1);
-        // request.setAttribute("nextPage", boardPG.getNumber() + 1);
 
         return "comunity/comunityList";
 

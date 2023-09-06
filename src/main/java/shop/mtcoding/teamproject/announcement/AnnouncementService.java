@@ -5,7 +5,11 @@ import java.text.SimpleDateFormat;
 
 import java.util.Date;
 
+import java.nio.file.*;
+import java.util.List;
+
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.transaction.Transactional;
 
@@ -17,7 +21,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import shop.mtcoding.teamproject._core.error.ex.MyException;
+import shop.mtcoding.teamproject._core.vo.MyPath;
 import shop.mtcoding.teamproject.announcement.AnnouncementRequest.UpdateDTO;
+import shop.mtcoding.teamproject.skill.Skill;
 
 @Service
 public class AnnouncementService {
@@ -25,13 +31,52 @@ public class AnnouncementService {
     private AnnouncementRepository announcementRepository;
 
     @Transactional
-    public void 공고등록(Announcement announcement) {
+    public Announcement 공고등록(AnnouncementRequest.SaveDTO saveDTO) {
+        // 사진 받는 코드
+        UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌
+        String fileName = uuid + "_" + saveDTO.getPic().getOriginalFilename();
+        Path filePath = Paths.get(MyPath.IMG_PATH + fileName);
+        try {
+            Files.write(filePath, saveDTO.getPic().getBytes());
+        } catch (Exception e) {
+            throw new MyException(e.getMessage());
+        }
+        // announcement 빌드
+        Announcement announcement = Announcement.builder()
+                .experience(saveDTO.getExperience())
+                .graduation(saveDTO.getGraduation())
+                .task(saveDTO.getTask())
+                .location(saveDTO.getLocation())
+                .endTime(saveDTO.getEndTime())
+                .salary(saveDTO.getSalary())
+                .preference(saveDTO.getPreference())
+                .managerName(saveDTO.getManager())
+                .position(saveDTO.getPosition())
+                .pic(fileName)
+                .workTime(saveDTO.getWorkTime())
+                .workDay(saveDTO.getWorkDay())
+                .build();
+        // 공고 등록
         announcementRepository.save(announcement);
+
+        return announcement;
     }
 
     @Transactional
     public Announcement 공고수정(Integer id, UpdateDTO updateDTO) {
         Optional<Announcement> annOP = announcementRepository.findById(id);
+
+        UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌
+        String fileName = uuid + "_" + updateDTO.getPic().getOriginalFilename();
+        Path filePath = Paths.get(MyPath.IMG_PATH + fileName);
+
+        try {
+            Files.write(filePath, updateDTO.getPic().getBytes());
+        } catch (Exception e) {
+            throw new MyException(e.getMessage());
+        }
+        System.out.println("++++++++++++++++++++++" + fileName);
+
         if (annOP.isPresent()) {
             Announcement ann = annOP.get();
             ann.setWorkType(updateDTO.getWorkType());
@@ -45,7 +90,7 @@ public class AnnouncementService {
             ann.setPreference(updateDTO.getPreference());
             ann.setManagerName(updateDTO.getManager());
             ann.setPosition(updateDTO.getPosition());
-            ann.setPic(updateDTO.getPic());
+            ann.setPic(fileName);
             ann.setWorkTime(updateDTO.getWorkTime());
             ann.setWorkDay(updateDTO.getWorkDay());
             return ann;
