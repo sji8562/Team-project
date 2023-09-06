@@ -40,7 +40,7 @@ public class Resume {
 
     @OneToMany(mappedBy = "resume", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Apply> applies = new ArrayList<>();
-    @OneToMany(mappedBy = "resume", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "resume", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<HasSkill> hasSkill = new ArrayList<>();
 
     @Builder

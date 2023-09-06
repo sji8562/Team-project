@@ -19,12 +19,16 @@
         <div class="cardcreated">{{ updateTime }}</div>
       </div>
       <div class="cardbtn">
+        <a href="/annUpdateForm/{{index}}">
         <button type="button" name="button" class="btn text-white updatebtn">
           이력서 수정
         </button>
-        <button type="button" name="button" class="btn btn-danger deletebtn">
+        </a>
+        <form action="/annDelete/{{index}}" method="post">
+        <button type="submit" name="button" class="btn btn-danger deletebtn">
           이력서 삭제
         </button>
+        </form>
       </div>
     </div>
   </div>
