@@ -462,17 +462,14 @@ insert into Has_Skill_tb(announcement_index, skill_index) values(5,1);
 
 
 insert into Has_Skill_tb(resume_index, skill_index) values(1,1);
-insert into Has_Skill_tb(resume_index, skill_index) values(1,5);
-insert into Has_Skill_tb(resume_index, skill_index) values(1,20);
-insert into Has_Skill_tb(resume_index, skill_index) values(2,4);
-insert into Has_Skill_tb(resume_index, skill_index) values(2,11);
-insert into Has_Skill_tb(resume_index, skill_index) values(2,7);
-insert into Has_Skill_tb(resume_index, skill_index) values(3,3);
-insert into Has_Skill_tb(resume_index, skill_index) values(3,31);
+insert into Has_Skill_tb(resume_index, skill_index) values(2,1);
+insert into Has_Skill_tb(resume_index, skill_index) values(3,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(4,1);
-insert into Has_Skill_tb(resume_index, skill_index) values(4,17);
+
 insert into Has_Skill_tb(resume_index, skill_index) values(5,16);
-insert into Has_Skill_tb(resume_index, skill_index) values(5,19);
+insert into Has_Skill_tb(resume_index, skill_index) values(4,17);
+
+
 
 
 =======

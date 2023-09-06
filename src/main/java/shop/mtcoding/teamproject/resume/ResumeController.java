@@ -95,6 +95,7 @@ public class ResumeController {
 
         Resume res = resumeService.이력서상세보기(id);
         model.addAttribute("res", res);
+        model.addAttribute("skills", skills);
         return "resume/resumeUpdate";
     }
 
@@ -112,11 +113,10 @@ public class ResumeController {
     }
 
     @GetMapping("/api/applyRes")
-    public @ResponseBody List<Resume> applyRes(Model model){
+    public @ResponseBody List<Resume> applyRes(Model model) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         Integer userIndex = sessionUser.getIndex();
         return resumeService.유저의이력서보기(userIndex);
     }
-
 
 }
