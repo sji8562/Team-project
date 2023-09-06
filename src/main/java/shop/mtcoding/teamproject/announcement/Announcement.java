@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.teamproject.apply.Apply;
 import shop.mtcoding.teamproject.bigjob.BigJob;
 import shop.mtcoding.teamproject.company.Company;
 import shop.mtcoding.teamproject.skill.HasSkill;
@@ -46,8 +47,10 @@ public class Announcement {
     private String bigJobIdx; // 1:1 관계 공고는 하나의 대분류를 가지고있다.
     private String smallJobIdx; // 1:1관계 공고는 하나의 소분류를 가지고있다.
 
-    @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<HasSkill> skills = new ArrayList<>();
+    @OneToMany(mappedBy="announcement", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Apply> applies = new ArrayList<>();
     // 아직 컴퍼니 더미데이터 없어서 Integer, company로 나중에 바꿔야함
     private Integer company_id; // 1:N 관계 회사는 많은 공고를 올릴수있다
     @ManyToOne(fetch = FetchType.LAZY)

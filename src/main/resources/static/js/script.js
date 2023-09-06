@@ -323,3 +323,9 @@ async function saveReply() {
     alert(responseBody.data);
   }
 }
+
+function resList() {
+  document.querySelector("#modalTitle").innerText = '이 공고에 지원할 이력서를 선택해주세요';
+  
+  let requestBody 
+}

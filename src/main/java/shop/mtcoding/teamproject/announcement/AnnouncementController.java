@@ -15,17 +15,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import shop.mtcoding.teamproject.resume.Resume;
+import shop.mtcoding.teamproject.resume.ResumeService;
 import shop.mtcoding.teamproject.skill.HasSkill;
 import shop.mtcoding.teamproject.skill.HasSkillService;
 import shop.mtcoding.teamproject.skill.Skill;
 import shop.mtcoding.teamproject.skill.SkillService;
 import shop.mtcoding.teamproject.skill.HasSkillRequest.annSaveDTO;
+import shop.mtcoding.teamproject.user.User;
 
 @Controller
 public class AnnouncementController {
 
     @Autowired
     private AnnouncementService announcementService;
+    @Autowired
+    private ResumeService resumeService;
     @Autowired
     private SkillService skillService;
     @Autowired

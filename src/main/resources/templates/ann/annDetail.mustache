@@ -7,7 +7,35 @@
                 <h2>공고 타이틀</h2>
             </div>
             <div>
-                <button type="button" name="button" class="btn btn-primary">지원하기</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="resList()">
+                        지원하기
+                      </button>
+                      
+                      <!-- The Modal -->
+                      <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                      
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">Modal Heading</h4>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                      
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                              Modal body..
+                            </div>
+                      
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </div>
+                      
+                          </div>
+                        </div>
+                      </div>
+                </form>
             </div>
         </div>
         <div class="container">
@@ -56,7 +84,37 @@
                             <p>남은시간쓰는 자리</p>
                             <p><b class="border">{{#ann.startTime}}{{ann.startTime}}{{/ann.startTime}}</b></p>
                             <p><b class="border">{{#ann.endTime}}{{ann.endTime}}{{/ann.endTime}}</b></p>
-                            <button type="button" name="button" class="btn btn-primary">지원하기</button>
+                            <div class="container mt-3">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                            Open modal
+                            </button>
+                            </div>
+
+<!-- The Modal -->
+                        <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modaTitle"></h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Modal body..
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            </div>
+
+                            </div>
+                        </div>
+                        </div>
+
                         </div>
                     </div>
 

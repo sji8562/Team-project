@@ -460,14 +460,11 @@ insert into Has_Skill_tb(announcement_index, skill_index) values(3,4);
 insert into Has_Skill_tb(announcement_index, skill_index) values(4,5);
 insert into Has_Skill_tb(announcement_index, skill_index) values(5,1);
 
-<<<<<<<<< Temporary merge branch 1
+
 insert into Has_Skill_tb(resume_index, skill_index) values(1,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(2,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(3,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(4,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(5,1);
-=========
 
-
->>>>>>>>> Temporary merge branch 2
 
