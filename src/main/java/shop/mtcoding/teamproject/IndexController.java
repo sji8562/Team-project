@@ -35,9 +35,6 @@ public class IndexController {
     @Autowired
     private BigJobService bigJobService;
 
-    @Autowired
-    private SmallJobService smallJobService;
-
     @GetMapping("/")
     public String index(@RequestParam(defaultValue = "0") Integer page1,
             @RequestParam(defaultValue = "0") Integer page2, HttpServletRequest request) {
@@ -64,6 +61,11 @@ public class IndexController {
     public String logout() {
         session.invalidate();
         return "redirect:/";
+    }
+
+    @GetMapping("/searchForm")
+    public String searching() {
+        return "/search/searchForm";
     }
 
 }
