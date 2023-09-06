@@ -85,7 +85,6 @@ public class AnnouncementController {
 
     @PostMapping("/annDelete/{id}")
     public String annDelete(@PathVariable Integer id) {
-        System.out.println("컨트롤러는 돌아가나???????????");
         announcementService.공고삭제(id);
         return "redirect:/annlist";
     }

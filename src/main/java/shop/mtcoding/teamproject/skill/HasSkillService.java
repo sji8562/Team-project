@@ -1,5 +1,7 @@
 package shop.mtcoding.teamproject.skill;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +30,18 @@ public class HasSkillService {
         return hasSkill;
     }
     @Transactional
-    public HasSkill 이력서스킬수정(Integer resId, Skill skills) {
-        HasSkill hasSkill = hasSkillRepository.findByresIdx(resId);
-        hasSkill.setSkill(skills);
-        return hasSkill;
+    public List<HasSkill> 이력서스킬수정(Integer resId, Skill skills) {
+        List<HasSkill> hasSkills = hasSkillRepository.findByresIdx(resId);
+        for (HasSkill hasSkill : hasSkills) {
+            hasSkill.setSkill(skills);
+            hasSkillRepository.save(hasSkill);
+        }
+        return hasSkills;
+    }
+
+    public List<HasSkill> 이력서스킬목록(Integer id){
+        List<HasSkill> hasSkills = hasSkillRepository.findByresIdx(id);
+        return hasSkills;
     }
 
     
