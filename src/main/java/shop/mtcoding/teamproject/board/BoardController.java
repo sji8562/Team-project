@@ -62,6 +62,18 @@ public class BoardController {
         request.setAttribute("boardHelp", boardHelp.getContent());
         request.setAttribute("boardQna", boardQna.getContent());
 
+        return "comunity/comunityIndex";
+
+    }
+
+    @GetMapping("/comunityList")
+    public String boardList(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request) {
+
+        Page<Board> boardHelp = boardService.도움말목록보기(page);
+        Page<Board> boardQna = boardService.문의목록보기(page);
+        request.setAttribute("boardHelp", boardHelp.getContent());
+        request.setAttribute("boardQna", boardQna.getContent());
+
         return "comunity/comunityList";
 
     }

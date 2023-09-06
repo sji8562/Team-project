@@ -19,32 +19,38 @@ public class CompanyController {
     private HttpSession session;
 
     @GetMapping("/companyJoinForm")
-    public String cjoinForm(){
+    public String cjoinForm() {
         return "/company/joinForm";
     }
+
     @GetMapping("/companyLoginForm")
-    public String cloginForm(){
+    public String cloginForm() {
         return "/company/loginForm";
     }
 
     @GetMapping("/companyupdateForm")
-    public String cupdate(){
+    public String cupdate() {
         return "/company/updateForm";
     }
 
+    @GetMapping("companyDetailForm")
+    public String cdetailForm() {
+        return "/company/compinfoDetail";
+    }
+
     @PostMapping("/companyJoin")
-    public String cjoin(CompanyRequest.compJoinDTO comjoinDTO){
+    public String cjoin(CompanyRequest.compJoinDTO comjoinDTO) {
         companyService.compjoin(comjoinDTO);
         return "/";
 
     }
 
     @PostMapping("/companyLogin")
-    public void clogin(CompanyRequest.companyLoginDTO compLoginDTO,HttpServletResponse response) throws IOException{
+    public void clogin(CompanyRequest.companyLoginDTO compLoginDTO, HttpServletResponse response) throws IOException {
         Company sessioCompany = companyService.companylogin(compLoginDTO);
         session.setAttribute("sessionCompany", sessioCompany);
-        
+
         response.sendRedirect("/");
     }
-    
+
 }

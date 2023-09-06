@@ -285,3 +285,41 @@ function getCookie(name) {
     );
   });
 }
+
+async function deleteReply(id) {
+  let response = await fetch(`/api/reply/${id}/delete`, {
+    method: "delete",
+  });
+  let responseBody = await response.json();
+  if (responseBody.sucuess) {
+    location.reload();
+  } else {
+    alert(responseBody.data);
+  }
+}
+
+async function saveReply() {
+  let requestBody = {
+    boardId: document.querySelector("#boardId").value,
+    comment: document.querySelector("#comment").value,
+  };
+
+  console.log(requestBody);
+
+  let response = await fetch("/api/reply/save", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  });
+
+  let responseBody = await response.json();
+  console.log(responseBody);
+
+  if (responseBody.sucuess) {
+    location.reload();
+  } else {
+    alert(responseBody.data);
+  }
+}
