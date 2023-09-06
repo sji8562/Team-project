@@ -17,35 +17,35 @@
             <section class="main">
                 <div class="왼쪽화면틀 leftform">
                     <div class="왼쪽상단상단 left_top_top">
-                        <div class="synopsis">이력서 제목</div>
+                        <div class="synopsis">{{#res.title}}{{res.title}}{{/res.title}}</div>
                     </div>  
                     <div class="왼쪽중단 left_mid">
-                        <div class="왼쪽중단왼쪽 left_midleft"><img class="user_pic" src="../images/basic.jpg"></div>
+                        <div class="왼쪽중단왼쪽 left_midleft"><img class="user_pic" src="{{#res.pic}}{{res.pic}}{{/res.pic}}"></div>
                         <div class="왼쪽중단오른쪽 infodetails">
                             <dl>
                                 <dt class="내용1">
                                 이름
-                                    <dd class="내용1">홍길동</dd>
+                                    <dd class="내용1">{{#user.username}}{{user.username}}{{/user.username}}</dd>
                                 </dt>
                                 <dt class="내용1">
                                 생년월일
-                                    <dd class="내용1" >2023년</dd>
+                                    <dd class="내용1" >{{#user.birthday}}{{user.birthday}}{{/user.birthday}}</dd>
                                 </dt>
                                 <dt class="내용1" >
                                 주소
-                                    <dd class="내용1" >대전 대덕구 벚꽃길 71</dd>
+                                    <dd class="내용1" >{{#user.address}}{{user.address}}{{/user.address}}</dd>
                                 </dt>
                                 <dt class="내용1" >
                                 연락처
-                                    <dd class="내용1" >070-1515-1231</dd>
+                                    <dd class="내용1" >{{#user.phoneNumber}}{{user.phoneNumber}}{{/user.phoneNumber}}</dd>
                                 </dt>
                                 <dt class="내용1" >
                                 이메일
-                                    <dd class="내용1" >a@asd.com</dd>
+                                    <dd class="내용1" >{{#user.email}}{{user.email}}{{/user.email}}</dd>
                                 </dt>
                                 <dt class="내용1" >
                                 홈페이지
-                                    <dd class="내용1" >http://www.kgc.co.kr</dd>
+                                    <dd class="내용1" >{{#res.homepage}}{{res.homepage}}{{/res.homepage}}</dd>
                                 </dt>
                             </dl>                                       
                         </div>                      
@@ -53,16 +53,18 @@
                     
                     <div class="왼쪽중단하단 left_midbottom">
                         <div class="left_midbottomfont">학력</div>
-                        <div class="내용1 left_textarea">내용</div>
+                        <div class="내용1 left_textarea">{{#res.education}}{{res.education}}{{/res.education}}</div>
                         <div class="left_midbottomfont">경력</div>
-                        <div class="내용1 left_textarea">내용</div>
+                        <div class="내용1 left_textarea">{{#res.experience}}{{res.experience}}{{/res.experience}}</div>
                     </div>                  
                     
-                    <div class="왼쪽하단 ">
+                    <div class="왼쪽하단">
                         <div class="left_midbottomfont">기술스택</div>
-                        <div class="내용1 left_textarea">내용</div>
+                        {{#skills}}
+                        <div class="내용1 left_textarea">{{skill.skillName}}</div>
+                        {{/skills}}
                         <div class="left_midbottomfont">자소서</div>
-                        <div class="내용1 left_textarea">내용</div>
+                        <div class="내용1 left_textarea">{{#res.introduce}}{{res.introduce}}{{/res.introduce}}</div>
                     </div>
                 </div>
                 <div>

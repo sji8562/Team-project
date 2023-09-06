@@ -320,6 +320,7 @@ insert into skill_tb(skill_name) values ('Ruby');
 insert into skill_tb(skill_name) values ('C#');
 insert into skill_tb(skill_name) values ('Swift');
 insert into skill_tb(skill_name) values ('Kotlin');
+insert into skill_tb(skill_name) values ('Spring Boot');
 insert into skill_tb(skill_name) values ('Java Script');
 insert into skill_tb(skill_name) values ('React');
 insert into skill_tb(skill_name) values ('Angula');
@@ -330,7 +331,6 @@ insert into skill_tb(skill_name) values ('Node.js');
 insert into skill_tb(skill_name) values ('Django');
 insert into skill_tb(skill_name) values ('Flask');
 insert into skill_tb(skill_name) values ('Lalavel');
-insert into skill_tb(skill_name) values ('Spring Boot');
 insert into skill_tb(skill_name) values ('Asp.net');
 insert into skill_tb(skill_name) values ('Express.js');
 insert into skill_tb(skill_name) values ('MySQL');
@@ -366,17 +366,17 @@ insert into user_tb(user_id, password, username, email, phone_number, address, a
 
 
 
-insert into resume_tb(title, education, school, skill, introduce, homepage, experience, status, user_index) values('유년기의 귀사에 대한 기억을 소중히 여겨왔습니다.', '대졸', '그린대학교', '프론트엔드', '과거 공항에서 미아가 될 뻔했던 저를 도와주신 직원 분의 친절은, 이후 제가 공항에 관련된 업무를 탐색하며 적극적으로 저의 길을 찾아가게 하는 계기가 되었습니다. 작고 어렸을 뿐인 저의 존재도 제가 돌아가야 할 제자리인 부모님의 품에 돌려놓기 위해 애썼던 그 분처럼, 비행기를 타고 날아오는 수많은 수화물이 진정 돌아가야 할 곳을 찾아주는 귀사의 업무 체계는, 어린 시절의 저와 같이 작고 가벼워 보이는 수화물 하나라도 허투루 취급하지 않겠다는 마음가짐으로 저의 열정을 다하기 위한 장소로서, 귀사에 몸담아 열정적으로 일하고픈 욕구를 들게 하였습니다.', 'https://github.com/sji8562', '경력', 'true','5');
+insert into resume_tb(title, education, school, skill, introduce, homepage, experience, status, user_index) values('유년기의 귀사에 대한 기억을 소중히 여겨왔습니다.', '대졸', '그린대학교', '프론트엔드', '과거 공항에서 미아가 될 뻔했던 저를 도와주신 직원 분의 친절은, 이후 제가 공항에 관련된 업무를 탐색하며 적극적으로 저의 길을 찾아가게 하는 계기가 되었습니다. 작고 어렸을 뿐인 저의 존재도 제가 돌아가야 할 제자리인 부모님의 품에 돌려놓기 위해 애썼던 그 분처럼, 비행기를 타고 날아오는 수많은 수화물이 진정 돌아가야 할 곳을 찾아주는 귀사의 업무 체계는, 어린 시절의 저와 같이 작고 가벼워 보이는 수화물 하나라도 허투루 취급하지 않겠다는 마음가짐으로 저의 열정을 다하기 위한 장소로서, 귀사에 몸담아 열정적으로 일하고픈 욕구를 들게 하였습니다.', 'https://github.com/sji8562', '경력', 'true',5);
 
-insert into resume_tb(title, education, school, skill, introduce, homepage, experience, status, user_index) values('고객의 불안심리를 안정적이게 만들어주는 사람이 되고자 합니다.', '대졸', '그린대학교', '백엔드', '만약 제가 귀사에 입사한다면, 어릴 때부터 타인보다 과도한 불안을 가지고 제 미래를 준비하려 애썼던 입장에서, 다양한 고객들의 불안 심리와 안정을 추구하고자 하는 마음가짐을 이해하고 가장 적절한 상품을 찾아 서로의 니즈를 충족시켜 주기 위한 수단을 열심히 강구하겠습니다. 과거의 제가 삶의 불안감을 지탱하기 위한 수단으로 집단의 힘을 믿었듯, 저는 수많은 사람들의 불확실한 미래를 대비하기 위해 이미 견고한 결속력이 이루어져온 시스템의 일부에 속하는 안정감으로, 고객들을 안정시키고 보험의 기반을 더욱 튼튼히 닦아가고자 노력하겠습니다.', 'https://github.com/sji8562', '신입', 'false', '5');
+insert into resume_tb(title, education, school, skill, introduce, homepage, experience, status, user_index) values('고객의 불안심리를 안정적이게 만들어주는 사람이 되고자 합니다.', '대졸', '그린대학교', '백엔드', '만약 제가 귀사에 입사한다면, 어릴 때부터 타인보다 과도한 불안을 가지고 제 미래를 준비하려 애썼던 입장에서, 다양한 고객들의 불안 심리와 안정을 추구하고자 하는 마음가짐을 이해하고 가장 적절한 상품을 찾아 서로의 니즈를 충족시켜 주기 위한 수단을 열심히 강구하겠습니다. 과거의 제가 삶의 불안감을 지탱하기 위한 수단으로 집단의 힘을 믿었듯, 저는 수많은 사람들의 불확실한 미래를 대비하기 위해 이미 견고한 결속력이 이루어져온 시스템의 일부에 속하는 안정감으로, 고객들을 안정시키고 보험의 기반을 더욱 튼튼히 닦아가고자 노력하겠습니다.', 'https://github.com/sji8562', '신입', 'false', 5);
 
 insert into resume_tb(title, education, school, skill, introduce, homepage, experience, status, user_index) values('창의적인 이벤트 기획자의 시대', '대졸', '서면대학교', '관세사', '국제회의나 전시 같은 중요한 자리를 기획하고 운영하는 것도 가치 있는 일이지만, 저는 사람들이 자기가 사랑하는 사람들을 위해 감동적인 이벤트를 선물하는 것을 도와주는 일에서 보람과 행복을 느낍니다. 개인이 주최하는 파티나 이벤트 수요가 많아지고 있기 때문에, 고객들의 요구를 잘 반영한 독특하고 창의적인 이벤트 기획자가 더 필요한 시대가 되었습니다.
-실무를 통해 익힌 전문적인 지식을 토대로 고객들에게 행복을 주는 이벤트기획자가 되겠습니다. 주어진 일은 책임감 있게 끝까지 해내겠습니다. 제가 리드해야 할 때에는 리더십과 행동력으로, 제가 조력해야 할 때에는 배려로 맡은 일을 완수하겠습니다.', 'https://github.com/chaechae', '경력', 'true', '3');
+실무를 통해 익힌 전문적인 지식을 토대로 고객들에게 행복을 주는 이벤트기획자가 되겠습니다. 주어진 일은 책임감 있게 끝까지 해내겠습니다. 제가 리드해야 할 때에는 리더십과 행동력으로, 제가 조력해야 할 때에는 배려로 맡은 일을 완수하겠습니다.', 'https://github.com/chaechae', '경력', 'true', 3);
 
-insert into resume_tb(title, education, school, skill, introduce, homepage, experience, status, user_index) values('회사의 성장이라는 하나의 목표를 향해', '대졸', '마마대학교', '수출입사무', '입사하면, 저의 경험은 경험대로 실무에 적용하되, 신입의 마음으로 회사의 분위기와 업무스타일도 빠르게 익히겠습니다. 동료들과의 부서 간 커뮤니케이션에는 배려와 존중을 미덕으로 삼아 모두가 회사의 성장이라는 하나의 목표를 향해 나아갈 수 있도록 지원을 아끼지 않는 최고의 영업지원 인재가 되겠습니다.', 'https://github.com/heidi505', '신입', 'true', '2');
+insert into resume_tb(title, education, school, skill, introduce, homepage, experience, status, user_index) values('회사의 성장이라는 하나의 목표를 향해', '대졸', '마마대학교', '수출입사무', '입사하면, 저의 경험은 경험대로 실무에 적용하되, 신입의 마음으로 회사의 분위기와 업무스타일도 빠르게 익히겠습니다. 동료들과의 부서 간 커뮤니케이션에는 배려와 존중을 미덕으로 삼아 모두가 회사의 성장이라는 하나의 목표를 향해 나아갈 수 있도록 지원을 아끼지 않는 최고의 영업지원 인재가 되겠습니다.', 'https://github.com/heidi505', '신입', 'true', 2);
 
 insert into resume_tb(title, education, school, skill, introduce, experience, status, user_index) values('R&D 부서의 핵심인재가 되겠습니다!', '대졸', '코코대학교', '백엔드', '강관사업으로 제조업에 첫발을 디딘 이래 50년이 넘는 역사를 만들어오면서 한국의 철강제조분야의 견실한 중견 그룹으로 성장한 그룹은 많은 개발자가 동경하는 꿈의 직장입니다. 특수강, 자동차부품, 용접재료, 산업기계 등 대한민국을 대표하는 철강소재 전문기업의 일원이 된다는 것은 개발자로서 프라이드를 드높일 기회라고 생각합니다.
-세계 최고의 철강 기술력 확보를 위한 제강의 Think Tank 임무를 수행하는 R&D 부서의 연구원으로서, 생산 설비의 신설과 증설, 핵심기술 연구, 신사업 아이템 및 기술 개발, 원재료 및 부재료 개발에 혁혁한 성과를 내어 세아가 한 단계 더 성장하는 발판을 마련하겠습니다.', '경력', 'true', '4');
+세계 최고의 철강 기술력 확보를 위한 제강의 Think Tank 임무를 수행하는 R&D 부서의 연구원으로서, 생산 설비의 신설과 증설, 핵심기술 연구, 신사업 아이템 및 기술 개발, 원재료 및 부재료 개발에 혁혁한 성과를 내어 세아가 한 단계 더 성장하는 발판을 마련하겠습니다.', '경력', 'true', 4);
 
 
 
@@ -459,3 +459,17 @@ insert into Has_Skill_tb(announcement_index, skill_index) values(2,3);
 insert into Has_Skill_tb(announcement_index, skill_index) values(3,4);
 insert into Has_Skill_tb(announcement_index, skill_index) values(4,5);
 insert into Has_Skill_tb(announcement_index, skill_index) values(5,1);
+
+insert into Has_Skill_tb(resume_index, skill_index) values(1,1);
+insert into Has_Skill_tb(resume_index, skill_index) values(1,5);
+insert into Has_Skill_tb(resume_index, skill_index) values(1,20);
+insert into Has_Skill_tb(resume_index, skill_index) values(2,4);
+insert into Has_Skill_tb(resume_index, skill_index) values(2,11);
+insert into Has_Skill_tb(resume_index, skill_index) values(2,7);
+insert into Has_Skill_tb(resume_index, skill_index) values(3,3);
+insert into Has_Skill_tb(resume_index, skill_index) values(3,31);
+insert into Has_Skill_tb(resume_index, skill_index) values(4,1);
+insert into Has_Skill_tb(resume_index, skill_index) values(4,17);
+insert into Has_Skill_tb(resume_index, skill_index) values(5,16);
+insert into Has_Skill_tb(resume_index, skill_index) values(5,19);
+
