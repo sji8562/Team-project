@@ -2,6 +2,8 @@ package shop.mtcoding.teamproject.announcement;
 
 import java.sql.Timestamp;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +23,7 @@ public class AnnouncementRequest {
         private String preference; //우대조건
         private String manager; //대표자
         private String position; //직급
-        private String pic;
+        private MultipartFile pic;
         private String workTime;
         private String workDay;  
     }
@@ -40,7 +42,7 @@ public class AnnouncementRequest {
         private String preference; //우대조건
         private String manager; //대표자
         private String position; //직급
-        private String pic;
+        private MultipartFile pic;
         private String workTime;
         private String workDay;  
     }

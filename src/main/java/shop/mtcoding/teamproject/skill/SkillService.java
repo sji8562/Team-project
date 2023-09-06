@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SkillService {
-    @Autowired
-    private SkillRepository skillRepository;
+  @Autowired
+  private SkillRepository skillRepository;
 
-   public List<Skill> 스킬목록보기(){
-     return skillRepository.findAll();
-   } 
+  public List<Skill> 스킬목록보기() {
+    return skillRepository.findAll();
+  }
 
-   public Skill 스킬상세보기(Integer index){
-     return skillRepository.findById(index).get();
-   }
+  public Skill 스킬상세보기(Integer index) {
+    return skillRepository.findById(index).get();
+  }
 }

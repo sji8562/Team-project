@@ -50,11 +50,11 @@ public class ResumeController {
     @PostMapping("/resSave")
     public String resumeSave(Resume res, Skill skills) {
         resumeService.이력서등록(res);
-
         HasSkill hasSkill = new HasSkill();
         hasSkill.setResume(res);
         hasSkill.setSkill(skills);
-        hasSkillService.등록(hasSkill);
+
+        hasSkillService.이력서스킬등록(res, skills);
 
         return "redirect:/resList";
     }
@@ -72,13 +72,13 @@ public class ResumeController {
         Resume res = resumeService.이력서상세보기(id);
         model.addAttribute("res", res);
         model.addAttribute("skills", skills);
-        System.out.println("++++++++++++++++++++++"+skills);
+        System.out.println("++++++++++++++++++++++" + skills);
         return "resume/resumeUpdate";
     }
 
     @PostMapping("/resUpdate/{id}")
     public String resumeUpdate(@PathVariable Integer id, Resume res, Skill skills) {
-        resumeService.이력서수정(id,res);
+        resumeService.이력서수정(id, res);
         hasSkillService.이력서스킬수정(id, skills);
         return "redirect:/resDetail/"+id;
     }

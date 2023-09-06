@@ -39,14 +39,9 @@ public class AnnouncementController {
     }
 
     @PostMapping("/annSave")
-    public String annSave(Announcement announcement, Skill skills) {
-        announcementService.공고등록(announcement);
-
-        HasSkill hasSkill = new HasSkill();
-        hasSkill.setAnnouncement(announcement);
-        hasSkill.setSkill(skills);
-        hasSkillService.등록(hasSkill);
-
+    public String annSave(AnnouncementRequest.SaveDTO saveDTO, Skill skills) {
+        Announcement announcement = announcementService.공고등록(saveDTO);
+        hasSkillService.공고스킬등록(announcement, skills);
         return "redirect:/annlist";
     }
 
