@@ -13,6 +13,7 @@ public interface HasSkillRepository extends JpaRepository<HasSkill, Integer> {
     HasSkill findByAnnIdx(@Param("announcement_index") Integer announcement_index);
 
     @Query(value = "select * from Has_Skill_tb where resume_index = :resume_index", nativeQuery = true)
-    HasSkill findByresIdx(@Param("resume_index") Integer resume_index);
-
+    List<HasSkill> findByresIdx(@Param("resume_index") Integer resume_index);
+     
+    
 }
