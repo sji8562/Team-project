@@ -254,31 +254,32 @@ function getCookie(name) {
       }
     );
   });
-
-  // join
-  function UserJoinForm() {
-    window.location.href = "/userJoinForm";
-  }
-  function CompJoinForm() {
-    window.location.href = "/compJoinForm";
-  }
-
-  // skill
-  $(document).ready(function () {
-    // 페이지 로드 시 모든 체크박스 컨테이너를 숨깁니다.
-    $(".row > div").hide();
-
-    $(".class-select").click(function () {
-      var selectedClass = $(this).data("class");
-
-      // 모든 체크박스 컨테이너를 숨깁니다.
-      $(".row > div").hide();
-
-      // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
-      $(".리스트" + selectedClass).show();
-    });
-  });
 }
+
+// join
+function UserJoinForm() {
+  window.location.href = "/userJoinForm";
+}
+function CompJoinForm() {
+  window.location.href = "/compJoinForm";
+}
+
+// skill
+//   $(document).ready(function () {
+//     // 페이지 로드 시 모든 체크박스 컨테이너를 숨깁니다.
+//     // $(".row > div").hide();
+
+//     $(".class-select").click(function () {
+//       var selectedClass = $(this).data("class");
+
+//       // 모든 체크박스 컨테이너를 숨깁니다.
+//       $(".row > div").hide();
+
+//       // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
+//       $(".리스트" + selectedClass).show();
+//     });
+//   });
+// }
 
 // nav
 
@@ -291,28 +292,4 @@ $(document).ready(function () {
       $(this).find(".dropdown-menu").removeClass("show");
     }
   );
-});
-
-// join
-function UserJoinForm() {
-  window.location.href = "./user/UserJoinForm.html";
-}
-function CompJoinForm() {
-  window.location.href = "./company/CompJoinForm.html";
-}
-
-// skill
-$(document).ready(function () {
-  // 페이지 로드 시 모든 체크박스 컨테이너를 숨깁니다.
-  $(".row > div").hide();
-
-  $(".class-select").click(function () {
-    var selectedClass = $(this).data("class");
-
-    // 모든 체크박스 컨테이너를 숨깁니다.
-    $(".row > div").hide();
-
-    // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
-    $(".리스트" + selectedClass).show();
-  });
 });

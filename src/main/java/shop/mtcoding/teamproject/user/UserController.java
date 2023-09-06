@@ -1,6 +1,7 @@
 package shop.mtcoding.teamproject.user;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import shop.mtcoding.teamproject.bigjob.BigJob;
+import shop.mtcoding.teamproject.bigjob.BigJobService;
+
 @Controller
 public class UserController {
 
@@ -19,6 +23,9 @@ public class UserController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private BigJobService bigJobService;
 
     @GetMapping("/user/kakao")
     public @ResponseBody String kakao(String code, HttpServletResponse response)
@@ -59,7 +66,9 @@ public class UserController {
     @PostMapping("/userLogin")
     public void userLogin(UserRequest.userLoginDTO loginDTO, HttpServletResponse response) throws IOException {
         User sessionUser = userService.userlogin(loginDTO);
+
         session.setAttribute("sessionUser", sessionUser);
+
         response.sendRedirect("/");
     }
 

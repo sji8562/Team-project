@@ -29,8 +29,9 @@
                             <img class="hamberger" src="../images/hamberger.jpg" alt="햄버거">
                         </a>
                         <ul class="dropdown-menu jdd-m">
+                            {{#bigjobs}}
                             <li class="dropdown-submenu jdd-subm" data-toggle="dropdown" data-hover="dropdown">
-                                <a class="dropdown-item" href="#">식전</a>
+                                <a class="dropdown-item" href="#">{{bigName}}</a>
                                 <ul class="dropdown-menu jdd-m">
                                     <li><a class="dropdown-item" href="#">물</a></li>
                                     <li><a class="dropdown-item" href="#">음료</a></li>
@@ -40,6 +41,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            {{/bigjobs}}
                             <li class="dropdown-submenu jdd-subm">
                                 <a class="dropdown-item" href="#">본식</a>
                                 <ul class="dropdown-menu jdd-m">
