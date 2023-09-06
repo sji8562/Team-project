@@ -18,6 +18,7 @@ import shop.mtcoding.teamproject.bigjob.BigJobService;
 import shop.mtcoding.teamproject.company.Company;
 import shop.mtcoding.teamproject.company.CompanyService;
 import shop.mtcoding.teamproject.reply.Reply;
+import shop.mtcoding.teamproject.smalljob.SmallJobService;
 
 @Controller
 public class IndexController {
@@ -34,13 +35,15 @@ public class IndexController {
     @Autowired
     private BigJobService bigJobService;
 
+    @Autowired
+    private SmallJobService smallJobService;
+
     @GetMapping("/")
     public String index(@RequestParam(defaultValue = "0") Integer page1,
             @RequestParam(defaultValue = "0") Integer page2, HttpServletRequest request) {
         Page<Announcement> annPG = announcementService.index공고목록보기(page1);
         Page<Company> comPG = companyService.공고목록보기(page2);
         List<BigJob> bigJobs = bigJobService.BigJobList();
-        System.out.println("test1234" + bigJobs);
         session.setAttribute("bigjobs", bigJobs);
         request.setAttribute("annPG", annPG.getContent());
         request.setAttribute("comPG", comPG.getContent());
