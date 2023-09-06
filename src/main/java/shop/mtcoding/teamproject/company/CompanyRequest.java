@@ -1,12 +1,15 @@
 package shop.mtcoding.teamproject.company;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 
 public class CompanyRequest {
-    
-    @Getter @Setter
-    public static class compJoinDTO{
+
+    @Getter
+    @Setter
+    public static class compJoinDTO {
         private String companyId;
         private String companyName;
         private String password;
@@ -18,11 +21,25 @@ public class CompanyRequest {
 
         // private MultipartFile pic;
     }
-    @Getter 
+
+    @Getter
     @Setter
-    public static class companyLoginDTO{
+    public static class companyLoginDTO {
         private String companyId;
         private String password;
     }
-    
+
+    @Getter
+    @Setter
+    public static class UpdateDTO {
+        private String companyName;
+        private String password;
+        private String email;
+        private String address;
+        private String addressDetail;
+        private String phoneNum;
+        private String homepage;
+
+    }
+
 }
