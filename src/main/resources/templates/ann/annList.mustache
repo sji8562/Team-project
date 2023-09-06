@@ -1,31 +1,34 @@
 {{> layout/header}}
-<div class="all">
-    <div class="container">
-        <div class="listtitle">채용 공고 관리</div>
-        <div class="button">
-        <a href="/annSaveForm">
-        <button type="button" name="button" class="btn btn-primary" style="float: right; margin-bottom: 7px;"><span style="color: black; font-weight: bold;">+</span>
-        채용공고 등록</button>
-        </a>
-        </div>
-      </div>
-    {{#annPG}}
-    <div class="container">
-      <div class="container custom-container d-flex justify-content-between align-items-center">
-          <a href="/annDetail/{{index}}">
-          <div class="details">제목</div>
-          </a>
-          <div class="d-flex flex-column align-items-center" style="margin-right: 60px;">
-            <a href="/annUpdateForm/{{index}}">
-            <button type="button" name="button" class="btn text-white w-100 mb-2" style="background-color: orange; font-size: 0.8rem;">Edit</button>
-            </a>
-            <form action="/annDelete/{{index}}" method="post">
-            <button type="submit" class="btn btn-danger w-100" style="font-size: 0.8rem;">Delete</button>
-            </form>
-            </div>
+
+<div class="listmng">
+  <div class="topform">
+    <div class="top_title">
+      채용 공고 관리
+      <div class="button insertform">
+        <button type="button" name="button" class="btn btn-primary">
+          <span class="insertbtn">+</span>채용공고 등록
+        </button>
       </div>
     </div>
-    {{/annPG}} 
-
+  </div>
+  {{#annPG}}
+  <div class="boardform">
+    <div class="cardform">
+      <div class="cardtitleform">
+        <div class="cardtitle">{{ title }}</div>
+        <div class="cardcreated">{{ updateTime }}</div>
+      </div>
+      <div class="cardbtn">
+        <button type="button" name="button" class="btn text-white updatebtn">
+          이력서 수정
+        </button>
+        <button type="button" name="button" class="btn btn-danger deletebtn">
+          이력서 삭제
+        </button>
+      </div>
+    </div>
+  </div>
+  {{/annPG}}
 </div>
+
 {{> layout/footer}}

@@ -1,53 +1,82 @@
 {{> layout/header}} 
-<body>
-    <main>
-        <div class="formmain">
-            <div class="detailtop" name="resume_title">
-                <div>{{res.title}}</div>
-                <div class="update">
-                    <a href="/resUpdateForm/{{res.index}}">
-                    <button type="submit" class="btn btn-primary form-control">수정하기</button>
-                    </a>
+
+
+    <div class="상세보기바디 compdetail_body">
+        <div class="상세보기틀 form">
+            <section class="상단 sectop">
+                <div class="기업이름텍스트 sectoptitle">
+                    <div class="메인타이틀 maintitle">이력서</div>
                 </div>
-            </div>
-            <section>
-                <div class="formsection">
-                    <div class="pubinfo">
-                        <div class="user_pic" name="user_pic">
-                            <img id="preview" src="/images/basic.jpg" style="display: inline-block;">
-                        </div>
-                        <div class="infodetails">
+                <div class="상단오른쪽 top_right">
+                        <button type="button" class="수정하기버튼 btn updatebtn">수정하기</button>
+                        <button type="button" class="북마크 버튼 btn scrap_icon bookmarkbtn">
+                            <i class="fas fa-star"></i>
+                        </button>
+                </div>
+            </section>
+            <section class="main">
+                <div class="왼쪽화면틀 leftform">
+                    <div class="왼쪽상단상단 left_top_top">
+                        <div class="synopsis">이력서 제목</div>
+                    </div>  
+                    <div class="왼쪽중단 left_mid">
+                        <div class="왼쪽중단왼쪽 left_midleft"><img class="user_pic" src="../images/basic.jpg"></div>
+                        <div class="왼쪽중단오른쪽 infodetails">
                             <dl>
-                                <dt name="user_name"></dt>
-                                <dd>기업</dd>
-                                <dt name="birth">생년월일</dt>
-                                <dd>1111년</dd>
-                                <dt name="user_address">주소</dt>
-                                <dd>부산시</dd>
-                                <dt name="tel">연락처</dt>
-                                <dd>1234</dd>
-                                <dt name="email">이메일</dt>
-                                <dd>a@asd.com</dd>
-                                <dt name="homepage">홈페이지(Git)</dt>
-                                <dd>{{res.homepage}}</dd>
-                            </dl>
+                                <dt class="내용1">
+                                이름
+                                    <dd class="내용1">홍길동</dd>
+                                </dt>
+                                <dt class="내용1">
+                                생년월일
+                                    <dd class="내용1" >2023년</dd>
+                                </dt>
+                                <dt class="내용1" >
+                                주소
+                                    <dd class="내용1" >대전 대덕구 벚꽃길 71</dd>
+                                </dt>
+                                <dt class="내용1" >
+                                연락처
+                                    <dd class="내용1" >070-1515-1231</dd>
+                                </dt>
+                                <dt class="내용1" >
+                                이메일
+                                    <dd class="내용1" >a@asd.com</dd>
+                                </dt>
+                                <dt class="내용1" >
+                                홈페이지
+                                    <dd class="내용1" >http://www.kgc.co.kr</dd>
+                                </dt>
+                            </dl>                                       
+                        </div>                      
+                    </div>
+                    
+                    <div class="왼쪽중단하단 left_midbottom">
+                        <div class="left_midbottomfont">학력</div>
+                        <div class="내용1 left_textarea">내용</div>
+                        <div class="left_midbottomfont">경력</div>
+                        <div class="내용1 left_textarea">내용</div>
+                    </div>                  
+                    
+                    <div class="왼쪽하단 ">
+                        <div class="left_midbottomfont">기술스택</div>
+                        <div class="내용1 left_textarea">내용</div>
+                        <div class="left_midbottomfont">자소서</div>
+                        <div class="내용1 left_textarea">내용</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="사이드바 sidebar">
+                        <div class="타이틀">
+                            내가 북마크한 기업
+                            <div class="리스트">시간 나면 할 곳</div>
+                            <div class="리스트">나중에 고쳐야함</div>
+                            <div class="리스트">1번기업</div>
+                            <div class="리스트">2번기업</div>
                         </div>
                     </div>
                 </div>
             </section>
-
-            <section>
-                <div class="formsection">
-                    <div class="form_info_area" name="edu">학력</div>
-                    <div class="form_info_area" name="carrer">경력</div>
-                </div>
-            </section>
-            <section>
-                <div class="formsection">
-                    <div class="form_info_area" name="skill_list">기술스택</div>
-                    <div class="form_info_area" name="introduce">자소서</div>
-                </div>
-            </section>
         </div>
-    </main>
+    </div>
 {{> layout/footer}}

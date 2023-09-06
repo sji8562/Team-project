@@ -1,6 +1,10 @@
 package shop.mtcoding.teamproject.announcement;
 
-import java.util.List;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
+import java.util.Date;
+
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -64,6 +68,16 @@ public class AnnouncementService {
     public Page<Announcement> 공고목록보기(Integer page) {
         Pageable pageable = PageRequest.of(page, 5, Sort.Direction.ASC, "index");
         Page<Announcement> pageContent = announcementRepository.findAll(pageable);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        // Format the updateTime to display only the date
+        pageContent.forEach(announcement -> {
+            Timestamp timestamp = announcement.getUpdateTime();
+            Date date = new Date(timestamp.getTime());
+            String formattedDate = dateFormat.format(date);
+            announcement.setUpdateTime(Timestamp.valueOf(formattedDate + " 00:00:00"));
+        });
+
         return pageContent;
     }
 

@@ -51,7 +51,7 @@ public class AnnouncementController {
     }
 
     @GetMapping("/annUpdateForm/{id}")
-    public String annUpdateForm(@PathVariable Integer id, Model model){
+    public String annUpdateForm(@PathVariable Integer id, Model model) {
         List<Skill> skills = skillService.스킬목록보기();
         Announcement ann = announcementService.공고상세보기(id);
         model.addAttribute("ann", ann);
