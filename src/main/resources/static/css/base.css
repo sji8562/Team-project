@@ -281,8 +281,8 @@ input {
 .joinbtn {
   padding: 10px 20px;
   font-size: 16px;
-  width: 300px;
-  height: 300px;
+  width: 28vh;
+  height: 28vh;
   gap: 30px;
   background-color: skyblue;
   border: none;
@@ -552,18 +552,6 @@ input {
   cursor: pointer;
 }
 
-.joinbtn {
-  padding: 10px 20px;
-  font-size: 16px;
-  width: 300px;
-  height: 300px;
-  gap: 30px;
-  background-color: skyblue;
-  border: none;
-  font-size: 30px;
-  font-weight: 800;
-}
-
 /* login, join */
 
 /* user_ */
@@ -581,6 +569,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 45vh;
   margin-top: 5vh;
   margin-bottom: 25vh;
 }
@@ -1080,6 +1069,7 @@ input {
     margin: 10px;
     font-weight: lighter;
     font-size: 15px;
+    width: 30px;
   }
 
   .ann_necessity {
@@ -1103,6 +1093,10 @@ input {
   .anndetail_title {
     margin-top: 15px;
     margin-left: 20px;
+  }
+
+  .ann_radio {
+    margin-left: 10px;
   }
 }
 
@@ -1310,6 +1304,10 @@ input {
   text-align: center;
 }
 
+.join_guide {
+  text-align: left;
+}
+
 .join_addtwo {
   display: inline;
   align-items: center;
@@ -1444,10 +1442,51 @@ input {
   margin-top: 8px;
 }
 
+/* footer */
 .footerform {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-top: 1px solid #f2f4f7;
+}
+
+.appsug_formmain {
+  padding-top: 20px;
+  margin: 20px 20px 20px 20px;
+  font-size: small;
+  width: 900px;
+}
+
+.appsug_main {
+  display: flex;
+  justify-content: center;
+}
+
+.formsection_top {
+  padding-top: 20px;
+  margin: 20px 20px 20px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* scrap */
+
+.top_title {
+  font-size: x-large;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.scrap_title {
+  display: flex;
+  justify-content: space-between;
+  font-size: large;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.scrap_workername {
+  margin-top: 10px;
+  margin-left: 15px;
 }

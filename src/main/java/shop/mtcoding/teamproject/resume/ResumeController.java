@@ -59,6 +59,8 @@ public class ResumeController {
     @PostMapping("/resSave")
     public String resumeSave(Resume res, Skill skills) {
         resumeService.이력서등록(res);
+        hasSkillService.이력서스킬등록(res, skills);
+
         return "redirect:/resList";
     }
 
@@ -85,7 +87,7 @@ public class ResumeController {
 
     @PostMapping("/resUpdate/{id}")
     public String resumeUpdate(@PathVariable Integer id, Resume res, Skill skills) {
-        resumeService.이력서수정(id, res);
+        resumeService.이력서수정(id,  res);
         hasSkillService.이력서스킬수정(id, skills);
         return "redirect:/resDetail/" + id;
     }
