@@ -255,64 +255,71 @@ function getCookie(name) {
     );
   });
 
-  // join
-  function UserJoinForm() {
-    window.location.href = "/userJoinForm";
-  }
-  function CompJoinForm() {
-    window.location.href = "/compJoinForm";
-  }
-
   // skill
+  //   $(document).ready(function () {
+  //     // 페이지 로드 시 모든 체크박스 컨테이너를 숨깁니다.
+  //     // $(".row > div").hide();
+
+  //     $(".class-select").click(function () {
+  //       var selectedClass = $(this).data("class");
+
+  //       // 모든 체크박스 컨테이너를 숨깁니다.
+  //       $(".row > div").hide();
+
+  //       // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
+  //       $(".리스트" + selectedClass).show();
+  //     });
+  //   });
+  // }
+
+  // nav
+
   $(document).ready(function () {
-    // 페이지 로드 시 모든 체크박스 컨테이너를 숨깁니다.
-    $(".row > div").hide();
-
-    $(".class-select").click(function () {
-      var selectedClass = $(this).data("class");
-
-      // 모든 체크박스 컨테이너를 숨깁니다.
-      $(".row > div").hide();
-
-      // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
-      $(".리스트" + selectedClass).show();
-    });
+    $(".dropdown-submenu").hover(
+      function () {
+        $(this).find(".dropdown-menu").addClass("show");
+      },
+      function () {
+        $(this).find(".dropdown-menu").removeClass("show");
+      }
+    );
   });
 }
 
-// nav
+async function deleteReply(id) {
+  let response = await fetch(`/api/reply/${id}/delete`, {
+    method: "delete",
+  });
+  let responseBody = await response.json();
+  if (responseBody.sucuess) {
+    location.reload();
+  } else {
+    alert(responseBody.data);
+  }
+}
 
-$(document).ready(function () {
-  $(".dropdown-submenu").hover(
-    function () {
-      $(this).find(".dropdown-menu").addClass("show");
+async function saveReply() {
+  let requestBody = {
+    boardId: document.querySelector("#boardId").value,
+    comment: document.querySelector("#comment").value,
+  };
+
+  console.log(requestBody);
+
+  let response = await fetch("/api/reply/save", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
     },
-    function () {
-      $(this).find(".dropdown-menu").removeClass("show");
-    }
-  );
-});
-
-// join
-function UserJoinForm() {
-  window.location.href = "./user/UserJoinForm.html";
-}
-function CompJoinForm() {
-  window.location.href = "./company/CompJoinForm.html";
-}
-
-// skill
-$(document).ready(function () {
-  // 페이지 로드 시 모든 체크박스 컨테이너를 숨깁니다.
-  $(".row > div").hide();
-
-  $(".class-select").click(function () {
-    var selectedClass = $(this).data("class");
-
-    // 모든 체크박스 컨테이너를 숨깁니다.
-    $(".row > div").hide();
-
-    // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
-    $(".리스트" + selectedClass).show();
+    body: JSON.stringify(requestBody),
   });
-});
+
+  let responseBody = await response.json();
+  console.log(responseBody);
+
+  if (responseBody.sucuess) {
+    location.reload();
+  } else {
+    alert(responseBody.data);
+  }
+}
