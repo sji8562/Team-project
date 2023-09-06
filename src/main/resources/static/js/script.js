@@ -323,9 +323,28 @@ async function saveReply() {
     alert(responseBody.data);
   }
 }
+document
+  .getElementById("bigJobMenu")
+  .addEventListener("click", function (event) {
+    var clickedItem = event.target.innerText;
+    if (clickedItem === "A") {
+      // 'A'를 클릭한 경우 '스몰잡' 드롭다운 메뉴 변경
+      document.getElementById("smallJobButton").innerText = "스몰잡 (A 선택)";
+      document.getElementById("smallJobButton").disabled = false;
+      document.getElementById("smallJobMenu").innerHTML =
+        '<a href="#">a</a><a href="#">b</a><a href="#">c</a>';
+    } else if (clickedItem === "B") {
+      // 'B'를 클릭한 경우 '스몰잡' 드롭다운 메뉴 변경
+      document.getElementById("smallJobButton").innerText = "스몰잡 (B 선택)";
+      document.getElementById("smallJobButton").disabled = false;
+      document.getElementById("smallJobMenu").innerHTML =
+        '<a href="#">d</a><a href="#">e</a><a href="#">f</a>';
+    }
+  });
 
-function resList() {
-  document.querySelector("#modalTitle").innerText = '이 공고에 지원할 이력서를 선택해주세요';
-  
-  let requestBody 
-}
+// JavaScript로 '스몰잡' 메뉴 항목 클릭 이벤트 처리
+document
+  .getElementById("smallJobMenu")
+  .addEventListener("click", function (event) {
+    event.stopPropagation(); // 부모 요소로의 이벤트 전파 방지
+  });
