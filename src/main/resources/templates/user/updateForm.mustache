@@ -1,0 +1,116 @@
+{{> layout/header}}
+<div class="join_all">
+  <div class="join_title">회원정보 수정 (유저)</div>
+  <form action="/userUpdateForm" method="post">
+    <div class="mb-2 mt-3">
+      <div class="details">아이디<span class="necessity">필수</span></div>
+      <input
+        type="id"
+        class="container join_container"
+        id="id"
+        placeholder="아이디를 입력해주세요"
+        name="userId"
+        required
+      />
+      <button type="button" class="btn btn-warning" onclick="check()">
+        중복체크
+      </button>
+    </div>
+    <div class="mb-2">
+      <div class="details">비밀번호<span class="necessity">필수</span></div>
+      <input
+        type="password"
+        class="container join_container"
+        id="pwd"
+        placeholder="비밀번호를 입력해주세요"
+        name="password"
+        onchange="pwcheck()"
+        required
+      /><br />
+      <span id="pwcheck" style="font-weight: lighter; font-size: x-small"
+        >비밀번호는 8~16자 영문/숫자/특수문자를 각1개 포함해야합니다.</span
+      >
+    </div>
+    <div class="mb-2">
+      <div class="details">
+        비밀번호 확인<span class="necessity">필수</span>
+      </div>
+      <input
+        type="password"
+        class="container join_container"
+        id="pwdchk"
+        placeholder="비밀번호를 한번 더 입력해주세요"
+        name="passwordchk"
+        onchange="isSame()"
+        required
+      />
+      <br /><span id="same"></span>
+    </div>
+    <div class="mb-2">
+      <div class="details">이름<span class="necessity">필수</span></div>
+      <input
+        type="name"
+        class="container join_container"
+        id="name"
+        placeholder="이름을 입력해주세요"
+        name="username"
+        required
+      />
+    </div>
+    <div class="mb-2 join_addarea">
+      <div class="join_details">주소</div>
+      <div>
+        <input
+          class="join_box_one"
+          type="text"
+          id="postcode"
+          name="address"
+          readonly
+        />
+        <input
+          class="join_addclick"
+          type="button"
+          value="주소 찾기"
+          onclick="Postcode()"
+        />
+      </div>
+      <input
+        type="text"
+        class="container join_container"
+        id="address"
+        name="address"
+        readonly
+      />
+      <br /><input
+        type="text"
+        class="container join_container"
+        id="addressDetail"
+        name="addressDetail"
+        placeholder="상세 주소를 입력해주세요"
+      />
+    </div>
+    <div class="mb-2">
+      <div class="details">이메일:</div>
+      <input
+        type="email"
+        class="container join_container"
+        id="email"
+        placeholder="이메일을 입력해주세요"
+        name="email"
+      />
+    </div>
+    <div class="mb-2">
+      <div class="details">전화번호:</div>
+      <input
+        type="number"
+        class="container join_container"
+        id="name"
+        placeholder="전화번호를 입력해주세요"
+        name="phoneNum"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">회원 정보 수정</button>
+  </form>
+</div>
+
+{{> layout/footer}}

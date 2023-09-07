@@ -1,0 +1,41 @@
+{{> layout/header}}
+
+<div class="listmng">
+  <div class="topform">
+    <div class="top_title">
+      이력서 관리
+      <div class="button insertform">
+        <a href="/resSaveForm">
+          <button type="button" name="button" class="btn btn-primary">
+            <span class="insertbtn">+</span>이력서 등록
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  {{#res}}
+  <div class="boardform b">
+    <div class="cardform">
+      <div class="cardtitleform">
+        <a href="/resDetail/{{index}}">
+          <div class="cardtitle">{{Title}}</div>
+        </a>
+        <div class="cardcreated">작성일 : 2023.08.08</div>
+      </div>
+      <div class="cardbtn">
+        <a href="/resUpdateForm/{{index}}">
+          <button type="button" name="button" class="btn text-white updatebtn">
+            이력서 수정
+          </button>
+        </a>
+        <form action="/resDelete/{{index}}" method="post">
+          <button type="submit" name="button" class="btn btn-danger deletebtn">
+            이력서 삭제
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{/res}}
+</div>
+{{> layout/footer}}

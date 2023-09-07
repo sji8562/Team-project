@@ -1,0 +1,38 @@
+{{> layout/header}}
+
+<div class="listmng">
+  <div class="topform">
+    <div class="top_title">
+      채용 공고 관리
+      <div class="button insertform">
+        <button type="button" name="button" class="btn btn-primary">
+          <span class="insertbtn">+</span>채용공고 등록
+        </button>
+      </div>
+    </div>
+  </div>
+  {{#annPG}}
+  <div class="boardform">
+    <div class="cardform">
+      <div class="cardtitleform">
+        <div class="cardtitle">{{ title }}</div>
+        <div class="cardcreated">{{ updateTime }}</div>
+      </div>
+      <div class="cardbtn">
+        <a href="/annUpdateForm/{{index}}">
+        <button type="button" name="button" class="btn text-white updatebtn">
+          이력서 수정
+        </button>
+        </a>
+        <form action="/annDelete/{{index}}" method="post">
+        <button type="submit" name="button" class="btn btn-danger deletebtn">
+          이력서 삭제
+        </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {{/annPG}}
+</div>
+
+{{> layout/footer}}
