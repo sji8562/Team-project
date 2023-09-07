@@ -17,7 +17,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
-    
+
     @Column(nullable = false, length = 100, unique = true)
     private String userId;
 
@@ -45,6 +45,8 @@ public class User {
     private int level;
 
     private Timestamp birthday;
+
+    private String scrap;
 
     @Builder
     public User(Integer index, String userid, String username, String password, String email, String address,

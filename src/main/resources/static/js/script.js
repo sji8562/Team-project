@@ -283,6 +283,14 @@ function getCookie(name) {
         $(this).find(".dropdown-menu").removeClass("show");
       }
     );
+
+    $(".toggle-orange").click(function () {
+      $(this).toggleClass("orange"); // Toggle the "orange" class
+      let annindex = document.querySelector("#annIndex").value;
+      let userindex = document.querySelector("#userIndex").value;
+      console.log(annindex);
+      console.log(userindex);
+    });
   });
 }
 
@@ -348,3 +356,29 @@ document
   .addEventListener("click", function (event) {
     event.stopPropagation(); // 부모 요소로의 이벤트 전파 방지
   });
+
+async function bookmarkSave() {
+  let requestBody = {
+    boardId: document.querySelector("#boardId").value,
+    comment: document.querySelector("#comment").value,
+  };
+
+  console.log(requestBody);
+
+  let response = await fetch("/api/reply/save", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  });
+
+  let responseBody = await response.json();
+  console.log(responseBody);
+
+  if (responseBody.sucuess) {
+    location.reload();
+  } else {
+    alert(responseBody.data);
+  }
+}
