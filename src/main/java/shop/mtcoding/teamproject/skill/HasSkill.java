@@ -18,10 +18,10 @@ public class HasSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "announcement_index")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     private Announcement announcement;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "resume_index")
     private Resume resume;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

@@ -459,10 +459,7 @@ insert into Has_Skill_tb(announcement_index, skill_index) values(2,3);
 insert into Has_Skill_tb(announcement_index, skill_index) values(3,4);
 insert into Has_Skill_tb(announcement_index, skill_index) values(4,5);
 insert into Has_Skill_tb(announcement_index, skill_index) values(5,1);
-<<<<<<< HEAD
 
-=======
->>>>>>> 8ebef25fe5bfa56006c7c2ac3b8a72a6cebfbd4a
 
 insert into Has_Skill_tb(resume_index, skill_index) values(1,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(1,5);
@@ -477,7 +474,3 @@ insert into Has_Skill_tb(resume_index, skill_index) values(4,17);
 insert into Has_Skill_tb(resume_index, skill_index) values(5,16);
 insert into Has_Skill_tb(resume_index, skill_index) values(5,19);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8ebef25fe5bfa56006c7c2ac3b8a72a6cebfbd4a
