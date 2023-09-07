@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -35,6 +36,8 @@ public class AnnouncementController {
     private SkillService skillService;
     @Autowired
     private HasSkillService hasSkillService;
+    @Autowired
+    private HttpSession session; 
 
     @GetMapping("/annSaveForm")
     public String annSaveForm(Model model) {
@@ -80,6 +83,7 @@ public class AnnouncementController {
     public String AnnDetail(@PathVariable Integer id, Model model) {
         Announcement ann = announcementService.공고상세보기(id);
         model.addAttribute("ann", ann);
+        
         return "ann/annDetail";
     }
 

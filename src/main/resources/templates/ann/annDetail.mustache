@@ -7,7 +7,7 @@
                 <h2>공고 타이틀</h2>
             </div>
             <div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="resList()">
+                    <button type="button" id="apply"class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="resList()">
                         지원하기
                       </button>
                       
@@ -85,8 +85,8 @@
                             <p><b class="border">{{#ann.startTime}}{{ann.startTime}}{{/ann.startTime}}</b></p>
                             <p><b class="border">{{#ann.endTime}}{{ann.endTime}}{{/ann.endTime}}</b></p>
                             <div class="container mt-3">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                            Open modal
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="resList()">
+                            지원하기
                             </button>
                             </div>
 
@@ -97,7 +97,7 @@
 
                             <!-- Modal Header -->
                             <div class="modal-header">
-                                <h4 class="modal-title" id="modaTitle"></h4>
+                                <h4 class="modal-title" id="modalTitle"></h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
 
@@ -128,4 +128,26 @@
         </div>
     </div>
 </div>
+
+<script>
+async function resList() {
+    let response = await fetch(`/api/applyRes`)
+    
+    let resume = await response.json();
+    console.log("테스트2" + resume);
+    
+
+    
+   
+    
+}
+
+
+
+
+    
+    
+
+</script>
+
 {{> layout/footer}}

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.teamproject.skill.HasSkill;
 import shop.mtcoding.teamproject.skill.HasSkillService;
@@ -101,5 +102,16 @@ public class ResumeController {
         resumeService.이력서삭제(id);
         return "redirect:/resList";
     }
+
+    @GetMapping("/api/applyRes")
+    public @ResponseBody List<Resume> applyRes(Model model){
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        Integer userIndex = sessionUser.getIndex();
+        System.out.println("이제되나?");
+        List<Resume> resume = resumeService.유저의이력서보기(userIndex);
+       
+        return resume;
+    }
+
 
 }
