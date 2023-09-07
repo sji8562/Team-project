@@ -78,6 +78,13 @@ public class ResumeService {
 
     // 유저가 이력서로 지원할 때 필요
     public List<Resume> 유저의이력서보기(Integer id){
+        if (resumeRepository.mFindByUserId(id) == null || resumeRepository.mFindByUserId(id).isEmpty()) {
+           throw new MyApiException("제발 ㅠㅠㅠㅠ");
+        }else{
+            System.out.println("여긴가?");
             return resumeRepository.mFindByUserId(id);
+            
+        }
+    
     }
 }

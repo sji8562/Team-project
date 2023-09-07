@@ -465,14 +465,10 @@ insert into Has_Skill_tb(resume_index, skill_index) values(1,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(2,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(3,1);
 insert into Has_Skill_tb(resume_index, skill_index) values(4,1);
-
-insert into Has_Skill_tb(resume_index, skill_index) values(5,16);
 insert into Has_Skill_tb(resume_index, skill_index) values(4,17);
+insert into Has_Skill_tb(resume_index, skill_index) values(5,16);
+insert into Has_Skill_tb(resume_index, skill_index) values(5,19);
 
-
-
-
-=======
 insert into apply_tb(announcement_index, resume_index, user_index, status) values(1, 4, 2, 3);
 insert into apply_tb(announcement_index, resume_index, user_index, status) values(3, 4, 2, 3);
->>>>>>> 1981004 (지원 현황 페이지 오류: 반복 적용 불가)
+
