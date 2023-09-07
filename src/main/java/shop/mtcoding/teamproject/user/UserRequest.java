@@ -26,6 +26,20 @@ public class UserRequest {
 
     @Getter
     @Setter
+    public static class userUpdateDTO {
+        private String userId;
+        private String password;
+        private String email;
+        private String username;
+        private String address;
+        private String addressDetail;
+        private String phoneNum;
+        private MultipartFile pic;
+        
+    }
+
+    @Getter
+    @Setter
     public static class userLoginDTO {
         private String userId;
         private String password;

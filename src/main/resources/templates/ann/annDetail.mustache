@@ -1,48 +1,43 @@
 {{> layout/header}} 
-<div class="container my-5 p-5 border">
-    <div class="container">
+<div class="container my-5 p-5 border  ann_insert">
+    <div>
         <div class="container my-2 d-flex justify-content-between align-items-center hr">
-            <div>
-                <h5>회사이름</h5>
+            <div class="anndetail_title">
                 <h2>공고 타이틀</h2>
             </div>
             <div>
                 <button type="button" name="button" class="btn btn-primary">지원하기</button>
+                <button type="button" name="button" class="btn btn-warning">수정하기</button>
             </div>
         </div>
         <div class="container">
-            <hr>
-            <div class="row">
+            <div class="">
+                <img class="ann_mainimg" src="/images/comp1.jpg">
+            </div>
+            <div class="ann_type">
+                <div class="col">회사명</div>
+                <div class="col blue">회사이름</div>
+            </div>
+            <div class="ann_type">
                 <div class="col">경력</div>
                 <div class="col blue">{{#ann.experience}}{{ann.experience}}{{/ann.experience}}</div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col">급여</div>
-                <div class="col">{{#ann.salary}}{{ann.salary}}{{/ann.salary}}</div>
             </div>
-            <div class="row ">
+            <div class="ann_type">
                 <div class="col">학력</div>
                 <div class="col blue">{{#ann.edu}}{{ann.edu}}{{/ann.edu}}</div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col">근무지역</div>
-                <div class="col">{{#ann.location}}{{ann.location}}{{/ann.location}}</div>
             </div>
-            <div class="row ">
+            <div class="ann_type">
+                <div class="col">급여</div>
+                <div class="col blue">{{#ann.salary}}{{ann.salary}}{{/ann.salary}}</div>
+            </div>
+            <div class="ann_type">
+                <div class="col">근무지역</div>
+                <div class="col blue">{{#ann.location}}{{ann.location}}{{/ann.location}}</div>
+            </div>
+            <div class="ann_type">
                 <div class="col">근무형태</div>
                 <div class="col blue">{{#ann.workType}}{{ann.workType}}{{/ann.workType}}</div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
-                <div class="col"></div>
             </div>
-            <hr>
         </div>
         <div>
             <img src="hamberger.jpg">

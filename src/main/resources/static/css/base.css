@@ -279,15 +279,15 @@ input {
 }
 
 .joinbtn {
-    padding: 10px 20px;
-    font-size: 16px;
-    width: 300px;
-    height: 300px;
-    gap: 30px;
-    background-color: skyblue;
-    border: none;
-    font-size: 30px;
-    font-weight: 800;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 28vh;
+  height: 28vh;
+  gap: 30px;
+  background-color: skyblue;
+  border: none;
+  font-size: 30px;
+  font-weight: 800;
 }
 
 .logincontainer {
@@ -552,17 +552,6 @@ input {
     cursor: pointer;
 }
 
-.joinbtn {
-    padding: 10px 20px;
-    font-size: 16px;
-    width: 300px;
-    height: 300px;
-    gap: 30px;
-    background-color: skyblue;
-    border: none;
-    font-size: 30px;
-    font-weight: 800;
-}
 
 /* login, join */
 
@@ -578,11 +567,12 @@ input {
 }
 
 .joinbtn_type {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5vh;
-    margin-bottom: 25vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45vh;
+  margin-top: 5vh;
+  margin-bottom: 25vh;
 }
 
 .logintype {
@@ -1076,11 +1066,12 @@ input {
         align-items: center;
     }
 
-    .ann_checkbox {
-        margin: 10px;
-        font-weight: lighter;
-        font-size: 15px;
-    }
+  .ann_checkbox {
+    margin: 10px;
+    font-weight: lighter;
+    font-size: 15px;
+    width: 30px;
+  }
 
     .ann_necessity {
         font-size: small;
@@ -1100,10 +1091,14 @@ input {
         margin-left: 15px;
     }
 
-    .anndetail_title {
-        margin-top: 15px;
-        margin-left: 20px;
-    }
+  .anndetail_title {
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+
+  .ann_radio {
+    margin-left: 10px;
+  }
 }
 
 .loginform_control {
@@ -1310,6 +1305,10 @@ input {
     text-align: center;
 }
 
+.join_guide {
+  text-align: left;
+}
+
 .join_addtwo {
     display: inline;
     align-items: center;
@@ -1444,12 +1443,125 @@ input {
     margin-top: 8px;
 }
 
+/* footer */
 .footerform {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-top: 1px solid #f2f4f7;
+}
+
+.appsug_formmain {
+  padding-top: 20px;
+  margin: 20px 20px 20px 20px;
+  font-size: small;
+  width: 900px;
+}
+
+.appsug_main {
+  display: flex;
+  justify-content: center;
+}
+
+.formsection_top {
+  padding-top: 20px;
+  margin: 20px 20px 20px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* scrap */
+
+.top_title {
+  font-size: x-large;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.scrap_title {
+  display: flex;
+  justify-content: space-between;
+  font-size: large;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.scrap_workername {
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.ann_mainimg {
+  display: block;
+  width: 65vh;
+  margin-top: 30px;
+}
+
+.serach_fourcad {
+  display: flex;
+  width: 90vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search_listform {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_sideform {
+  display: flex;
+  justify-content: center;
+}
+
+.search_sidetitle {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.search_sidebar {
+  display: flex;
+  width: 110vh;
+  height: 140px;
+  margin-right: 5px;
+  overflow-y: auto;
+}
+
+.search_sidebar2 {
+  display: flex;
+  position: fixed;
+  width: 110vh;
+  height: 140px;
+  margin-right: 5px;
+  overflow-y: auto;
+  z-index: 1;
+  background: white;
+}
+
+.search_dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.search_dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.search_dropdown:hover .search_dropdown-content {
+  display: block;
+}
+
+.search_dropdown-content a {
+  padding: 12px 16px;
+  display: block;
 }
 
 
@@ -1618,4 +1730,10 @@ input {
     height: 256px;
     margin-top: 30px;
     margin-right: 20px;
+}
+
+.anndetail_how{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
 }

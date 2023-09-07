@@ -3,21 +3,20 @@ package shop.mtcoding.teamproject.resume;
 import java.util.List;
 import java.util.Optional;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import shop.mtcoding.teamproject._core.error.ex.MyException;
+import shop.mtcoding.teamproject.user.User;
 
 @Service
 public class ResumeService {
     @Autowired
     private ResumeRepository resumeRepository;
-    
+
     @Transactional
-    public void 이력서등록(Resume resume){
+    public void 이력서등록(Resume resume) {
         resumeRepository.save(resume);
     }
 
@@ -31,7 +30,7 @@ public class ResumeService {
         if (resOP.isPresent()) {
             return resOP.get();
         } else {
-            throw new MyException(id+"는 찾을 수 없습니다");
+            throw new MyException(id + "는 찾을 수 없습니다");
         }
 
     }
@@ -51,17 +50,23 @@ public class ResumeService {
             res.setTitle(updatedRes.getTitle());
             return res;
         } else {
-            throw new MyException(id+"는 찾을 수 없습니다");
+            throw new MyException(id + "는 찾을 수 없습니다");
         }
-        
 
     }
+
     @Transactional
     public void 이력서삭제(Integer id) {
         try {
             resumeRepository.deleteById(id);
         } catch (Exception e) {
-            throw new MyException(id+"는 찾을 수 없습니다");
+            throw new MyException(id + "는 찾을 수 없습니다");
         }
+    }
+
+    public User 이력서유저보기(Resume resume) {
+        Integer userIndex = resume.getUser().getIndex();
+        return resumeRepository.mFindByidJoinResumeInUser(userIndex);
+
     }
 }

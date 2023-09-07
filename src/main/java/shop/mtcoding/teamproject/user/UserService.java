@@ -1,7 +1,9 @@
 package shop.mtcoding.teamproject.user;
 
 import java.util.UUID;
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import shop.mtcoding.teamproject._core.error.ex.MyException;
+import shop.mtcoding.teamproject._core.vo.MyPath;
 import shop.mtcoding.teamproject.user.UserRequest.Kakaologin;
 import shop.mtcoding.teamproject.user.UserRequest.OAuthToken;
 import shop.mtcoding.teamproject.user.UserRequest.userJoinDTO;
 import shop.mtcoding.teamproject.user.UserRequest.userLoginDTO;
+import shop.mtcoding.teamproject.user.UserRequest.userUpdateDTO;
 
 @Service
 public class UserService {

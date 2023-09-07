@@ -1,5 +1,9 @@
 package shop.mtcoding.teamproject.company;
 
+import java.util.Optional;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -7,7 +11,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import shop.mtcoding.teamproject._core.error.ex.MyException;
 import shop.mtcoding.teamproject.announcement.Announcement;
+import shop.mtcoding.teamproject.board.Board;
+import shop.mtcoding.teamproject.company.CompanyRequest.UpdateDTO;
+import shop.mtcoding.teamproject.company.CompanyRequest.UpdatedetailDTO;
 import shop.mtcoding.teamproject.company.CompanyRequest.compJoinDTO;
 import shop.mtcoding.teamproject.company.CompanyRequest.companyLoginDTO;
 
@@ -44,6 +52,40 @@ public class CompanyService {
         Pageable pageable = PageRequest.of(page, 10, Sort.Direction.ASC, "index");
         Page<Company> pageContent = companyRepository.findAll(pageable);
         return pageContent;
+    }
+
+    @Transactional
+    public Company 기업정보수정(UpdateDTO updateDTO, Integer id) {
+        Company company = companyRepository.findById(id).get();
+
+        company.setPassword(updateDTO.getPassword());
+        company.setAddress(updateDTO.getAddress());
+        company.setAddressDetail(updateDTO.getAddressDetail());
+        company.setCompanyName(updateDTO.getCompanyName());
+        company.setEmail(updateDTO.getEmail());
+        company.setPhoneNum(updateDTO.getPhoneNum());
+        company.setHomepage(updateDTO.getHomepage());
+
+        return company;
+
+    }
+
+    public Company 회원정보보기(Integer index) {
+        return companyRepository.findById(index).get();
+    }
+
+    public Company 기업디테일수정(UpdatedetailDTO updatedetailDTO, Integer id) {
+        Company company = companyRepository.findById(id).get();
+
+        company.setCompanyName(updatedetailDTO.getCompanyName());
+        company.setEstablishment(updatedetailDTO.getEstablishment());
+        company.setAddress(updatedetailDTO.getAddress());
+        company.setAddressDetail(updatedetailDTO.getAddressDetail());
+        company.setPhoneNum(updatedetailDTO.getPhoneNum());
+        company.setEmail(updatedetailDTO.getEmail());
+        company.setHomepage(updatedetailDTO.getHomepage());
+
+        return company;
     }
 
 }

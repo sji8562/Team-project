@@ -69,7 +69,7 @@
               <dt class="내용1">
                 주소
               <dd class="내용1">
-                
+
                 <input class="compinfo_save_add" type="button" value="주소 찾기" onclick="Postcode()">
 
                 <input type="text" class="container compinfo_detail_save" id="address" name="address" readonly>
@@ -109,45 +109,40 @@
           </div>
         </div>
 
-        <div class="왼쪽중단하단 left_midbottom">
-          <div class="left_midbottomfont">기업비전</div>
-          <div class="내용1 left_textarea">
-            <textarea class="compinfo_textarea" name="introduce" id="introduce" cols="150" rows="10"></textarea>
-          </div>
-
-        </div>
-
       </div>
     </section>
   </div>
+
+  <script>
+
+    function changePic(e1) {
+      let f = e1.srcElement.files[0];
+      console.log(f.type);
+
+      let fileMessage = document.getElementById("fileMessage");
+
+      if (!f) {
+        fileMessage.textContent = "이미지를 등록해주세요";
+        return;
+      }
+
+      if (!f.type.match("image.*")) {
+        alert("이미지를 등록해주세요");
+        fileMessage.textContent = "이미지를 등록해주세요";
+        return;
+      }
+
+      let reader = new FileReader();
+      reader.onload = function (e2) {
+        let previewEl = document.querySelector("#preview");
+        previewEl.setAttribute("src", e2.target.result);
+      };
+      reader.readAsDataURL(f);
+    }
+  </script>
+
 </body>
-<script>
 
-  function changePic(e1) {
-    let f = e1.srcElement.files[0];
-    console.log(f.type);
-
-    let fileMessage = document.getElementById("fileMessage");
-
-    if (!f) {
-      fileMessage.textContent = "이미지를 등록해주세요";
-      return;
-    }
-
-    if (!f.type.match("image.*")) {
-      alert("이미지를 등록해주세요");
-      fileMessage.textContent = "이미지를 등록해주세요";
-      return;
-    }
-
-    let reader = new FileReader();
-    reader.onload = function (e2) {
-      let previewEl = document.querySelector("#preview");
-      previewEl.setAttribute("src", e2.target.result);
-    };
-    reader.readAsDataURL(f);
-  }
-</script>
 
 
 </html>

@@ -3,6 +3,8 @@ package shop.mtcoding.teamproject.smalljob;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.teamproject.bigjob.BigJob;
+
 import javax.persistence.*;
 
 @NoArgsConstructor
@@ -15,10 +17,9 @@ public class SmallJob {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
-    
     private String smallName;
 
-
-    private int bigJobIdx;
+    @ManyToOne
+    @JoinColumn(name = "bigJobIdx", referencedColumnName = "index")
+    private BigJob bigJob;
 }
-

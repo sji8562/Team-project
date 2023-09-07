@@ -1,0 +1,152 @@
+{{> layout/header}}
+<section>
+  <div class="search_listform mt-5">
+    <div>
+      <div class="사이드바 search_sidebar">
+        <div class="search_sidebar2">
+          <div class="타이틀 search_sidetitle">
+            <!-- '빅잡' 드롭다운 메뉴 버튼 -->
+            <div class="search_dropdown">
+              <button class="btn btn-secondary" id="bigJobButton">빅잡</button>
+              <div class="search_dropdown-content" id="bigJobMenu">
+                <a href="#">A</a>
+                <a href="#">B</a>
+              </div>
+            </div>
+
+            <!-- '스몰잡' 드롭다운 메뉴 버튼 (비활성화) -->
+            <div class="search_dropdown">
+              <button class="btn btn-secondary" id="smallJobButton" disabled>
+                스몰잡
+              </button>
+              <!-- '스몰잡'은 현재 비활성화 상태이므로 메뉴가 나오지 않습니다. -->
+              <div class="search_dropdown-content" id="smallJobMenu"></div>
+            </div>
+            <br />
+            <div>
+              <div class="search_dropdown">
+                <button class="btn btn-secondary" id="bigJobButton">
+                  지역선택
+                </button>
+                <div class="search_dropdown-content" id="bigJobMenu">
+                  <a href="#">A</a>
+                  <a href="#">B</a>
+                </div>
+              </div>
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="classListDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                경력 선택
+              </button>
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="classListDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                기술스택
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="search_listform">
+    <div class="">
+      <div style="margin-top: 40px">
+        <div class="">
+          <a
+            class=""
+            href="/src/main/resources/templates/userscrap/userscrap.html"
+            >북마크 모아보기</a
+          >
+        </div>
+      </div>
+      <div class="index_fourcad serach_fourcad">
+        <a class="card fourcard_form" href="#">
+          <img
+            class="Card_fourcard"
+            src="./images/comp1.jpg"
+            alt="Card image"
+          />
+          <div class="card-body">
+            <h4 class="card-title">제목</h4>
+            <p class="card-text">기업설명</p>
+          </div>
+        </a>
+        <a class="card fourcard_form" href="#">
+          <img
+            class="Card_fourcard"
+            src="./images/comp1.jpg"
+            alt="Card image"
+          />
+          <div class="card-body">
+            <h4 class="card-title">제목</h4>
+            <p class="card-text">기업설명</p>
+          </div>
+        </a>
+        <a class="card fourcard_form" href="#">
+          <img
+            class="Card_fourcard"
+            src="./images/comp1.jpg"
+            alt="Card image"
+          />
+          <div class="card-body">
+            <h4 class="card-title">제목</h4>
+            <p class="card-text">기업설명</p>
+          </div>
+        </a>
+        <a class="card fourcard_form" href="#">
+          <img
+            class="Card_fourcard"
+            src="./images/comp1.jpg"
+            alt="Card image"
+          />
+          <div class="card-body">
+            <h4 class="card-title">제목</h4>
+            <p class="card-text">기업설명</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="index_fourcad serach_fourcad">
+      <a class="card fourcard_form" href="#">
+        <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+        <div class="card-body">
+          <h4 class="card-title">제목</h4>
+          <p class="card-text">기업설명</p>
+        </div>
+      </a>
+      <a class="card fourcard_form" href="#">
+        <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+        <div class="card-body">
+          <h4 class="card-title">제목</h4>
+          <p class="card-text">기업설명</p>
+        </div>
+      </a>
+      <a class="card fourcard_form" href="#">
+        <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+        <div class="card-body">
+          <h4 class="card-title">제목</h4>
+          <p class="card-text">기업설명</p>
+        </div>
+      </a>
+      <a class="card fourcard_form" href="#">
+        <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+        <div class="card-body">
+          <h4 class="card-title">제목</h4>
+          <p class="card-text">기업설명</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<div class="width-auto border mb-5"></div>
+{{> layout/footer}}

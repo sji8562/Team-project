@@ -39,14 +39,9 @@ public class AnnouncementController {
     }
 
     @PostMapping("/annSave")
-    public String annSave(Announcement announcement, Skill skills) {
-        announcementService.공고등록(announcement);
-
-        HasSkill hasSkill = new HasSkill();
-        hasSkill.setAnnouncement(announcement);
-        hasSkill.setSkill(skills);
-        hasSkillService.등록(hasSkill);
-
+    public String annSave(AnnouncementRequest.SaveDTO saveDTO, Skill skills) {
+        Announcement announcement = announcementService.공고등록(saveDTO);
+        hasSkillService.공고스킬등록(announcement, skills);
         return "redirect:/annlist";
     }
 
@@ -60,9 +55,9 @@ public class AnnouncementController {
     }
 
     @PostMapping("/annUpdate/{id}")
-    public String annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO, Skill skills) {
-        announcementService.공고수정(id, updateDTO);
-        hasSkillService.스킬수정(id, skills);
+    public String annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO, Skill skills){
+         announcementService.공고수정(id, updateDTO);
+         hasSkillService.공고스킬수정(id, skills);
         return "redirect:/annDetail/" + id;
     }
 
@@ -85,7 +80,6 @@ public class AnnouncementController {
 
     @PostMapping("/annDelete/{id}")
     public String annDelete(@PathVariable Integer id) {
-        System.out.println("컨트롤러는 돌아가나???????????");
         announcementService.공고삭제(id);
         return "redirect:/annlist";
     }
