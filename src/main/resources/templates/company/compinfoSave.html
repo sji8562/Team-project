@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <link rel="stylesheet" href="../static/css/base.css">
+  <link rel="stylesheet" href="/src/main/resources/static/css/base.css">
+
+  <script src="../static/js/compJoinForm.js"></script>
+  <script src="/src/main/resources/static/js/script.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  <title>기업 이름</title>
+  </style>
+</head>
+
+<body class="상세보기바디 compdetail_body">
+  <div class="상세보기틀 form">
+    <section class="상단 sectop">
+      <div class="기업이름텍스트 sectoptitle">
+        <div class="메인타이틀 maintitle">
+          기업 정보 등록
+        </div>
+      </div>
+      <div class="상단오른쪽 top_right">
+        <button type="button" class="btn btn-primary compdetail_savebtn">등록완료</button>
+      </div>
+    </section>
+    <section class="main">
+      <div class="왼쪽화면틀 leftform">
+        <div class="왼쪽상단상단 left_top_top">
+          <div class="synopsis">기업개요</div>
+        </div>
+        <div class="왼쪽중단 left_mid">
+          <div class="왼쪽중단왼쪽 left_midleft">
+            <div class="compdetail_mainpicform">
+              <img class="compdesave_mainpic" id="preview" src="../images/comp1.jpg">
+              <input type="file" class="form-control compdetail_filebtn" placeholder="Enter pic"
+                onchange="changePic(event)" name="pic">
+              <div id="fileMessage">이미지를 등록해주세요</div>
+
+            </div>
+          </div>
+          <div class="왼쪽중단오른쪽 infodetails">
+            <dl>
+              <dt class="내용1">
+                기업명
+              <dd class="내용1">
+                <input type="text" class="container compinfo_detail_save" id="" name="compName"
+                  placeholder="기업이름을 입력해 주세요">
+              </dd>
+              </dt>
+              <dt class="내용1">
+                설립연도
+              <dd class="내용1">
+                <input type="text" class="container compinfo_detail_save" id="" name="" placeholder="설립연도를 입력해 주세요">
+              </dd>
+              </dt>
+              <dt class="내용1">
+                주소
+              <dd class="내용1">
+                
+                <input class="compinfo_save_add" type="button" value="주소 찾기" onclick="Postcode()">
+
+                <input type="text" class="container compinfo_detail_save" id="address" name="address" readonly>
+                <br><input type="text" class="container compinfo_detail_save" id="addressDetail" name="addressDetail"
+                  placeholder="상세 주소를 입력해주세요">
+              </dd>
+              </dt>
+              <dt class="내용1">
+                전화번호
+              <dd class="내용1">
+                <input type="text" class="container compinfo_detail_save" id="addressDetail" name="addressDetail"
+                  placeholder="전화번호를 입력해주세요">
+              </dd>
+              </dt>
+              <dt class="내용1">
+                이메일
+              <dd class="내용1">
+                <input type="text" class="container compinfo_detail_save" id="addressDetail" name="addressDetail"
+                  placeholder="email을 입력해주세요">
+              </dd>
+              </dt>
+              <dt class="내용1">
+                홈페이지
+              <dd class="내용1">
+                <input type="text" class="container compinfo_detail_save" id="addressDetail" name="addressDetail"
+                  placeholder="홈페이지를 입력해주세요">
+              </dd>
+              </dt>
+              <dt class="내용1">
+                분야
+              <dd class="내용1">
+                <input type="text" class="container compinfo_detail_save" id="addressDetail" name="addressDetail"
+                  placeholder="분야를 입력해주세요">
+              </dd>
+              </dt>
+            </dl>
+          </div>
+        </div>
+
+        <div class="왼쪽중단하단 left_midbottom">
+          <div class="left_midbottomfont">기업비전</div>
+          <div class="내용1 left_textarea">
+            <textarea class="compinfo_textarea" name="introduce" id="introduce" cols="150" rows="10"></textarea>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </div>
+</body>
+<script>
+
+  function changePic(e1) {
+    let f = e1.srcElement.files[0];
+    console.log(f.type);
+
+    let fileMessage = document.getElementById("fileMessage");
+
+    if (!f) {
+      fileMessage.textContent = "이미지를 등록해주세요";
+      return;
+    }
+
+    if (!f.type.match("image.*")) {
+      alert("이미지를 등록해주세요");
+      fileMessage.textContent = "이미지를 등록해주세요";
+      return;
+    }
+
+    let reader = new FileReader();
+    reader.onload = function (e2) {
+      let previewEl = document.querySelector("#preview");
+      previewEl.setAttribute("src", e2.target.result);
+    };
+    reader.readAsDataURL(f);
+  }
+</script>
+
+
+</html>

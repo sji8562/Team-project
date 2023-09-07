@@ -17,7 +17,6 @@
     <script src="../static/js/compJoinForm.js"></script>
     <script src="/src/main/resources/static/js/script.js"></script>
 
-
     <link rel="shortcut icon" href="../images/favicon.ico">
     <title>원티드 - 나다운 일의 시작</title>
 </head>
@@ -86,7 +85,7 @@
                                 <a class="nav-link " href="/logout">구직자</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/joinForm">커뮤니티</a>
+                                <a class="nav-link" href="../comunity/Communitymian.html">커뮤니티</a>
                             </li>
                         </ul>
                     </div>
@@ -98,10 +97,10 @@
                         <ul class="navbar-nav nav-item-font">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="/joinForm">회원가입</a>
+                                <a class="nav-link" href="./joinselectForm.html">회원가입</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/loginForm">로그인</a>
+                                <a class="nav-link" href="./Login.html">로그인</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link border-radius" href="/user/updateForm">이미지</a>
@@ -119,7 +118,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">이력서</a></li>
+                        <li><a class="dropdown-item" href="/resume/resumeList.html">이력서</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -137,79 +136,106 @@
         </div>
     </header>
 
-    
-    <div class="container my-5 border ann_insert">
-        <div class="">
-            <div class="container my-2 d-flex justify-content-between align-items-center hr">
-                <div class="anndetail_title">
-                    <h2>공고 타이틀</h2>
-                </div>
-                <div>
-                    <button type="button" name="button" class="btn btn-primary">지원하기</button>
-                    <button type="button" name="button" class="btn btn-warning">수정하기</button>
-                </div>
-            </div>
-            <div class="container">
-                <div class="">
-                    <img class="ann_mainimg" src="/images/comp1.jpg">
-                </div>
-                <div class="ann_type">
-                    <div class="col">회사명</div>
-                    <div class="col blue">회사이름</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">경력</div>
-                    <div class="col blue">신입 경력</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">학력</div>
-                    <div class="col blue">대졸 이상</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">급여</div>
-                    <div class="col blue">회사 내규에 따름</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">근무지역</div>
-                    <div class="col blue">부산 어느구</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">근무형태</div>
-                    <div class="col blue">수습 3개월</div>
-                </div>
-            </div>
-            <div>
-                <div class="ann_subtitle">
-                    <br>
-                    <h5>접수기간 및 방법</h5>
-                    <br>
-                    <div class="" style="display: flex;">
-                        <div class="col border text-center p-4"
-                            style="margin: 10px 10px 10px 10px; display: flex; justify-content: center;">
-                            <div class="left">
-                                <p class="blue">남은 기간</p><br>
-                                <p>남은시간쓰는 자리</p>
-                                <p><b>시작일</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2023.12.12 00:00
-                                </p>
-                                <p><b>마감일</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2023.12.30 18:00
-                                </p>
-                                <button type="button" name="button" class="btn btn-primary">지원하기</button>
-                            </div>
-                        </div>
+    <main class="appsug_main">
+        <div class="appsug_formmain">
+            <section>
+                <div class="formsection_top">
+                    <div class="apply_area">
+                        <button type="button" class="btn btn-success apply_stsbtn" disabled>관심 공고</button>
+                        <div class="container p-1">
+                            <div class="container-fluid card apply_container">
+                                <div class="card-body board_card">
+                                    <div class="apply_stsboard">
+                                        <span><a>공고 제목</a></span>
+                                        <form action="#">
+                                            <button type="submit" class="btn btn-danger">삭제</button>
+                                        </form>
+                                    </div>
 
-                        <div class="col bg-gray right" style="margin: 10px 10px 10px 10px; display: grid; ">
-                            <div class="col" style="margin-top: 30px;">
-                                <p>지원 방법 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 사람인 입사지원 </p>
+                                </div>
                             </div>
-                            <div class="col">
-                                <p>접수 양식 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 제출서류 보기 </p>
+                            <div class=" container-fluid card apply_container">
+                                <div class="card-body board_card">
+                                    <div class="apply_stsboard">
+                                        <span><a>공고 제목</a></span>
+                                        <form action="#">
+                                            <button type="submit" class="btn btn-danger">삭제</button>
+                                        </form>
+                                    </div>
+
+                                </div>
                             </div>
+                            <div class=" container-fluid card apply_container">
+                                <div class="card-body board_card">
+                                    <div class="apply_stsboard">
+                                        <span><a>공고 제목</a></span>
+                                        <form action="#">
+                                            <button type="submit" class="btn btn-danger">삭제</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <ul class=" pagination justify-content-center apply_stsul">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+            <section>
+                <div class="formsection">
+                    <div class="apply_area">
+                        <button type="button" class="btn btn-success apply_stsbtn" disabled>관심 기업</button>
+                        <div class="container p-1">
+                            <div class="container-fluid card apply_container">
+                                <div class="card-body board_card">
+                                    <div class="apply_stsboard">
+                                        <span><a>기업 이름</a></span>
+                                        <form action="#">
+                                            <button type="submit" class="btn btn-danger">삭제</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" container-fluid card apply_container">
+                                <div class="card-body board_card">
+                                    <div class="apply_stsboard">
+                                        <span><a>기업 이름</a></span>
+                                        <form action="#">
+                                            <button type="submit" class="btn btn-danger">삭제</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" container-fluid card apply_container">
+                                <div class="card-body board_card">
+                                    <div class="apply_stsboard">
+                                        <span><a>기업 이름</a></span>
+                                        <form action="#">
+                                            <button type="submit" class="btn btn-danger">삭제</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class=" pagination justify-content-center apply_stsul">
+                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
+
 </body>
 
 </html>

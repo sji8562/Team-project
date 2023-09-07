@@ -14,10 +14,8 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="/src/main/resources/static/css/base.css">
-    <script src="../static/js/compJoinForm.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/src/main/resources/static/js/script.js"></script>
-
-
     <link rel="shortcut icon" href="../images/favicon.ico">
     <title>원티드 - 나다운 일의 시작</title>
 </head>
@@ -137,79 +135,149 @@
         </div>
     </header>
 
-    
-    <div class="container my-5 border ann_insert">
-        <div class="">
-            <div class="container my-2 d-flex justify-content-between align-items-center hr">
-                <div class="anndetail_title">
-                    <h2>공고 타이틀</h2>
-                </div>
-                <div>
-                    <button type="button" name="button" class="btn btn-primary">지원하기</button>
-                    <button type="button" name="button" class="btn btn-warning">수정하기</button>
-                </div>
-            </div>
-            <div class="container">
-                <div class="">
-                    <img class="ann_mainimg" src="/images/comp1.jpg">
-                </div>
-                <div class="ann_type">
-                    <div class="col">회사명</div>
-                    <div class="col blue">회사이름</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">경력</div>
-                    <div class="col blue">신입 경력</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">학력</div>
-                    <div class="col blue">대졸 이상</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">급여</div>
-                    <div class="col blue">회사 내규에 따름</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">근무지역</div>
-                    <div class="col blue">부산 어느구</div>
-                </div>
-                <div class="ann_type">
-                    <div class="col">근무형태</div>
-                    <div class="col blue">수습 3개월</div>
-                </div>
-            </div>
+    <section>
+        <div class="search_listform">
             <div>
-                <div class="ann_subtitle">
-                    <br>
-                    <h5>접수기간 및 방법</h5>
-                    <br>
-                    <div class="" style="display: flex;">
-                        <div class="col border text-center p-4"
-                            style="margin: 10px 10px 10px 10px; display: flex; justify-content: center;">
-                            <div class="left">
-                                <p class="blue">남은 기간</p><br>
-                                <p>남은시간쓰는 자리</p>
-                                <p><b>시작일</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2023.12.12 00:00
-                                </p>
-                                <p><b>마감일</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2023.12.30 18:00
-                                </p>
-                                <button type="button" name="button" class="btn btn-primary">지원하기</button>
+                <div class="사이드바 search_sidebar">
+                    <div class="search_sidebar2">
+                        <div class="타이틀 search_sidetitle">
+                            <!-- '빅잡' 드롭다운 메뉴 버튼 -->
+                            <div class="search_dropdown">
+                                <button class="btn btn-secondary" id="bigJobButton">빅잡</button>
+                                <div class="search_dropdown-content" id="bigJobMenu">
+                                    <a href="#">A</a>
+                                    <a href="#">B</a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col bg-gray right" style="margin: 10px 10px 10px 10px; display: grid; ">
-                            <div class="col" style="margin-top: 30px;">
-                                <p>지원 방법 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 사람인 입사지원 </p>
+                            <!-- '스몰잡' 드롭다운 메뉴 버튼 (비활성화) -->
+                            <div class="search_dropdown">
+                                <button class="btn btn-secondary" id="smallJobButton" disabled>스몰잡</button>
+                                <!-- '스몰잡'은 현재 비활성화 상태이므로 메뉴가 나오지 않습니다. -->
+                                <div class="search_dropdown-content" id="smallJobMenu">
+                                </div>
                             </div>
-                            <div class="col">
-                                <p>접수 양식 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 제출서류 보기 </p>
+                            <br>
+                            <div>
+                                <div class="search_dropdown">
+                                    <button class="btn btn-secondary" id="bigJobButton">지역선택</button>
+                                    <div class="search_dropdown-content" id="bigJobMenu">
+                                        <a href="#">A</a>
+                                        <a href="#">B</a>
+                                    </div>
+                                </div>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="classListDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    경력 선택
+                                </button>
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="classListDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    기술스택
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="search_listform">
+            <div class="">
+                <div style="margin-top: 40px;">
+                    <div class="">
+                        <a class="" href="/src/main/resources/templates/userscrap/userscrap.html">북마크 모아보기</a>
+                    </div>
+                </div>
+                <div class="index_fourcad serach_fourcad">
+                    <a class="card fourcard_form" href="#">
+                        <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+                        <div class="card-body">
+                            <h4 class="card-title">{{ title }}</h4>
+                            <p class="card-text">기업설명</p>
+                        </div>
+                    </a>
+                    <a class="card fourcard_form" href="#">
+                        <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+                        <div class="card-body">
+                            <h4 class="card-title">{{ title }}</h4>
+                            <p class="card-text">기업설명</p>
+                        </div>
+                    </a>
+                    <a class="card fourcard_form" href="#">
+                        <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+                        <div class="card-body">
+                            <h4 class="card-title">{{ title }}</h4>
+                            <p class="card-text">기업설명</p>
+                        </div>
+                    </a>
+                    <a class="card fourcard_form" href="#">
+                        <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+                        <div class="card-body">
+                            <h4 class="card-title">{{ title }}</h4>
+                            <p class="card-text">기업설명</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="index_fourcad serach_fourcad">
+                <a class="card fourcard_form" href="#">
+                    <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+                    <div class="card-body">
+                        <h4 class="card-title">{{ title }}</h4>
+                        <p class="card-text">기업설명</p>
+                    </div>
+                </a>
+                <a class="card fourcard_form" href="#">
+                    <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+                    <div class="card-body">
+                        <h4 class="card-title">{{ title }}</h4>
+                        <p class="card-text">기업설명</p>
+                    </div>
+                </a>
+                <a class="card fourcard_form" href="#">
+                    <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+                    <div class="card-body">
+                        <h4 class="card-title">{{ title }}</h4>
+                        <p class="card-text">기업설명</p>
+                    </div>
+                </a>
+                <a class="card fourcard_form" href="#">
+                    <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
+                    <div class="card-body">
+                        <h4 class="card-title">{{ title }}</h4>
+                        <p class="card-text">기업설명</p>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <div class="width-auto border mb-5">
     </div>
+
+    <script>
+        document.getElementById("bigJobMenu").addEventListener("click", function (event) {
+            var clickedItem = event.target.innerText;
+            if (clickedItem === 'A') {
+                // 'A'를 클릭한 경우 '스몰잡' 드롭다운 메뉴 변경
+                document.getElementById("smallJobButton").innerText = "스몰잡 (A 선택)";
+                document.getElementById("smallJobButton").disabled = false;
+                document.getElementById("smallJobMenu").innerHTML = '<a href="#">a</a><a href="#">b</a><a href="#">c</a>';
+            } else if (clickedItem === 'B') {
+                // 'B'를 클릭한 경우 '스몰잡' 드롭다운 메뉴 변경
+                document.getElementById("smallJobButton").innerText = "스몰잡 (B 선택)";
+                document.getElementById("smallJobButton").disabled = false;
+                document.getElementById("smallJobMenu").innerHTML = '<a href="#">d</a><a href="#">e</a><a href="#">f</a>';
+            }
+        });
+
+        // JavaScript로 '스몰잡' 메뉴 항목 클릭 이벤트 처리
+        document.getElementById("smallJobMenu").addEventListener("click", function (event) {
+            event.stopPropagation(); // 부모 요소로의 이벤트 전파 방지
+        });
+    </script>
+
+
 </body>
 
 </html>
