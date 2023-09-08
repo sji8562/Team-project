@@ -83,7 +83,6 @@ public class AnnouncementController {
     public String AnnDetail(@PathVariable Integer id, Model model) {
         Announcement ann = announcementService.공고상세보기(id);
         model.addAttribute("ann", ann);
-        
         return "ann/annDetail";
     }
 
