@@ -107,9 +107,7 @@ public class ResumeController {
     public @ResponseBody List<Resume> applyRes(Model model){
         User sessionUser = (User) session.getAttribute("sessionUser");
         Integer userIndex = sessionUser.getIndex();
-        System.out.println("이제되나?");
-        List<Resume> resume = resumeService.유저의이력서보기(userIndex);
-        return resume;
+        return resumeService.유저의이력서보기(userIndex);
     }
 
 

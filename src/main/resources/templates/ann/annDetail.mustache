@@ -103,7 +103,6 @@
 
                             <!-- Modal body -->
                             <div class="modal-body">
-                                Modal body..
                             </div>
 
                             <!-- Modal footer -->
@@ -133,14 +132,49 @@
 async function resList() {
     let response = await fetch(`/api/applyRes`)
     let resume = await response.json();
-    console.log("+++++++++++++"+resume);
-    
+    if (resume === null) {
+            alert("이력서를 아직 작성하지 않아서 지원할 수 없어요.");
+        } else {
+            modalBody = document.querySelector('.modal-body');
+            modalBody.innerHTML = '내 이력서 목록'; //
+            resume.forEach((resume, index) => {
+                const resumeItem = document.createElement('div');
+                resumeItem.classList.add('resume-item'); // 필요에 따라 CSS 클래스를 추가할 수 있습니다.
 
-    
-   
+                // 제목을 표시하는 요소 (예시로 h3 사용)
+                const titleElement = document.createElement('button');
+                titleElement.innerHTML = resume.title;
+                titleElement.addEventListener('click', () => {
+                    applyInsert(resume.index); // 예시로 executeControllerMethod 함수를 호출하고 이력서 ID를 전달합니다.
+                });
+
+                // 데이터를 표시하는 요소 (예시로 p 사용)
+                const dataElement = document.createElement('p');
+                dataElement.textContent = resume.resumeData; // 예시로 resumeData 프로퍼티를 표시합니다.
+
+                // 모달 바디에 추가
+                resumeItem.appendChild(titleElement);
+                resumeItem.appendChild(dataElement);
+                modalBody.appendChild(resumeItem);
+            });
+        }
     
 }
 
+
+async function applyInsert(resumeId) {
+    try {
+        // 컨트롤러의 메소드를 호출하고 데이터를 받아올 수 있습니다.
+        let response = await fetch(`/controllerMethod/${resumeId}`,{
+            method : "POST"
+        });
+        let data = await response.json();
+    } catch (error) {
+        console.error("에러 발생:", error);
+        alert("컨트롤러 메소드 실행 중에 오류가 발생했습니다.");
+    }
+
+}
 
 
 
