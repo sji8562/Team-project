@@ -343,8 +343,3 @@ document
   });
 
 // JavaScript로 '스몰잡' 메뉴 항목 클릭 이벤트 처리
-document
-  .getElementById("smallJobMenu")
-  .addEventListener("click", function (event) {
-    event.stopPropagation(); // 부모 요소로의 이벤트 전파 방지
-  });
