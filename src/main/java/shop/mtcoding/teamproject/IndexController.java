@@ -44,6 +44,7 @@ public class IndexController {
         session.setAttribute("bigjobs", bigJobs);
         request.setAttribute("annPG", annPG.getContent());
         request.setAttribute("comPG", comPG.getContent());
+        System.out.println("테스트");
         return "/index";
     }
 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,9 @@ import shop.mtcoding.teamproject.skill.HasSkillService;
 import shop.mtcoding.teamproject.skill.Skill;
 import shop.mtcoding.teamproject.skill.SkillService;
 import shop.mtcoding.teamproject.skill.HasSkillRequest.annSaveDTO;
+import shop.mtcoding.teamproject.user.User;
+import shop.mtcoding.teamproject.userscrap.UserScrap;
+import shop.mtcoding.teamproject.userscrap.UserScrapService;
 
 @Controller
 public class AnnouncementController {
@@ -30,6 +34,11 @@ public class AnnouncementController {
     private SkillService skillService;
     @Autowired
     private HasSkillService hasSkillService;
+    @Autowired
+    private UserScrapService userScrapService;
+
+    @Autowired
+    private HttpSession session;
 
     @GetMapping("/annSaveForm")
     public String annSaveForm(Model model) {
@@ -55,9 +64,9 @@ public class AnnouncementController {
     }
 
     @PostMapping("/annUpdate/{id}")
-    public String annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO, Skill skills){
-         announcementService.공고수정(id, updateDTO);
-         hasSkillService.공고스킬수정(id, skills);
+    public String annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO, Skill skills) {
+        announcementService.공고수정(id, updateDTO);
+        hasSkillService.공고스킬수정(id, skills);
         return "redirect:/annDetail/" + id;
     }
 
@@ -73,7 +82,20 @@ public class AnnouncementController {
 
     @GetMapping("/annDetail/{id}")
     public String AnnDetail(@PathVariable Integer id, Model model) {
+        User user = (User) session.getAttribute("sessionUser");
         Announcement ann = announcementService.공고상세보기(id);
+        Integer sessionUserId = null;
+        Integer annIdx = null;
+        boolean isBookmarked = false;
+        if (user != null) {
+            sessionUserId = user.getIndex();
+            annIdx = id; // Replace with the actual announcement index
+        }
+        if (sessionUserId != null && !sessionUserId.equals("")) {
+            isBookmarked = userScrapService.isBookmarkSaved(annIdx, sessionUserId);
+        }
+        System.out.println("테스토스테론" + isBookmarked);
+        model.addAttribute("isBookmarked", isBookmarked);
         model.addAttribute("ann", ann);
         return "ann/annDetail";
     }

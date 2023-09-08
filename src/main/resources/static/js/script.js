@@ -285,11 +285,19 @@ function getCookie(name) {
     );
 
     $(".toggle-orange").click(function () {
-      $(this).toggleClass("orange"); // Toggle the "orange" class
-      let annindex = document.querySelector("#annIndex").value;
-      let userindex = document.querySelector("#userIndex").value;
-      console.log(annindex);
-      console.log(userindex);
+      if ($(this).hasClass("orange")) {
+        // The element has the "orange" class, so it's currently bookmarked
+        // Perform bookmark deletion here
+        const annIdx = $("#annIndex").val();
+        const userIdx = $("#userIndex").val();
+        deleteBookmark(annIdx, userIdx);
+      } else {
+        // The element does not have the "orange" class, so it's not bookmarked
+        // Perform bookmark saving here
+        bookmarkSave();
+      }
+      // Toggle the "orange" class
+      $(this).toggleClass("orange");
     });
   });
 }
@@ -359,26 +367,63 @@ document
 
 async function bookmarkSave() {
   let requestBody = {
-    boardId: document.querySelector("#boardId").value,
-    comment: document.querySelector("#comment").value,
+    userIdx: document.querySelector("#userIndex").value,
+    annIdx: document.querySelector("#annIndex").value,
+    compIdx: document.querySelector("#compIndex").value,
   };
-
   console.log(requestBody);
+  try {
+    let response = await fetch("/api/userScrap/save", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    });
 
-  let response = await fetch("/api/reply/save", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(requestBody),
+    let responseBody = await response.json();
+    console.log(responseBody);
+
+    if (responseBody.success) {
+      location.reload();
+    } else {
+      alert(responseBody.data);
+      console.log(responseBody.data);
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
+  }
+}
+
+async function deleteReply(id) {
+  let response = await fetch(`/api/userScrap/${id}/delete`, {
+    method: "delete",
   });
-
   let responseBody = await response.json();
-  console.log(responseBody);
-
   if (responseBody.sucuess) {
     location.reload();
   } else {
     alert(responseBody.data);
+  }
+}
+
+async function deleteBookmark(annIdx, userIdx) {
+  try {
+    let response = await fetch(
+      `/api/userScrap/delete?annIdx=${annIdx}&userIdx=${userIdx}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (response.ok) {
+      // Bookmark successfully deleted
+      // Update your UI to reflect the change
+    } else {
+      // Handle the case where bookmark deletion failed
+      console.error("Bookmark deletion failed.");
+    }
+  } catch (error) {
+    console.error("An error occurred while deleting the bookmark:", error);
   }
 }
