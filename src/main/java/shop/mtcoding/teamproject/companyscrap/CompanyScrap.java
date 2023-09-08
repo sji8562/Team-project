@@ -1,7 +1,5 @@
 package shop.mtcoding.teamproject.companyscrap;
 
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -30,5 +28,12 @@ public class CompanyScrap {
     @Column(nullable = false, length = 20)
     private Integer resumeIdx;
 
-    
+    @Builder
+    public CompanyScrap(Integer index, Integer resumeIdx, Integer compIdx) {
+
+        this.index = index;
+        this.resumeIdx = resumeIdx;
+        this.compIdx = compIdx;
+    }
+
 }

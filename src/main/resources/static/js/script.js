@@ -290,11 +290,27 @@ function getCookie(name) {
         // Perform bookmark deletion here
         const annIdx = $("#annIndex").val();
         const userIdx = $("#userIndex").val();
-        deleteBookmark(annIdx, userIdx);
+        deleteUserBookmark(annIdx, userIdx);
       } else {
         // The element does not have the "orange" class, so it's not bookmarked
         // Perform bookmark saving here
-        bookmarkSave();
+        bookmarkuserSave();
+      }
+      // Toggle the "orange" class
+      $(this).toggleClass("orange");
+    });
+
+    $(".toggle-orange1").click(function () {
+      if ($(this).hasClass("orange")) {
+        // The element has the "orange" class, so it's currently bookmarked
+        // Perform bookmark deletion here
+        const resumeIdx = $("#resumeIndex").val();
+        const companyIdx = $("#companyIndex").val();
+        deleteCompanyBookmark(resumeIdx, companyIdx);
+      } else {
+        // The element does not have the "orange" class, so it's not bookmarked
+        // Perform bookmark saving here
+        bookmarkcompanySave();
       }
       // Toggle the "orange" class
       $(this).toggleClass("orange");
@@ -365,13 +381,12 @@ document
     event.stopPropagation(); // 부모 요소로의 이벤트 전파 방지
   });
 
-async function bookmarkSave() {
+async function bookmarkuserSave() {
   let requestBody = {
     userIdx: document.querySelector("#userIndex").value,
     annIdx: document.querySelector("#annIndex").value,
     compIdx: document.querySelector("#compIndex").value,
   };
-  console.log(requestBody);
   try {
     let response = await fetch("/api/userScrap/save", {
       method: "post",
@@ -395,22 +410,60 @@ async function bookmarkSave() {
   }
 }
 
-async function deleteReply(id) {
-  let response = await fetch(`/api/userScrap/${id}/delete`, {
-    method: "delete",
-  });
-  let responseBody = await response.json();
-  if (responseBody.sucuess) {
-    location.reload();
-  } else {
-    alert(responseBody.data);
+async function bookmarkcompanySave() {
+  let requestBody = {
+    resumeIdx: document.querySelector("#resumeIndex").value,
+    compIdx: document.querySelector("#companyIndex").value,
+  };
+  console.log(requestBody);
+  try {
+    let response = await fetch("/api/CompanyScrap/save", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    });
+
+    let responseBody = await response.json();
+    console.log(responseBody);
+
+    if (responseBody.success) {
+      location.reload();
+    } else {
+      alert(responseBody.data);
+      console.log(responseBody.data);
+    }
+  } catch (error) {
+    console.error("An error occurred:", error);
   }
 }
 
-async function deleteBookmark(annIdx, userIdx) {
+async function deleteUserBookmark(annIdx, userIdx) {
   try {
     let response = await fetch(
-      `/api/userScrap/delete?annIdx=${annIdx}&userIdx=${userIdx}`,
+      `/api/companyScrap/delete?resumeIndex=${resumeIndex}&companyIndex=${companyIndex}`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (response.ok) {
+      // Bookmark successfully deleted
+      // Update your UI to reflect the change
+    } else {
+      // Handle the case where bookmark deletion failed
+      console.error("Bookmark deletion failed.");
+    }
+  } catch (error) {
+    console.error("An error occurred while deleting the bookmark:", error);
+  }
+}
+
+async function deleteCompanyBookmark(resumeIndex, companyIndex) {
+  try {
+    let response = await fetch(
+      `/api/companyScrap/delete?resumeIdx=${resumeIndex}&compIdx=${companyIndex}`,
       {
         method: "DELETE",
       }

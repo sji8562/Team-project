@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import shop.mtcoding.teamproject.company.Company;
+import shop.mtcoding.teamproject.companyscrap.CompanyScrapService;
 import shop.mtcoding.teamproject.skill.HasSkill;
 import shop.mtcoding.teamproject.skill.HasSkillService;
 import shop.mtcoding.teamproject.skill.Skill;
@@ -29,8 +31,9 @@ public class ResumeController {
     private SkillService skillService;
     @Autowired
     private HasSkillService hasSkillService;
+
     @Autowired
-    private EntityManager entityManager;
+    private CompanyScrapService companyScrapService;
     @Autowired
     private HttpSession session;
 
@@ -70,6 +73,20 @@ public class ResumeController {
         User user = resumeService.이력서유저보기(resume);
         List<HasSkill> hasSkills = hasSkillService.이력서스킬목록(id);
 
+        Company company = (Company) session.getAttribute("sessionCompany");
+        Integer sessionCompanyId = null;
+        Integer resumeIdx = null;
+        boolean isBookmarked = false;
+        if (user != null) {
+            sessionCompanyId = company.getIndex();
+            resumeIdx = id; // Replace with the actual announcement index
+        }
+        if (sessionCompanyId != null && !sessionCompanyId.equals("")) {
+            isBookmarked = companyScrapService.isBookmarkSaved(resumeIdx, sessionCompanyId);
+        }
+
+        model.addAttribute("isBookmarked", isBookmarked);
+
         model.addAttribute("res", resume);
         model.addAttribute("user", user);
         model.addAttribute("skills", hasSkills);
@@ -87,7 +104,7 @@ public class ResumeController {
 
     @PostMapping("/resUpdate/{id}")
     public String resumeUpdate(@PathVariable Integer id, Resume res, Skill skills) {
-        resumeService.이력서수정(id,  res);
+        resumeService.이력서수정(id, res);
         hasSkillService.이력서스킬수정(id, skills);
         return "redirect:/resDetail/" + id;
     }

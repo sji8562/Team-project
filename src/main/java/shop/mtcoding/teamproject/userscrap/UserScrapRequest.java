@@ -7,7 +7,7 @@ public class UserScrapRequest {
 
     @Getter
     @Setter
-    public static class bookSaveDTO {
+    public static class bookUserSaveDTO {
         private Integer userIdx;
         private Integer annIdx;
         private Integer compIdx;

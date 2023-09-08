@@ -105,5 +105,4 @@ public class AnnouncementController {
         announcementService.공고삭제(id);
         return "redirect:/annlist";
     }
-
 }

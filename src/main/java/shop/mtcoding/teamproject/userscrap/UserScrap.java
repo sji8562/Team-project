@@ -41,4 +41,7 @@ public class UserScrap {
         this.annIdx = annIdx;
         this.compIdx = compIdx;
     }
+
 }
+
+    

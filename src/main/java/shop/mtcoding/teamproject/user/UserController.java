@@ -73,4 +73,13 @@ public class UserController {
         response.sendRedirect("/");
     }
 
+    @GetMapping("/user/userAppSggList")
+    public String userAppSggList() {
+        // User sessionUser = (User) session.getAttribute("sessionUser");
+        // List<BigJob> bigJobList = bigJobService.BigJobList();
+        // session.setAttribute("bigJobList", bigJobList);
+
+        return "/appsgg/userAppSggList";
+    }
+
 }

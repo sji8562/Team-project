@@ -7,12 +7,30 @@
                 <div class="기업이름텍스트 sectoptitle">
                     <div class="메인타이틀 maintitle">이력서</div>
                 </div>
+                {{#sessionCompany}}
                 <div class="상단오른쪽 top_right">
-                        <button type="button" class="수정하기버튼 btn updatebtn">수정하기</button>
-                        <button type="button" class="북마크 버튼 btn scrap_icon bookmarkbtn">
-                            <i class="fas fa-star"></i>
-                        </button>
+                    <button type="button" class="btn updatebtn">수정하기</button>
+                    {{#isBookmarked}}
+                    <button type="button" class="btn scrap_icon bookmarkbtn toggle-orange1 orange">
+                        <i class="fas fa-star"></i>
+                    </button>
+                    {{/isBookmarked}}
+                    {{^isBookmarked}}
+                    <button type="button" class="btn scrap_icon bookmarkbtn toggle-orange1">
+                        <i class="fas fa-star"></i>
+                    </button>
+                    {{/isBookmarked}}
+                    
                 </div>
+                <input id="resumeIndex" type="hidden" value="{{ res.index }}" />
+                <input id="companyIndex" type="hidden" value="{{ sessionCompany.index }}" />
+                {{/sessionCompany}}
+                {{^sessionCompany}}
+                <div class="상단오른쪽 top_right">
+                    <button type="button" class="btn updatebtn">수정하기</button>
+                </div>
+                {{/sessionCompany}}
+               
             </section>
             <section class="main">
                 <div class="왼쪽화면틀 leftform">

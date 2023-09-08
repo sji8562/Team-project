@@ -11,12 +11,15 @@
       {{#sessionUser}}
       <div>
         {{#isBookmarked}}
-        <button
-          class="fas fa-bookmark btn b-blue toggle-orange orange"
-        ></button>
+        <button type="button" class="btn scrap_icon bookmarkbtn">
+          <i class="fas fa-star toggle-orange orange"></i>
+        </button>
         {{/isBookmarked}}
         {{^isBookmarked}}
-        <button class="fas fa-bookmark btn b-blue toggle-orange"></button>
+        <button type="button" class="btn scrap_icon bookmarkbtn">
+          <i class="fas fa-star toggle-orange"></i>
+        </button>
+
         {{/isBookmarked}}
 
         <input id="annIndex" type="hidden" value="{{ ann.index }}" />
