@@ -61,7 +61,7 @@
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="resList()">
                             지원하기
                             </button>
-                            <input type="hidden" id="ann" value="{{ann}}">
+                            <input type="hidden" id="annId" value="{{ann.index}}">
                         </form>
                         </div>
 
@@ -237,17 +237,14 @@ async function applyInsert(resume) {
 
 
 async function applyInsert(resume) {
-    let ann = document.getElementById("ann").value
+    let ann = document.getElementById("annId").value;
     let requestBody = {
-        ann: ann,
-        res: resume
-    };
-    console.log(requestBody);
+        annId: ann,
+        resume: resume
 
-
+    }
     let response = await fetch("/api/apply/save", {
             method: "post",
-            moode: "cors",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -255,10 +252,108 @@ async function applyInsert(resume) {
         });
 
     let responseBody = await response.json();
+    alert(responseBody.data);
+    
 
-    if (responseBody.sucuess) {
-            alert(responseBody.data);
-        }
+
+}
+
+
+async function applyInsert(resume) {
+    let ann = document.getElementById("annId").value;
+    let requestBody = {
+        annId: ann,
+        resume: resume
+    };
+    console.log(requestBody);
+
+
+    let response = await fetch("/api/apply/save", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+    let responseBody = await response.json();
+    alert(responseBody.data);
+    
+
+    \
+}
+
+
+async function applyInsert(resume) {
+let ann = document.getElementById("annId").value;
+    let requestBody = {
+        annId: ann,
+        resume: resume
+    };
+    console.log(requestBody);
+
+    let response = await fetch("/api/apply/save", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+    let responseBody = await response.json();
+    alert(responseBody.data);
+    
+
+
+}
+
+
+async function applyInsert(resume) {
+    let ann = document.getElementById("annId").value;
+    let requestBody = {
+        annId: ann,
+        resume: resume
+    };
+    console.log(requestBody);
+
+
+    let response = await fetch("/api/apply/save", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+    let responseBody = await response.json();
+    alert(responseBody.data);
+    
+
+    \
+}
+
+
+async function applyInsert(resume) {
+    let ann = document.getElementById("annId").value;
+    let requestBody = {
+        annId: ann,
+        resume: resume
+    };
+    console.log(requestBody);
+
+
+    let response = await fetch("/api/apply/save", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+    let responseBody = await response.json();
+    alert(responseBody.data);
+    
+
     
 }
 
