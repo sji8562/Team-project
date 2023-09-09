@@ -41,8 +41,16 @@ public class AnnouncementController {
 
     @GetMapping("/annSaveForm")
     public String annSaveForm(Model model) {
-        List<Skill> skills = skillService.스킬목록보기();
-        model.addAttribute("skills", skills);
+        List<Skill> listA = skillService.스킬리스트보기(1, 10);
+        List<Skill> listB = skillService.스킬리스트보기(11, 22);
+        List<Skill> listC = skillService.스킬리스트보기(23, 28);
+        List<Skill> listD = skillService.스킬리스트보기(29, 34);
+
+        model.addAttribute("listA", listA);
+        model.addAttribute("listB", listB);
+        model.addAttribute("listC", listC);
+        model.addAttribute("listD", listD);
+
         return "ann/annSave";
     }
 
@@ -55,10 +63,20 @@ public class AnnouncementController {
 
     @GetMapping("/annUpdateForm/{id}")
     public String annUpdateForm(@PathVariable Integer id, Model model) {
-        List<Skill> skills = skillService.스킬목록보기();
+
+
+        List<Skill> listA = skillService.스킬리스트보기(1, 10);
+        List<Skill> listB = skillService.스킬리스트보기(11, 22);
+        List<Skill> listC = skillService.스킬리스트보기(23, 28);
+        List<Skill> listD = skillService.스킬리스트보기(29, 34);
+
+        model.addAttribute("listA", listA);
+        model.addAttribute("listB", listB);
+        model.addAttribute("listC", listC);
+        model.addAttribute("listD", listD);
+
         Announcement ann = announcementService.공고상세보기(id);
         model.addAttribute("ann", ann);
-        model.addAttribute("skills", skills);
         return "ann/annUpdate";
     }
 
