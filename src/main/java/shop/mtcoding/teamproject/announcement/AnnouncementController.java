@@ -107,6 +107,7 @@ public class AnnouncementController {
     @PostMapping("/annDelete/{id}")
     public String annDelete(@PathVariable Integer id) {
         announcementService.공고삭제(id);
+        hasSkillService.공고스킬삭제(id); 
         return "redirect:/annlist";
     }
 
