@@ -18,14 +18,18 @@ public class ApplyController {
     private ApplyService applyService;
 
     @PostMapping("/api/apply/save")
-    public @ResponseBody ApiUtil<String> applySave(@RequestBody Resume resume, @RequestBody Announcement announcement){
-
-        System.out.println("되나???????????????????"+resId);
+    public @ResponseBody ApiUtil<String> applySave(@RequestBody ApplyRequest.SaveDTO saveDTO){
+        String annId = saveDTO.getAnnId();
+        Integer annIndex = Integer.valueOf(annId);
         try {
-            applyService.지원등록(resume, announcement);
+            applyService.지원등록(saveDTO.getResume(), annIndex);
             return new ApiUtil<String>(true, "지원이 완료되었습니다");
-        } catch (MyApiException e) {
-            throw new MyApiException("지원이 완료되지 않았습니다");
+        } catch (Exception e) {
+            if (e.getCause() instanceof javax.persistence.PersistenceException ) {
+                throw new MyApiException("이미 지원한 공고입니다");
+            } else {
+                throw new MyApiException("지원이 완료되지 않았습니다");
+            }
         }
     }
    
