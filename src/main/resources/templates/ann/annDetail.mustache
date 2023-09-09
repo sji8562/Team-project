@@ -57,10 +57,12 @@
                             <p><b class="border">{{#ann.startTime}}{{ann.startTime}}{{/ann.startTime}}</b></p>
                             <p><b class="border">{{#ann.endTime}}{{ann.endTime}}{{/ann.endTime}}</b></p>
                         <div class="container mt-3">
+                        <form>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="resList()">
                             지원하기
                             </button>
                             <input type="hidden" id="ann" value="{{ann}}">
+                        </form>
                         </div>
 
 <!-- The Modal -->
@@ -141,6 +143,55 @@ async function applyInsert(resume) {
     let requestBody = {
         annId: ann,
         resume: resume
+
+    }
+
+    let response = await fetch("/api/apply/save", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+    let responseBody = await response.json();
+    alert(responseBody.data);
+    
+
+
+}
+
+
+async function applyInsert(resume) {
+    let ann = document.getElementById("annId").value;
+    let requestBody = {
+        annId: ann,
+        resume: resume
+    };
+    console.log(requestBody);
+
+
+    let response = await fetch("/api/apply/save", {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        });
+
+    let responseBody = await response.json();
+    alert(responseBody.data);
+    
+
+    \
+}
+
+
+async function applyInsert(resume) {
+let ann = document.getElementById("annId").value;
+    let requestBody = {
+        annId: ann,
+        resume: resume
     };
     console.log(requestBody);
 
@@ -186,14 +237,17 @@ async function applyInsert(resume) {
 
 
 async function applyInsert(resume) {
+    let ann = document.getElementById("ann").value
     let requestBody = {
-        ann: document.querySelector("#ann").value,
-        resume: resume
+        ann: ann,
+        res: resume
+    };
+    console.log(requestBody);
 
-    }
 
     let response = await fetch("/api/apply/save", {
             method: "post",
+            moode: "cors",
             headers: {
                 "Content-Type": "application/json"
             },
