@@ -57,10 +57,12 @@
                             <p><b class="border">{{#ann.startTime}}{{ann.startTime}}{{/ann.startTime}}</b></p>
                             <p><b class="border">{{#ann.endTime}}{{ann.endTime}}{{/ann.endTime}}</b></p>
                         <div class="container mt-3">
+                        <form>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="resList()">
                             지원하기
                             </button>
                             <input type="hidden" id="ann" value="{{ann}}">
+                        </form>
                         </div>
 
 <!-- The Modal -->
@@ -109,6 +111,7 @@ async function resList() {
     modalBody = document.querySelector('.modal-body');
     modalHeader = document.querySelector('.modal-header');
     modalHeader.innerHTML = "내 이력서 목록";
+    modalBody.innerHTML = "";
 
     if (resume.length === 0) {
            alert("이력서가 없으면 공고에 지원할 수 없습니다. 이력서를 먼저 작성해주세요")
@@ -123,16 +126,11 @@ async function resList() {
                 const titleElement = document.createElement('button');
                 titleElement.innerHTML = resume.title;
                 titleElement.addEventListener('click', () => {
-                    applyInsert(resume); // 예시로 executeControllerMethod 함수를 호출하고 이력서 ID를 전달합니다.
+                    applyInsert(resume);
                 });
-
-                // 데이터를 표시하는 요소 (예시로 p 사용)
-                const dataElement = document.createElement('p');
-                dataElement.textContent = resume.resumeData; // 예시로 resumeData 프로퍼티를 표시합니다.
 
                 // 모달 바디에 추가
                 resumeItem.appendChild(titleElement);
-                resumeItem.appendChild(dataElement);
                 modalBody.appendChild(resumeItem);
             });
         }
@@ -141,14 +139,17 @@ async function resList() {
 
 
 async function applyInsert(resume) {
+    let ann = document.getElementById("ann").value
     let requestBody = {
-        ann: document.querySelector("#ann").value,
-        resume: resume
+        ann: ann,
+        res: resume
+    };
+    console.log(requestBody);
 
-    }
 
     let response = await fetch("/api/apply/save", {
             method: "post",
+            moode: "cors",
             headers: {
                 "Content-Type": "application/json"
             },
