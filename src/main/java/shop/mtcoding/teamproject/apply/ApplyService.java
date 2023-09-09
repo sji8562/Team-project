@@ -1,5 +1,7 @@
 package shop.mtcoding.teamproject.apply;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import shop.mtcoding.teamproject.announcement.Announcement;
 import shop.mtcoding.teamproject.announcement.AnnouncementRepository;
+import shop.mtcoding.teamproject.apply.ApplyRequest.ListDTO;
 import shop.mtcoding.teamproject.resume.Resume;
 import shop.mtcoding.teamproject.resume.ResumeRepository;
 import shop.mtcoding.teamproject.user.User;
@@ -38,5 +41,17 @@ public class ApplyService {
                     .build();
 
         applyRepository.save(apply);
+    }
+
+    public ListDTO 지원목록보기(){
+        User user = (User) session.getAttribute("sessionUser");
+        Integer userId = user.getIndex();
+        List<Resume> resumes = applyRepository.findResumeByUserId(userId);
+        List<Apply> applies = applyRepository.findAnnByUserId(userId);
+
+        ListDTO listDTO = new ListDTO(); 
+        listDTO.setResumes(resumes);
+        listDTO.setApplies(applies);
+        return listDTO;
     }
 }

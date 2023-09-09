@@ -1,5 +1,7 @@
 package shop.mtcoding.teamproject.apply;
 
+import java.util.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,5 +15,13 @@ public class ApplyRequest {
     public static class SaveDTO{
         private Resume resume;
         private String annId;
+    }
+
+    @Getter
+    @Setter
+    public static class ListDTO{
+        private List<Resume> resumes;
+        private List<Announcement> announcements;
+        private List<Apply> applies;
     }
 }
