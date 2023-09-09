@@ -66,6 +66,11 @@ public class HasSkillService {
         List<HasSkill> hasSkills = hasSkillRepository.findByresIdx(id);
         return hasSkills;
     }
+    
+    @Transactional
+    public void 공고스킬삭제(Integer annId) {
+        hasSkillRepository.deleteByAnnId(annId);
+    }
 
     
     

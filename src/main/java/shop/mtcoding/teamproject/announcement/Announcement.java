@@ -47,7 +47,7 @@ public class Announcement {
     private String bigJobIdx; // 1:1 관계 공고는 하나의 대분류를 가지고있다.
     private String smallJobIdx; // 1:1관계 공고는 하나의 소분류를 가지고있다.
 
-    @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HasSkill> skills = new ArrayList<>();
     @OneToMany(mappedBy="announcement", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Apply> applies = new ArrayList<>();
