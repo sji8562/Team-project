@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -22,7 +23,10 @@ import shop.mtcoding.teamproject.user.User;
 @NoArgsConstructor
 @Setter
 @Getter
-@Table(name = "apply_tb")
+@Table(name = "apply_tb",  uniqueConstraints={
+    @UniqueConstraint(
+        columnNames={"user_index", "announcement_index"}
+    )})
 @Entity
 public class Apply {
     @Id

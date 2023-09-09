@@ -61,7 +61,7 @@
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" onclick="resList()">
                             지원하기
                             </button>
-                            <input type="hidden" id="ann" value="{{ann}}">
+                            <input type="hidden" id="annId" value="{{ann.index}}">
                         </form>
                         </div>
 
@@ -139,17 +139,16 @@ async function resList() {
 
 
 async function applyInsert(resume) {
-    let ann = document.getElementById("ann").value
+    let ann = document.getElementById("annId").value;
     let requestBody = {
-        ann: ann,
-        res: resume
+        annId: ann,
+        resume: resume
     };
     console.log(requestBody);
 
 
     let response = await fetch("/api/apply/save", {
             method: "post",
-            moode: "cors",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -157,10 +156,8 @@ async function applyInsert(resume) {
         });
 
     let responseBody = await response.json();
-
-    if (responseBody.sucuess) {
-            alert(responseBody.data);
-        }
+    alert(responseBody.data);
+    
 
     
 }

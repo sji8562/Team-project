@@ -26,12 +26,14 @@ public class ApplyService {
     @Autowired
     private ResumeRepository resumeRepository;
 
-    public void 지원등록(Resume resume, Announcement announcement){
+    public void 지원등록(Resume resume, Integer annId){
         User user = (User) session.getAttribute("sessionUser");
+        Integer resId = resume.getIndex();
+        Resume resume2 = resumeRepository.findById(resId).get();
         Apply apply = Apply.builder()
                     .user(userRepository.findById(user.getIndex()).get())
-                    .resume(resume)
-                    .announcement(announcement)
+                    .resume(resume2)
+                    .announcement(announcementRepository.findById(annId).get())
                     .status(3)
                     .build();
 
