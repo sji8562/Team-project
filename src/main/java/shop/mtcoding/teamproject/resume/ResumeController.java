@@ -95,7 +95,6 @@ public class ResumeController {
 
         Resume res = resumeService.이력서상세보기(id);
         model.addAttribute("res", res);
-        model.addAttribute("skills", skills);
         return "resume/resumeUpdate";
     }
 
