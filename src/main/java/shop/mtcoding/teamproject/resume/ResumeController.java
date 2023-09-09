@@ -83,10 +83,18 @@ public class ResumeController {
 
     @GetMapping("/resUpdateForm/{id}")
     public String resumeUpdateForm(@PathVariable Integer id, Model model) {
-        List<Skill> skills = skillService.스킬목록보기();
+        List<Skill> listA = skillService.스킬리스트보기(1, 10);
+        List<Skill> listB = skillService.스킬리스트보기(11, 22);
+        List<Skill> listC = skillService.스킬리스트보기(23, 28);
+        List<Skill> listD = skillService.스킬리스트보기(29, 34);
+
+        model.addAttribute("listA", listA);
+        model.addAttribute("listB", listB);
+        model.addAttribute("listC", listC);
+        model.addAttribute("listD", listD);
+
         Resume res = resumeService.이력서상세보기(id);
         model.addAttribute("res", res);
-        model.addAttribute("skills", skills);
         return "resume/resumeUpdate";
     }
 
