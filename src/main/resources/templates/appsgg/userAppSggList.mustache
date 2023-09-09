@@ -7,52 +7,24 @@
           <button type="button" class="btn btn-success apply_stsbtn" disabled>
             지원 현황
           </button>
+          
           <div class="container p-1">
+            {{#applies}}
             <div class="container-fluid card apply_container">
               <div class="card-body board_card">
                 <div class="apply_stsboard">
-                  <span><a>이력서 제목</a> (공고 제목)</span>
-                  <form action="#">
-                    <button type="submit" class="btn btn-success">합격</button>
-                    <button type="submit" class="btn btn-danger">불합격</button>
-                    <button type="submit" class="btn btn-warning">
+                  <span>{{announcement.title}}</span>
+                    <button class="btn btn-success" id="accepted">합격</button>
+                    <button class="btn btn-danger" id="denied">불합격</button>
+                    <button class="btn btn-warning" id="hold">
                       대기중
                     </button>
-                  </form>
+                    <input type="hidden" id="status" value="{{status}}">
                 </div>
-                <div class="apply_stsboardu">구직자 이름</div>
-              </div>
+              </div> 
             </div>
-            <div class="container-fluid card apply_container">
-              <div class="card-body board_card">
-                <div class="apply_stsboard">
-                  <span><a>이력서 제목</a> (공고 제목)</span>
-                  <form action="#">
-                    <button type="submit" class="btn btn-success">합격</button>
-                    <button type="submit" class="btn btn-danger">불합격</button>
-                    <button type="submit" class="btn btn-warning">
-                      대기중
-                    </button>
-                  </form>
-                </div>
-                <div class="apply_stsboardu">구직자 이름</div>
-              </div>
-            </div>
-            <div class="container-fluid card apply_container">
-              <div class="card-body board_card">
-                <div class="apply_stsboard">
-                  <span><a>이력서 제목</a> (공고 제목)</span>
-                  <form action="#">
-                    <button type="submit" class="btn btn-success">합격</button>
-                    <button type="submit" class="btn btn-danger">불합격</button>
-                    <button type="submit" class="btn btn-warning">
-                      대기중
-                    </button>
-                  </form>
-                </div>
-                <div class="apply_stsboardu">구직자 이름</div>
-              </div>
-            </div>
+            {{/applies}}
+          
             <ul class="pagination justify-content-center apply_stsul">
               <li class="page-item">
                 <a class="page-link" href="#">Previous</a>
@@ -134,4 +106,24 @@
     </section>
   </div>
 </main>
+
+<script>
+
+let modelResult = document.getElementById('status').value;
+let buttons = document.querySelectorAll(".apply_stsboard button");
+
+
+// 버튼을 활성화 또는 비활성화하는 함수
+
+function setActiveButton(result) {
+    document.getElementById('accepted').hidden = (result !== '1' );
+    document.getElementById('denied').hidden = (result !== '2');
+    document.getElementById('hold').hidden = (result !== '3');
+}
+
+
+setActiveButton(modelResult);
+
+
+</script>
 {{> layout/footer}}

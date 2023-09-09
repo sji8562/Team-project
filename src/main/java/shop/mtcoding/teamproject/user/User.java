@@ -4,9 +4,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.teamproject.apply.Apply;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Setter
@@ -45,6 +48,9 @@ public class User {
     private int level;
 
     private Timestamp birthday;
+    
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Apply> applies = new ArrayList<>();
 
     @Builder
     public User(Integer index, String userid, String username, String password, String email, String address,
