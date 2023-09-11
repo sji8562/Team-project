@@ -2,14 +2,19 @@ package shop.mtcoding.teamproject.user;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import shop.mtcoding.teamproject._core.util.Script;
 
 @Controller
 public class UserController {
@@ -19,6 +24,9 @@ public class UserController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping("/user/kakao")
     public @ResponseBody String kakao(String code, HttpServletResponse response)
@@ -63,4 +71,14 @@ public class UserController {
         response.sendRedirect("/");
     }
 
+    @GetMapping("/check")
+    public ResponseEntity<String> check(String userId) {
+        System.out.println("++++++++++++++++++유저네임");
+        User user = userRepository.findByUsername(userId);
+        System.out.println("??????????" + user);
+        if (user != null) {
+            return new ResponseEntity<String>("유저네임이 중복 되었습니다", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<String>("유저네임을 사용할 수 있습니다", HttpStatus.OK);
+    }
 }

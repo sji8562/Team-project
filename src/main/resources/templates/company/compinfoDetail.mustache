@@ -1,16 +1,10 @@
 {{> layout/header}} 
-
+<form action="/compinfoDetail/{id}" method="get">
 <div class="상세보기바디 compdetail_body">
     <div class="상세보기틀 form">
         <section class="상단 sectop">
             <div class="기업이름텍스트 sectoptitle">
                 <div class="메인타이틀 maintitle">기업 이름</div>
-            </div>
-            <div class="상단오른쪽 top_right">
-                    <button type="button" class="수정하기버튼 btn updatebtn">수정하기</button>
-                    <button type="button" class="북마크 버튼 btn scrap_icon bookmarkbtn">
-                        <i class="fas fa-star"></i>
-                    </button>
             </div>
         </section>
         <section class="main">
@@ -24,7 +18,7 @@
                         <dl>
                             <dt class="내용1">
                             기업명
-                                <dd class="내용1">(주)한국인삼공사</dd>
+                                <dd class="내용1">{{company.CompanyName}}</dd>
                             </dt>
                             <dt class="내용1">
                             설립연도
@@ -32,15 +26,15 @@
                             </dt>
                             <dt class="내용1" >
                             주소
-                                <dd class="내용1" >대전 대덕구 벚꽃길 71</dd>
+                                <dd class="내용1" >{{company.address}}</dd>
                             </dt>
                             <dt class="내용1" >
                             전화번호
-                                <dd class="내용1" >070-1515-1231</dd>
+                                <dd class="내용1" >{{company.phoneNum}}</dd>
                             </dt>
                             <dt class="내용1" >
                             이메일
-                                <dd class="내용1" >a@asd.com</dd>
+                                <dd class="내용1" >{{company.email}}</dd>
                             </dt>
                             <dt class="내용1" >
                             홈페이지
@@ -55,35 +49,48 @@
                 </div>
                 
                 <div class="왼쪽중단하단 left_midbottom">
-                    <div class="left_midbottomfont">기업비전</div>
-                    <div class="내용1 left_textarea">내용</div>
+                   
 
                 </div>                  
                 
                 <div class="왼쪽하단">
                     <div class="왼쪽하단타이틀 bottom_title">
-                        채용중인공고 (공고면 같은 기업이라 굳이 이미지 안넣고 텍스트만?)
+                        채용중인공고 
                     </div>
+                    {{#announcements}}
                     <div class="bottom_ann">
-                    <div><img src="../images/comp1.jpg" style="width: 150px;"></div>
-                    <div><img src="../images/comp1.jpg" style="width: 150px;"></div>
-                    <div><img src="../images/comp1.jpg" style="width: 150px;"></div>
-                    <div><img src="../images/comp1.jpg" style="width: 150px;"></div>
+                        <a class="card fourcard_form" href="/annDetail/{id}">
+                            <img class="Card_fourcard" src="./images/comp4.jpg" alt="Card image" />
+                            <div class="card-body">
+                                <h4 class="card-title">{{title}}</h4>
+                                <p class="card-text">{{workType}}</p>
+                            </div>
+                        </a>
+
+                        <a class="card fourcard_form" href="/annDetail/{id}">
+                            <img class="Card_fourcard" src="./images/comp4.jpg" alt="Card image" />
+                            <div class="card-body">
+                                <h4 class="card-title">{{title}}</h4>
+                                <p class="card-text">{{workType}}</p>
+                            </div>
+                        </a>
+
+                        <a class="card fourcard_form" href="/annDetail/{id}">
+                            <img class="Card_fourcard" src="./images/comp4.jpg" alt="Card image" />
+                            <div class="card-body">
+                                <h4 class="card-title">{{title}}</h4>
+                                <p class="card-text">{{workType}}</p>
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div>
-                <div class="사이드바 sidebar">
-                    <div class="타이틀">
-                        내가 북마크한 기업
-                        <div class="리스트">시간 나면 할 곳</div>
-                        <div class="리스트">나중에 고쳐야함</div>
-                        <div class="리스트">1번기업</div>
-                        <div class="리스트">2번기업</div>
-                    </div>
+                    {{/announcements}}
+
+                  
+            
                 </div>
             </div>
         </section>
     </div>
-    </div>
+</div>
+</form>
      {{> layout/footer}}

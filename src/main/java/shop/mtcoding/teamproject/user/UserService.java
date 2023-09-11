@@ -5,6 +5,7 @@ import java.util.UUID;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import shop.mtcoding.teamproject._core.error.ex.MyException;
+import shop.mtcoding.teamproject.board.Board;
 import shop.mtcoding.teamproject.user.UserRequest.Kakaologin;
 import shop.mtcoding.teamproject.user.UserRequest.OAuthToken;
 import shop.mtcoding.teamproject.user.UserRequest.userJoinDTO;
@@ -132,6 +135,13 @@ public class UserService {
 
             return user2;
         }
+
     }
 
+    @Transactional
+    public User 유저네임중복체크(String userId) {
+
+        return userRepository.findByUsername(userId);
+
+    }
 }

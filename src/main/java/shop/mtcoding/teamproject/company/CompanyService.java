@@ -1,5 +1,6 @@
 package shop.mtcoding.teamproject.company;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -66,6 +67,13 @@ public class CompanyService {
         company.setHomepage(updateDTO.getHomepage());
 
         return company;
+
+    }
+
+    @Transactional
+    public Company 상세보기(Integer id) {
+
+        return companyRepository.findById(id).get();
 
     }
 

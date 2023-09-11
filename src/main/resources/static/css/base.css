@@ -1451,3 +1451,77 @@ input {
   align-items: center;
   border-top: 1px solid #f2f4f7;
 }
+
+.ann_mainimg {
+  display: block;
+  width: 65vh;
+  margin-top: 30px;
+}
+
+.serach_fourcad {
+  display: flex;
+  width: 90vh;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search_listform {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_sideform{
+  display: flex;
+  justify-content: center;
+}
+
+.search_sidetitle{
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.search_sidebar {
+  display: flex;
+  width: 110vh;
+  height: 140px;
+  margin-right: 5px;
+  overflow-y: auto;
+}
+
+.search_sidebar2 {
+  display: flex;
+  position: fixed;
+  border: 1px solid #ccc;
+  width: 110vh;
+  height: 140px;
+  margin-right: 5px;
+  overflow-y: auto;
+  z-index: 1;
+  background: white;
+}
+
+.search_dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
+}
+
+.search_dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  
+}
+
+.search_dropdown:hover .search_dropdown-content {
+  display: block;
+}
+
+.search_dropdown-content a {
+  padding: 12px 16px;
+  display: block;
+}

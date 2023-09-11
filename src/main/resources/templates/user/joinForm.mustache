@@ -1,18 +1,19 @@
 {{> layout/header}}
 <div class="join_all">
   <div class="join_title">회원가입</div>
-  <form action="/userJoin">
+  <form action="/userJoin" method="post" onsubmit="return valid()">
     <div class="mb-2 mt-3">
       <div class="details">아이디<span class="necessity">필수</span></div>
       <input
-        type="id"
+        type="text"
         class="container join_container"
-        id="id"
+        id="userId"
         placeholder="아이디를 입력해주세요"
         name="userId"
+        onchange="usernameChange()"
         required
       />
-      <button type="button" class="btn btn-warning" onclick="check()">
+      <button id="btnJoin" type="submit" class="btn btn-warning" onclick="checkin()">
         중복체크
       </button>
     </div>
@@ -112,4 +113,45 @@
     <button type="submit" class="btn btn-primary">회원 가입</button>
   </form>
 </div>
+
+<script>
+  let usernameSameCheck = false;
+
+  function usernameChange() {
+        console.log("변경됨");
+        usernameSameCheck = false;
+    }
+
+  function valid() {
+      if (usernameSameCheck) {
+          return true;
+      } else {
+          alert("유저네임 중복체크를 해주세요");
+          return false;
+      }
+  }
+  
+  // 책임 : input태그로 부터 username을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
+  async function checkin() {
+      // 1. DOM으로 부터 값 가져오기
+      let userId = document.querySelector("#userId").value;
+      console.log("유저네임", userId);
+      // 2. 통신하기
+      let response = await fetch(`/check?userId=${userId}`);
+      // 3. 파싱하기
+      let responseBody = await response.text(); // response.json();
+      console.log(responseBody);
+     
+  let btnJoin = document.querySelector("#btnJoin");
+        if (response.status == 200) {
+            alert(responseBody);
+            usernameSameCheck = true;
+        } else {
+            alert(responseBody);
+            usernameSameCheck = false;
+        }
+
+      }
+
+</script>
 {{> layout/footer}}

@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
-
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -95,6 +95,12 @@ public class AnnouncementService {
         } catch (Exception e) {
             throw new MyException(id + "를 찾을 수 없습니다");
         }
+    }
+
+    public List<Announcement> 채용공고(Integer compIdx) {
+        System.out.println("===================채용공고 잘돌아감" + compIdx);
+        System.out.println(announcementRepository.findByCompIdx(compIdx));
+        return announcementRepository.findByCompIdx(compIdx);
     }
 
 }
