@@ -79,7 +79,7 @@
                     <div class="왼쪽하단">
                         <div class="left_midbottomfont">기술스택</div>
                         {{#skills}}
-                        <div class="내용1 left_textarea">{{skill.skillName}}</div>
+                        <div class="내용1 left_textarea">{{#skillName}}{{skillName}}{{/skillName}}</div>
                         {{/skills}}
                         <div class="left_midbottomfont">자소서</div>
                         <div class="내용1 left_textarea">{{#res.introduce}}{{res.introduce}}{{/res.introduce}}</div>

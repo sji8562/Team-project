@@ -20,4 +20,8 @@ public interface HasSkillRepository extends JpaRepository<HasSkill, Integer> {
     @Query(value = "delete from Has_Skill_tb where announcement_index = :id", nativeQuery = true)
     void deleteByAnnId(@Param("id") Integer id);
 
+    @Modifying
+    @Query(value = "delete from Has_Skill_tb where resume_index = :id", nativeQuery = true)
+    void deleteByResId(@Param("id") Integer resId);
+
 }

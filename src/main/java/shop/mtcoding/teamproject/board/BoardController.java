@@ -44,7 +44,7 @@ public class BoardController {
     @PostMapping("/comunity/save")
     public void save(BoardRequest.SaveDTO saveDTO, HttpServletResponse response) throws IOException {
         boardService.글쓰기(saveDTO);
-        response.sendRedirect("/comunity");
+        response.sendRedirect("/comunityList");
         // return "redirect:/comunity/comunityDetail";
     }
 
@@ -61,9 +61,7 @@ public class BoardController {
         Page<Board> boardQna = boardService.문의목록보기(page);
         request.setAttribute("boardHelp", boardHelp.getContent());
         request.setAttribute("boardQna", boardQna.getContent());
-
         return "comunity/comunityIndex";
-
     }
 
     @GetMapping("/comunityList")

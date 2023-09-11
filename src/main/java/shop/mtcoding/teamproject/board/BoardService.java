@@ -22,19 +22,29 @@ public class BoardService {
 
     @Transactional
     public void 글쓰기(BoardRequest.SaveDTO saveDTO) {
-        Board board = Board.builder()
-                .title(saveDTO.getTitle())
-                .content(saveDTO.getContent())
-                .build();
+        Board board = null;
+        if (saveDTO.getUserIdx() != null && !saveDTO.getUserIdx().equals("")) {
+            board = Board.builder()
+                    .title(saveDTO.getTitle())
+                    .content(saveDTO.getContent())
+                    .userIdx(saveDTO.getUserIdx())
+                    .type(2)
+                    .build();
+        } else {
+            board = Board.builder()
+                    .title(saveDTO.getTitle())
+                    .content(saveDTO.getContent())
+                    .compIdx(saveDTO.getCompIdx())
+                    .type(2)
+                    .build();
+        }
 
         boardRepository.save(board);
     }
 
     @Transactional
     public void 삭제하기(Integer id) {
-
         boardRepository.deleteById(id);
-
     }
 
     public Page<Board> 문의목록보기(Integer page) {
@@ -54,7 +64,7 @@ public class BoardService {
 
         // // 보드레파지토리에서 페이징을 해서 리턴함
     }
-    
+
     @Transactional
     public Board 상세보기(Integer id) {
 

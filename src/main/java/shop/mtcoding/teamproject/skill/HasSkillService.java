@@ -73,4 +73,9 @@ public class HasSkillService {
         hasSkillRepository.deleteByAnnId(annId);
     }
 
+    @Transactional
+    public void 이력서스킬삭제(Integer resId) {
+        hasSkillRepository.deleteByResId(resId);
+    }
+
 }

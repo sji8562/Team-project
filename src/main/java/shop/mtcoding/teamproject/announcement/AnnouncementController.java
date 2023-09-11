@@ -1,9 +1,11 @@
 package shop.mtcoding.teamproject.announcement;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,10 +61,12 @@ public class AnnouncementController {
     }
 
     @PostMapping("/annSave")
-    public String annSave(AnnouncementRequest.SaveDTO saveDTO, Skill skills) {
-        Announcement announcement = announcementService.공고등록(saveDTO);
-        hasSkillService.공고스킬등록(announcement, skills);
-        return "redirect:/annlist";
+    public void annSave(AnnouncementRequest.SaveDTO saveDTO, Skill skills, HttpServletResponse response)
+            throws IOException {
+        Announcement ann = announcementService.공고등록(saveDTO);
+        hasSkillService.공고스킬등록(ann, skills);
+        response.sendRedirect("/ann/annlist");
+
     }
 
     @GetMapping("/annUpdateForm/{id}")
@@ -83,10 +87,12 @@ public class AnnouncementController {
     }
 
     @PostMapping("/annUpdate/{id}")
-    public String annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO, Skill skills) {
+    public void annUpdate(@PathVariable Integer id, AnnouncementRequest.UpdateDTO updateDTO, Skill skills,
+            HttpServletResponse response) throws IOException {
         announcementService.공고수정(id, updateDTO);
         hasSkillService.공고스킬수정(id, skills);
-        return "redirect:/annDetail/" + id;
+        response.sendRedirect("/annDetail/" + id);
+
     }
 
     @GetMapping("/ann/annlist")

@@ -17,6 +17,9 @@ public class BoardRequest {
     public static class SaveDTO {
         private String title;
         private String content;
+        private Integer compIdx;
+        private Integer userIdx;
+        private Integer type;
 
     }
 }

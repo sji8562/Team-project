@@ -339,19 +339,6 @@ $(document).ready(function () {
     }
   }
 
-  let modelResult = document.getElementById("status").value;
-  let buttons = document.querySelectorAll(".apply_stsboard button");
-
-  // 버튼을 활성화 또는 비활성화하는 함수
-
-  function setActiveButton(result) {
-    document.getElementById("accepted").hidden = result !== "1";
-    document.getElementById("denied").hidden = result !== "2";
-    document.getElementById("hold").hidden = result !== "3";
-  }
-
-  setActiveButton(modelResult);
-
   $(".dropdown-submenu").hover(
     function () {
       $(this).find(".dropdown-menu").addClass("show");
@@ -580,4 +567,57 @@ function changePic(e1) {
     previewEl.setAttribute("src", e2.target.result);
   };
   reader.readAsDataURL(f);
+}
+
+async function resList() {
+  let response = await fetch(`/api/applyRes`);
+  let resume = await response.json();
+  modalBody = document.querySelector(".modal-body");
+  modalHeader = document.querySelector(".modal-header");
+  modalHeader.innerHTML = "내 이력서 목록";
+  modalBody.innerHTML = "";
+
+  if (resume.length === 0) {
+    alert(
+      "이력서가 없으면 공고에 지원할 수 없습니다. 이력서를 먼저 작성해주세요"
+    );
+    modalBody.innerHTML = "내 이력서가 없습니다.";
+  } else {
+    modalBody = document.querySelector(".modal-body");
+    resume.forEach((resume, index) => {
+      const resumeItem = document.createElement("div");
+      resumeItem.classList.add("resume-item"); // 필요에 따라 CSS 클래스를 추가할 수 있습니다.
+
+      // 제목을 표시하는 요소 (예시로 h3 사용)
+      const titleElement = document.createElement("button");
+      titleElement.innerHTML = resume.title;
+      titleElement.addEventListener("click", () => {
+        applyInsert(resume);
+      });
+
+      // 모달 바디에 추가
+      resumeItem.appendChild(titleElement);
+      modalBody.appendChild(resumeItem);
+    });
+  }
+}
+
+async function applyInsert(resume) {
+  let ann = document.getElementById("annId").value;
+  let requestBody = {
+    annId: ann,
+    resume: resume,
+  };
+  console.log(requestBody);
+
+  let response = await fetch("/api/apply/save", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(requestBody),
+  });
+
+  let responseBody = await response.json();
+  alert(responseBody.data);
 }

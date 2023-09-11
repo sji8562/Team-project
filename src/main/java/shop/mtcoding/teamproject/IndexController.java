@@ -62,8 +62,8 @@ public class IndexController {
         return "redirect:/";
     }
 
-    @GetMapping("/search/{index}")
-    public String searching(@PathVariable Integer id) {
+    @GetMapping("/search")
+    public String searching() {
         return "/search/searchForm";
     }
 

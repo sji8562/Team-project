@@ -5,7 +5,9 @@
   </div>
 
   <form action="/comunity/save" method="post">
+    {{#sessionUser}}
     <div class="mb-3 mt-3">
+      <input type="hidden" name="userIdx" value="{{ sessionUser.index }}" />
       <label for="comment"></label>
       <div class="input-group mb-3">
         <span class="input-group-text">제목</span>
@@ -20,6 +22,31 @@
       ></textarea>
     </div>
     <button type="submit" class="btn comuwritebtn btn-primary">등록하기</button>
+    {{/sessionUser}}
+    {{^sessionUser}}
+
+    {{/sessionUser}}
+    {{#sessionCompany}}
+    <div class="mb-3 mt-3">
+      <input type="hidden" name="compIdx" value="{{ sessionCompany.index }}" />
+      <label for="comment"></label>
+      <div class="input-group mb-3">
+        <span class="input-group-text">제목</span>
+        <input type="text" class="form-control" name="title" />
+      </div>
+      <textarea
+        class="form-control"
+        rows="10"
+        id="content"
+        name="content"
+        placeholder="내용을 작성해주세요"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn comuwritebtn btn-primary">등록하기</button>
+    {{/sessionCompany}}
+    {{^sessionCompany}}
+
+    {{/sessionCompany}}
   </form>
 </div>
 

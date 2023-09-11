@@ -1,9 +1,9 @@
+d{{>layout/header}}
 <div class="container mt-3 resume_insert">
   <div class="pageinfo">
     <h2>이력서 수정</h2>
   </div>
-  <form>
-    <form action="/resUpdate/{{ res.index }}" method="post"></form>
+  <form action="/resUpdate/{{ res.index }}" method="post">
     <div class="mb-3">
       <label for="title" class="title">이력서 제목:</label>
       <input
@@ -94,67 +94,63 @@
     <div class>
       <div class="row" style="font-size: 18px">
         <div class="리스트a">
-           <h5 style="color: blue;">백엔드</h5>
+          <h5 style="color: blue">백엔드</h5>
           {{#listA}}
           <label class="checkbox-label">
             <div class="col-md-3">
-            <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+              <input type="checkbox" name="skills" value="{{ index }}" />{{
+                skillName
+              }}
             </div>
           </label>
           {{/listA}}
-          <h5 style="color: blue;">프론트엔드</h5>
+          <h5 style="color: blue">프론트엔드</h5>
           {{#listB}}
           <label class="checkbox-label">
             <div class="col-md-3">
-            <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+              <input type="checkbox" name="skills" value="{{ index }}" />{{
+                skillName
+              }}
             </div>
           </label>
           {{/listB}}
-          <h5 style="color: blue;">데이터베이스</h5>
+          <h5 style="color: blue">데이터베이스</h5>
           {{#listC}}
           <label class="checkbox-label">
             <div class="col-md-3">
-            <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+              <input type="checkbox" name="skills" value="{{ index }}" />{{
+                skillName
+              }}
             </div>
           </label>
           {{/listC}}
-          <h5 style="color: blue;">기타</h5>
+          <h5 style="color: blue">기타</h5>
           {{#listD}}
           <label class="checkbox-label">
             <div class="col-md-3">
-            <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+              <input type="checkbox" name="skills" value="{{ index }}" />{{
+                skillName
+              }}
             </div>
           </label>
           {{/listD}}
         </div>
       </div>
     </div>
-      
-  
-      <div class="mb-3">
-        <label class="form-label" for="introduce">자기소개서 :</label>
-  
-      </div>
-      <textarea name="introduce" id="introduce" cols="150" rows="10"></textarea>
-  
-      <button type="submit" class="btn text-white w-100 mb-2" style="background-color: orange; font-size: 0.8rem;">
-        수정
-      </button>
-    </form>
-  
-  </div>
-  <textarea
-    style="width: 77.5vh"
-    name="introduce"
-    id="introduce"
-    cols="150"
-    rows="10"
-  ></textarea>
-  <div class="col-md-12 d-flex justify-content-end">
-    <button type="submit" class="btn btn-primary mb-2 finishbtn">
-      수정 완료
+
+    <div class="mb-3">
+      <label class="form-label" for="introduce">자기소개서 :</label>
+    </div>
+    <textarea name="introduce" id="introduce" cols="150" rows="10"></textarea>
+
+    <button
+      type="submit"
+      class="btn text-white w-100 mb-2"
+      style="background-color: orange; font-size: 0.8rem"
+    >
+      수정
     </button>
-  </div>
+  </form>
 </div>
 
 {{> layout/footer}}

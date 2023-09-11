@@ -6,7 +6,7 @@
 
                 <!-- 수정삭제버튼 -->
                 <div class="d-flex justify-content-end">
-                    <a class="btn btn-warning me-1" href="/comunity/{{board.index}}/update">수정</a>
+                    <a class="btn btn-warning me-1" href="/comunity/{{board.index}}/updateForm">수정</a>
                     <form action="/comunity/{{board.index}}/delete" method="post">
                         <button type="submit" class="btn btn-danger" >삭제</button>
                     </form>
@@ -73,5 +73,46 @@
             </div>
         </div>
     </main>
+
+    <script>
+        async function deleteReply(id) {
+            let response = await fetch(`/api/reply/${id}/delete`,{
+                method: "delete"
+            });
+            let responseBody = await response.json();
+            if(responseBody.sucuess){
+                location.reload();
+            }else{
+                alert(responseBody.data);
+            }
+        }
+    
+        async function saveReply() {
+            let requestBody = {
+                boardId: document.querySelector("#boardId").value,
+                comment: document.querySelector("#comment").value
+            };
+    
+            console.log(requestBody);
+    
+            let response = await fetch("/api/reply/save", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(requestBody)
+            });
+    
+            let responseBody = await response.json();
+            console.log(responseBody);
+    
+            if (responseBody.sucuess) {
+                location.reload(); // ssr
+            } else {
+                alert(responseBody.data);
+            }
+        }
+    </script>
+    
 
 {{> layout/footer}}

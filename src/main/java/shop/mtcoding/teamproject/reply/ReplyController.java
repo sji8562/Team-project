@@ -41,7 +41,7 @@ public class ReplyController {
         if (sessionUser == null) {
             throw new MyApiException("인증되지 않았습니다");
         }
-        replyService.댓글삭제(id, sessionUser.getIndex());
+        replyService.댓글삭제(sessionUser.getIndex());
 
         return new ApiUtil<String>(true, "댓글삭제 완료");
     }

@@ -62,7 +62,7 @@ public class ResumeController {
         resumeService.이력서등록(res);
         hasSkillService.이력서스킬등록(res, skills);
 
-        return "redirect:/resList";
+        return "redirect:/resume/resumeList";
     }
 
     @GetMapping("/resDetail/{id}")
@@ -104,14 +104,16 @@ public class ResumeController {
     @PostMapping("/resDelete/{id}")
     public String resumeDelete(@PathVariable Integer id) {
         resumeService.이력서삭제(id);
-        return "redirect:/resList";
+        hasSkillService.이력서스킬삭제(id);
+        return "redirect:/resume/resumeList";
     }
 
     @GetMapping("/api/applyRes")
-    public @ResponseBody List<Resume> applyRes(Model model) {
+    public @ResponseBody List<Resume> applyRes() {
         User sessionUser = (User) session.getAttribute("sessionUser");
         Integer userIndex = sessionUser.getIndex();
-        return resumeService.유저의이력서보기(userIndex);
+        List<Resume> resumes = resumeService.유저의이력서보기(userIndex);
+        return resumes;
     }
 
 }

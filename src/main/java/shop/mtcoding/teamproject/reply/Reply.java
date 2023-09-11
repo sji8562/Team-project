@@ -34,7 +34,7 @@ public class Reply {
     private Timestamp updateTime;
 
     @JsonIgnoreProperties({ "password", "email", "updateTime" })
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
