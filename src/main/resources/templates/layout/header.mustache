@@ -71,16 +71,16 @@
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="/board/saveForm">채용공고</a>
+                <a class="nav-link" href="/search/searchAnn">채용공고</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/user/updateForm">기업</a>
+                <a class="nav-link" href="/search/searchComp">기업</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/logout">구직자</a>
+                <a class="nav-link" href="/search/searchResume">구직자</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/comunity">커뮤니티</a>
+                <a class="nav-link" href="/community/communityIndex">커뮤니티</a>
               </li>
             </ul>
           </div>
@@ -123,12 +123,12 @@
               {{/sessionUser}}
               {{#sessionCompany}}
               <li class="nav-item">
-                <a class="nav-link border-radius" href="/company/updateForm"
+                <a class="nav-link border-radius" href="/companyDetailForm"
                   >이미지</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">{{ companyName }}</a>
+                <a class="nav-link" href="/company/compinfoUpdateForm/">{{ companyName }}</a>
               </li>
               {{/sessionCompany}}
               {{^sessionCompany}}
@@ -152,11 +152,11 @@
             />
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">회사 페이지</a></li>
+            <li><a class="dropdown-item" href="/companyupdateForm">회사 페이지</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">채용공고 관리</a></li>
+            <li><a class="dropdown-item" href="/ann/annList">채용공고 관리</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">지원/제안현황</a></li>
+            <li><a class="dropdown-item" href="/appsgg/companyAppSggList">지원/제안현황</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="/logout">로그아웃</a></li>
         </ul>
@@ -180,20 +180,11 @@
             />
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="#">마이 페이지</a></li>
+            <li><a class="dropdown-item" href="/user/updateForm">마이 페이지</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">이력서</a></li>
+            <li><a class="dropdown-item" href="/resume/resumeList">이력서</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item">지원/제안현황</a></li>
-
-            
-            
-            <li><hr class="dropdown-divider" /></li>
-            <form action="/user/scrapList" method="post">
-            <li><button type="submit" class="dropdown-item">북마크</button></li>
-            <input type="hidden" id="userapplist" name="userindex" value="{{sessionUser.index}}">
-            </form>
-            
+            <li><a class="dropdown-item" href="/appsgg/userAppSggList">지원/제안현황</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="/logout">로그아웃</a></li>
         </ul>

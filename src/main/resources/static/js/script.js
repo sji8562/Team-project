@@ -480,3 +480,28 @@ async function deleteCompanyBookmark(resumeIndex, companyIndex) {
     console.error("An error occurred while deleting the bookmark:", error);
   }
 }
+
+function changePic(e1) {
+  let f = e1.srcElement.files[0];
+  console.log(f.type);
+
+  let fileMessage = document.getElementById("fileMessage");
+
+  if (!f) {
+    fileMessage.textContent = "이미지를 등록해주세요";
+    return;
+  }
+
+  if (!f.type.match("image.*")) {
+    alert("이미지를 등록해주세요");
+    fileMessage.textContent = "이미지를 등록해주세요";
+    return;
+  }
+
+  let reader = new FileReader();
+  reader.onload = function (e2) {
+    let previewEl = document.querySelector("#preview");
+    previewEl.setAttribute("src", e2.target.result);
+  };
+  reader.readAsDataURL(f);
+}

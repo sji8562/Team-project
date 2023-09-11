@@ -1,7 +1,9 @@
 package shop.mtcoding.teamproject.user;
 
 import java.util.UUID;
-
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import shop.mtcoding.teamproject._core.error.ex.MyException;
+import shop.mtcoding.teamproject._core.vo.MyPath;
 import shop.mtcoding.teamproject.user.UserRequest.Kakaologin;
 import shop.mtcoding.teamproject.user.UserRequest.OAuthToken;
 import shop.mtcoding.teamproject.user.UserRequest.userJoinDTO;
@@ -48,7 +52,7 @@ public class UserService {
     }
 
     public User userlogin(userLoginDTO loginDTO) {
-        User user = userRepository.findByUserIdAndPassword(loginDTO.getUserId(), loginDTO.getPassword());
+        User user = userRepository.findByUserId(loginDTO.getUserId());
         return user;
     }
 
@@ -100,9 +104,7 @@ public class UserService {
         kakaologin = obMapper2.readValue(response2.getBody(), Kakaologin.class);
         String kakaoid = kakaologin.getKakao_account().getEmail() + "_" + kakaologin.getId();
         // User 오브젝트 :username , password , email
-        System.out.println("카카오 아이디 : " + kakaologin.getId());
-        System.out.println("카카오 아이디 : " + kakaologin.getKakao_account().getEmail());
-        System.out.println("원티드 유저네임 : " + kakaologin.getKakao_account().getEmail() + "_" + kakaologin.getId());
+
         UUID garbagePW = UUID.randomUUID();
 
         // String salt = BCrypt.hashpw();
@@ -112,9 +114,7 @@ public class UserService {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            System.out.println("여기서 터지냐1");
             if (user2 != null && !user2.equals("")) {
-                System.out.println("여기서 터지냐2");
                 return user2;
             } else {
 

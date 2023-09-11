@@ -1,5 +1,7 @@
 package shop.mtcoding.teamproject.company;
 
+import java.sql.Timestamp;
+
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
@@ -39,7 +41,17 @@ public class CompanyRequest {
         private String addressDetail;
         private String phoneNum;
         private String homepage;
-
     }
 
+    @Getter
+    @Setter
+    public static class UpdatedetailDTO {
+        private String companyName;
+        private Integer establishment;
+        private String address;
+        private String addressDetail;
+        private String phoneNum;
+        private String email;
+        private String homepage;
+    }
 }

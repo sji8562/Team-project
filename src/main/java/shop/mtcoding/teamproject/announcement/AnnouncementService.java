@@ -102,7 +102,6 @@ public class AnnouncementService {
 
     public Announcement 공고상세보기(Integer id) {
         Optional<Announcement> annOP = announcementRepository.findById(id);
-        System.out.println("테스트" + annOP.get());
         if (annOP.isPresent()) {
             return annOP.get();
         } else {
