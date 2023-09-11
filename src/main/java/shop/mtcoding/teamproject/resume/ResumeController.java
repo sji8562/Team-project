@@ -60,10 +60,6 @@ public class ResumeController {
     @PostMapping("/resSave")
     public String resumeSave(Resume res, Skill skills) {
         resumeService.이력서등록(res);
-        HasSkill hasSkill = new HasSkill();
-        hasSkill.setResume(res);
-        hasSkill.setSkill(skills);
-
         hasSkillService.이력서스킬등록(res, skills);
 
         return "redirect:/resList";

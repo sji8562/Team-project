@@ -18,7 +18,8 @@ public class SkillService {
     return skillRepository.findByList(index1, index2);
    }
 
-  public Skill 스킬상세보기(Integer index) {
-    return skillRepository.findById(index).get();
-  }
+
+   public Skill 스킬상세보기(Integer index){
+     return skillRepository.findById(index).get();
+   }
 }
