@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class CompanyController {
     @Autowired
     CompanyService companyService;
+
+    @Autowired
+
+    CompanyRepository companyRepository;
 
     @Autowired
     private HttpSession session;
@@ -41,24 +46,19 @@ public class CompanyController {
     }
 
     @GetMapping("/companyDetailForm")
-    public String cdetailForm() {
+    public String cdetailForm(HttpServletRequest request) {
+        Company sessionUser = (Company) session.getAttribute("sessionCompany");
+        System.out.println("테스트1" + sessionUser.getCompanyId());
+        Company user = companyService.회원정보보기(sessionUser.getIndex());
+        request.setAttribute("company", user);
+        System.out.println("테스트2" + user.getCompanyId());
+
         return "/company/compinfoDetail";
     }
 
-    @GetMapping("/company/compinfoUpdate")
+    @GetMapping("/company/compinfoUpdateForm")
     public String compinfoUpdateForm() {
         return "/company/compinfoUpdate";
-    }
-
-    @PostMapping("/company/compinfoUpdate")
-    public String compinfoUpdate(CompanyRequest.UpdatedetailDTO updatedetailDTO) {
-
-        Company sessionCompany = (Company) session.getAttribute("sessionCompany");
-        Company company = companyService.기업디테일수정(updatedetailDTO, sessionCompany.getIndex());
-        session.setAttribute("sessionCompany", company);
-        System.out.println("테스트1 : " + company.getCompanyName());
-
-        return "redirect:/companyinfoDetail";
     }
 
     @PostMapping("/companyJoin")
@@ -71,7 +71,22 @@ public class CompanyController {
     public void clogin(CompanyRequest.companyLoginDTO compLoginDTO, HttpServletResponse response) throws IOException {
         Company sessioCompany = companyService.companylogin(compLoginDTO);
 
-        session.setAttribute("sessionCompany", sessioCompany);
+        if (sessioCompany != null) {
+            // 사용자가 입력한 비밀번호와 DB에 저장된 해시화된 비밀번호를 비교
+            boolean isValid = BCrypt.checkpw(compLoginDTO.getPassword(), sessioCompany.getPassword());
+
+            if (isValid) {
+                // 비밀번호가 일치하는 경우 세션에 저장
+                session.setAttribute("sessionCompany", sessioCompany);
+                System.out.println("해시 로그인 성공");
+            } else {
+                // 비밀번호가 일치하지 않는 경우 로그인 실패 처리
+                System.out.println("해시 로그인 실패: 비밀번호 불일치");
+            }
+        } else {
+            // 사용자 정보를 찾을 수 없는 경우 로그인 실패 처리
+            System.out.println("해시 로그인 실패: 사용자 정보 없음");
+        }
 
         response.sendRedirect("/");
     }
@@ -85,6 +100,21 @@ public class CompanyController {
         System.out.println("테스트1" + company.getEmail());
         System.out.println("++++++++++++++비번바꿨다우");
         return "redirect:/companyLoginForm";
+    }
+
+    @PostMapping("/company/compinfoUpdate")
+    public String compinfoUpdate(CompanyRequest.UpdatedetailDTO updatedetailDTO) {
+
+        Company sessionCompany = (Company) session.getAttribute("sessionCompany");
+        System.out.println("테스트 0 : 여기까진 왔니?" + sessionCompany.getIndex());
+
+        Company company = companyService.기업디테일수정(updatedetailDTO, sessionCompany.getIndex());
+        System.out.println("테스트 6 :" + company.getPassword());
+
+        session.setAttribute("sessionCompany", company);
+        System.out.println("테스트 7 : " + company.getCompanyName());
+
+        return "redirect:/companyinfoDetail";
     }
 }
 // 수정시에는 영속성 컨텍스트 User오브젝트를 영속화시키고 영속화된 User 오브젝트를 수정

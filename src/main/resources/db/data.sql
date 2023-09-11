@@ -473,3 +473,6 @@ insert into Has_Skill_tb(resume_index, skill_index) values(4,17);
 insert into Has_Skill_tb(resume_index, skill_index) values(5,16);
 insert into Has_Skill_tb(resume_index, skill_index) values(5,19);
 
+insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1111','송재익','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('aaaa', '$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', '1');
+

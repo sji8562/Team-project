@@ -30,7 +30,8 @@
                                 <dt class="내용1">
                                     기업명
                                 <dd class="내용1">
-                                    <input type="text" class="container compinfo_detail_save" id="" name="compName"
+                                    <input type="text" class="container compinfo_detail_save" id="" name="companyName"
+
                                         placeholder="기업이름을 입력해 주세요">
                                 </dd>
                                 </dt>
@@ -38,7 +39,8 @@
                                     설립연도
                                 <dd class="내용1">
                                     <input type="number" class="container compinfo_detail_save" id="yearInput"
-                                        name="year" placeholder="설립연도를 입력해 주세요" min="1500" max="2099" step="1">
+                                        name="establishment" placeholder="설립연도를 4자리를 입력해 주세요" min="1500" max="2099" step="1"
+                                        pattern="\d{4}" title="4자리 연도를 입력하세요" oninput="validateInput(this)">
                                 </dd>
                                 </dt>
                                 <dt class="내용1">
@@ -57,28 +59,28 @@
                                     전화번호
                                 <dd class="내용1">
                                     <input type="text" class="container compinfo_detail_save" id="addressDetail"
-                                        name="addressDetail" placeholder="전화번호를 입력해주세요">
+                                        name="phoneNum" placeholder="전화번호를 입력해주세요">
                                 </dd>
                                 </dt>
                                 <dt class="내용1">
                                     이메일
                                 <dd class="내용1">
                                     <input type="text" class="container compinfo_detail_save" id="addressDetail"
-                                        name="addressDetail" placeholder="email을 입력해주세요">
+                                        name="email" placeholder="email을 입력해주세요">
                                 </dd>
                                 </dt>
                                 <dt class="내용1">
                                     홈페이지
                                 <dd class="내용1">
                                     <input type="text" class="container compinfo_detail_save" id="addressDetail"
-                                        name="addressDetail" placeholder="홈페이지를 입력해주세요">
+                                        name="homepage" placeholder="홈페이지를 입력해주세요">
                                 </dd>
                                 </dt>
                                 <dt class="내용1">
                                     분야
                                 <dd class="내용1">
-                                    <input type="text" class="container compinfo_detail_save" id="addressDetail"
-                                        name="addressDetail" placeholder="분야를 입력해주세요">
+                                    <input type="text" class="container compinfo_detail_save" id="addressDetail" name=""
+                                        placeholder="분야를 입력해주세요">
                                 </dd>
                                 </dt>
                             </dl>
@@ -120,6 +122,12 @@
         reader.readAsDataURL(f);
     }
 
+    function validateInput(input) {
+        const inputValue = input.value;
+        if (inputValue.length > 4) {
+            input.value = inputValue.slice(0, 4); // 5자리 이상 입력을 막음
+        }
+    }
 </script>
 
 

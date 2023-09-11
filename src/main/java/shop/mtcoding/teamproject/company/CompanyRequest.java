@@ -47,7 +47,7 @@ public class CompanyRequest {
     @Setter
     public static class UpdatedetailDTO {
         private String companyName;
-        private Timestamp establishment;
+        private Integer establishment;
         private String address;
         private String addressDetail;
         private String phoneNum;

@@ -18,38 +18,41 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
 
-    @Column(nullable = false , length = 20, unique = true)
-    private String companyId;  //기업 아이디
+    @Column(nullable = false, length = 20, unique = true)
+    private String companyId; // 기업 아이디
 
     @Column(nullable = false, length = 20)
-    private String companyName;  //기업명
+    private String companyName; // 기업명
 
     @Column(nullable = false, length = 60)
-    private String password; //기업 비밀번호
+    private String password; // 기업 비밀번호
 
     @Column(nullable = false, length = 20)
-    private String email; //기업 대표 이메일
+    private String email; // 기업 대표 이메일
 
     @Column(nullable = true)
-    private String picUrl; //기업 사진
+    private String picUrl; // 기업 사진
 
     @Column(nullable = true)
-    private String phoneNum; //기업 대표 번호
+    private String phoneNum; // 기업 대표 번호
 
     @Column(nullable = true)
-    private String address;  //기업 주소
+    private String address; // 기업 주소
 
-    private String addressDetail;  //기업주소
+    private String addressDetail; // 기업주소
 
-    private String homepage; //기업 홈페이지
+    private String homepage; // 기업 홈페이지
 
-    private Timestamp establishment;  //설립연도
+    private Integer establishment; // 설립연도
 
     private String businessNum = "11111-1111-111-11111";
 
     private int level;
+
     @Builder
-    public Company(Integer index,String companyId, String companyName, String password, String email, String picUrl,String phoneNum,String address, String addressDetail, String homepage , Timestamp establishment , String businessNum, int level) {
+    public Company(Integer index, String companyId, String companyName, String password, String email, String picUrl,
+            String phoneNum, String address, String addressDetail, String homepage, Integer establishment,
+            String businessNum, int level) {
         this.index = index;
         this.companyId = companyId;
         this.companyName = companyName;
@@ -66,4 +69,3 @@ public class Company {
     }
 
 }
-

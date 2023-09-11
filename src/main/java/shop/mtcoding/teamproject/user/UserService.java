@@ -53,7 +53,7 @@ public class UserService {
     }
 
     public User userlogin(userLoginDTO loginDTO) {
-        User user = userRepository.findByUserIdAndPassword(loginDTO.getUserId(), loginDTO.getPassword());
+        User user = userRepository.findByUserId(loginDTO.getUserId());
         return user;
     }
 
