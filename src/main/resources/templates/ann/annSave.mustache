@@ -25,6 +25,7 @@
 
     <div class="ann_op">
         <div class="ann_formtitle">기술 스택/우대 조건을 선택할 수 있습니다</div>
+<<<<<<< HEAD
         <div class="mb-3">
             <div class="skilldropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="classListDropdown"
@@ -226,6 +227,46 @@
                 </div>
             </div>
         </div>
+=======
+        <div class>
+            <div class="row" style="font-size: 18px">
+              <div class="리스트a">
+                 <h5 style="color: blue;">백엔드</h5>
+                {{#listA}}
+                <label class="checkbox-label">
+                  <div class="col-md-3">
+                  <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+                  </div>
+                </label>
+                {{/listA}}
+                <h5 style="color: blue;">프론트엔드</h5>
+                {{#listB}}
+                <label class="checkbox-label">
+                  <div class="col-md-3">
+                  <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+                  </div>
+                </label>
+                {{/listB}}
+                <h5 style="color: blue;">데이터베이스</h5>
+                {{#listC}}
+                <label class="checkbox-label">
+                  <div class="col-md-3">
+                  <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+                  </div>
+                </label>
+                {{/listC}}
+                <h5 style="color: blue;">기타</h5>
+                {{#listD}}
+                <label class="checkbox-label">
+                  <div class="col-md-3">
+                  <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+                  </div>
+                </label>
+                {{/listD}}
+              </div>
+            </div>
+          </div>
+>>>>>>> resume_revision
 
         <div class="ann_type">직급 직책
             <select class="dropdown" id="skill" name="skillList">

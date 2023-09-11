@@ -39,6 +39,7 @@ public class AnnouncementController {
     private HasSkillService hasSkillService;
     @Autowired
     private HttpSession session;
+
     @Autowired
     private UserScrapService userScrapService;
 
@@ -66,7 +67,6 @@ public class AnnouncementController {
 
     @GetMapping("/annUpdateForm/{id}")
     public String annUpdateForm(@PathVariable Integer id, Model model) {
-
         List<Skill> listA = skillService.스킬리스트보기(1, 10);
         List<Skill> listB = skillService.스킬리스트보기(11, 22);
         List<Skill> listC = skillService.스킬리스트보기(23, 28);
@@ -108,6 +108,7 @@ public class AnnouncementController {
         boolean isBookmarked = false;
         if (user != null) {
             sessionUserId = user.getIndex();
+
             annIdx = id; // Replace with the actual announcement index
         }
         if (sessionUserId != null && !sessionUserId.equals("")) {
@@ -122,6 +123,7 @@ public class AnnouncementController {
     @PostMapping("/annDelete/{id}")
     public String annDelete(@PathVariable Integer id) {
         announcementService.공고삭제(id);
+
         hasSkillService.공고스킬삭제(id);
         return "redirect:/annlist";
     }

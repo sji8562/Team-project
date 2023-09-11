@@ -7,6 +7,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import shop.mtcoding.teamproject.apply.Apply;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Setter
@@ -46,6 +52,9 @@ public class User {
 
     private Timestamp birthday;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Apply> applies = new ArrayList<>();
+
     @Builder
     public User(Integer index, String userid, String username, String password, String email, String address,
             String addressDetail, String phoneNum, String picUrl, Timestamp birthday, int level) {
@@ -61,4 +70,5 @@ public class User {
         this.picUrl = picUrl;
         this.birthday = birthday;
     }
+
 }

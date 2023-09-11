@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import shop.mtcoding.teamproject.company.Company;
-import shop.mtcoding.teamproject.companyscrap.CompanyScrapService;
 import shop.mtcoding.teamproject.skill.HasSkill;
 import shop.mtcoding.teamproject.skill.HasSkillService;
 import shop.mtcoding.teamproject.skill.Skill;
@@ -31,9 +30,8 @@ public class ResumeController {
     private SkillService skillService;
     @Autowired
     private HasSkillService hasSkillService;
-
     @Autowired
-    private CompanyScrapService companyScrapService;
+    private EntityManager entityManager;
     @Autowired
     private HttpSession session;
 
@@ -73,20 +71,6 @@ public class ResumeController {
         User user = resumeService.이력서유저보기(resume);
         List<HasSkill> hasSkills = hasSkillService.이력서스킬목록(id);
 
-        Company company = (Company) session.getAttribute("sessionCompany");
-        Integer sessionCompanyId = null;
-        Integer resumeIdx = null;
-        boolean isBookmarked = false;
-        if (user != null) {
-            sessionCompanyId = company.getIndex();
-            resumeIdx = id; // Replace with the actual announcement index
-        }
-        if (sessionCompanyId != null && !sessionCompanyId.equals("")) {
-            isBookmarked = companyScrapService.isBookmarkSaved(resumeIdx, sessionCompanyId);
-        }
-
-        model.addAttribute("isBookmarked", isBookmarked);
-
         model.addAttribute("res", resume);
         model.addAttribute("user", user);
         model.addAttribute("skills", hasSkills);
@@ -95,10 +79,18 @@ public class ResumeController {
 
     @GetMapping("/resUpdateForm/{id}")
     public String resumeUpdateForm(@PathVariable Integer id, Model model) {
-        List<Skill> skills = skillService.스킬목록보기();
+        List<Skill> listA = skillService.스킬리스트보기(1, 10);
+        List<Skill> listB = skillService.스킬리스트보기(11, 22);
+        List<Skill> listC = skillService.스킬리스트보기(23, 28);
+        List<Skill> listD = skillService.스킬리스트보기(29, 34);
+
+        model.addAttribute("listA", listA);
+        model.addAttribute("listB", listB);
+        model.addAttribute("listC", listC);
+        model.addAttribute("listD", listD);
+
         Resume res = resumeService.이력서상세보기(id);
         model.addAttribute("res", res);
-        model.addAttribute("skills", skills);
         return "resume/resumeUpdate";
     }
 
@@ -113,6 +105,13 @@ public class ResumeController {
     public String resumeDelete(@PathVariable Integer id) {
         resumeService.이력서삭제(id);
         return "redirect:/resList";
+    }
+
+    @GetMapping("/api/applyRes")
+    public @ResponseBody List<Resume> applyRes(Model model) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        Integer userIndex = sessionUser.getIndex();
+        return resumeService.유저의이력서보기(userIndex);
     }
 
 }

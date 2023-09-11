@@ -3,6 +3,7 @@ package shop.mtcoding.teamproject.skill;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -14,6 +15,9 @@ public interface HasSkillRepository extends JpaRepository<HasSkill, Integer> {
 
     @Query(value = "select * from Has_Skill_tb where resume_index = :resume_index", nativeQuery = true)
     List<HasSkill> findByresIdx(@Param("resume_index") Integer resume_index);
-     
-    
+
+    @Modifying
+    @Query(value = "delete from Has_Skill_tb where announcement_index = :id", nativeQuery = true)
+    void deleteByAnnId(@Param("id") Integer id);
+
 }

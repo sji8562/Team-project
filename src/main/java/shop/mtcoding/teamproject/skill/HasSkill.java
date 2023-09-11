@@ -2,6 +2,8 @@ package shop.mtcoding.teamproject.skill;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,10 +20,11 @@ public class HasSkill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "announcement_index")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "announcement_index")
     private Announcement announcement;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "resume_index")
     private Resume resume;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -35,6 +38,5 @@ public class HasSkill {
         this.resume = resume;
         this.skill = skill;
     }
-    
-    
+
 }

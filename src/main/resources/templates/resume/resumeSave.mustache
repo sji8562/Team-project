@@ -24,7 +24,7 @@
     </div>
     <div class="mb-3">
       <label for="phoneNum">전화번호</label>
-      <input type="number" class="form-control" id="phoneNum" name="phoneNum" />
+      <input class="form-control" id="phoneNum" name="phoneNum" />
     </div>
     <div class="mb-3">
       <label for="email">이메일</label>
@@ -52,48 +52,42 @@
       </label>
     </div>
 
-    {{! <div class="mb-3">
-      <div class="skilldropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="classListDropdown" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          기술 선택
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="classListDropdown">
-          <li>
-            <a class="dropdown-item class-select" data-class="a">기술 선택하기</a>
-          </li>
-        </ul>
-      </div>
-    </div> }}
-
     <!-- 체크박스 그룹 -->
     
     <div class>
       <div class="row" style="font-size: 18px">
         <div class="리스트a">
-           <h5>백엔드</h5>
+           <h5 style="color: blue;">백엔드</h5>
           {{#listA}}
-          <div class="form-check form-check-inline stack-item">
-            <button class="btn btn-primary" type="submit" value="{{index}}" name="skills">{{ skillName }}</button>
-          </div>
+          <label class="checkbox-label">
+            <div class="col-md-3">
+            <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+            </div>
+          </label>
           {{/listA}}
-          <h5>프론트엔드</h5>
+          <h5 style="color: blue;">프론트엔드</h5>
           {{#listB}}
-          <div class="form-check form-check-inline stack-item">
-            <button class="btn btn-primary" type="submit" value="{{index}}" name="skills">{{ skillName }}</button>
-          </div>
+          <label class="checkbox-label">
+            <div class="col-md-3">
+            <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+            </div>
+          </label>
           {{/listB}}
-          <h5>데이터베이스</h5>
+          <h5 style="color: blue;">데이터베이스</h5>
           {{#listC}}
-          <div class="form-check form-check-inline stack-item">
-            <button class="btn btn-primary" type="submit" value="{{index}}" name="skills">{{ skillName }}</button>
-          </div>
+          <label class="checkbox-label">
+            <div class="col-md-3">
+            <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+            </div>
+          </label>
           {{/listC}}
-          <h5>기타</h5>
+          <h5 style="color: blue;">기타</h5>
           {{#listD}}
-          <div class="form-check form-check-inline stack-item">
-            <button class="btn btn-primary" type="submit" value="{{index}}" name = "skills">{{ skillName }}</button>
-          </div>
+          <label class="checkbox-label">
+            <div class="col-md-3">
+            <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+            </div>
+          </label>
           {{/listD}}
         </div>
       </div>

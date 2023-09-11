@@ -23,27 +23,27 @@ public class HasSkillService {
     private AnnouncementService announcementService;
     @Autowired
     private SkillService skillService;
-    
+
     @Transactional
     public void 공고스킬등록(Announcement announcement, Skill skills) {
         HasSkill hasSkill = HasSkill.builder()
-                            .announcement(announcement)
-                            .skill(skills)
-                            .build();
+                .announcement(announcement)
+                .skill(skills)
+                .build();
 
         hasSkillRepository.save(hasSkill);
-       
+
     }
 
     @Transactional
     public void 이력서스킬등록(Resume resume, Skill skills) {
         HasSkill hasSkill = HasSkill.builder()
-                            .resume(resume)
-                            .skill(skills)
-                            .build();
+                .resume(resume)
+                .skill(skills)
+                .build();
 
         hasSkillRepository.save(hasSkill);
-       
+
     }
 
     @Transactional
@@ -52,6 +52,7 @@ public class HasSkillService {
         hasSkill.setSkill(skills);
         return hasSkill;
     }
+
     @Transactional
     public List<HasSkill> 이력서스킬수정(Integer resId, Skill skills) {
         List<HasSkill> hasSkills = hasSkillRepository.findByresIdx(resId);
@@ -62,11 +63,14 @@ public class HasSkillService {
         return hasSkills;
     }
 
-    public List<HasSkill> 이력서스킬목록(Integer id){
+    public List<HasSkill> 이력서스킬목록(Integer id) {
         List<HasSkill> hasSkills = hasSkillRepository.findByresIdx(id);
         return hasSkills;
     }
 
-    
-    
+    @Transactional
+    public void 공고스킬삭제(Integer annId) {
+        hasSkillRepository.deleteByAnnId(annId);
+    }
+
 }

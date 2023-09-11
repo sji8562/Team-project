@@ -42,7 +42,6 @@ public class IndexController {
         session.setAttribute("bigjobs", bigJobs);
         request.setAttribute("annPG", annPG.getContent());
         request.setAttribute("comPG", comPG.getContent());
-
         return "/index";
     }
 

@@ -35,5 +35,4 @@ public class CompanyScrap {
         this.resumeIdx = resumeIdx;
         this.compIdx = compIdx;
     }
-
 }

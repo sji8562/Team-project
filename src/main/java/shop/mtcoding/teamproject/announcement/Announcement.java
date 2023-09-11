@@ -49,7 +49,7 @@ public class Announcement {
 
     @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HasSkill> skills = new ArrayList<>();
-    @OneToMany(mappedBy="announcement", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "announcement", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Apply> applies = new ArrayList<>();
     // 아직 컴퍼니 더미데이터 없어서 Integer, company로 나중에 바꿔야함
     private Integer company_id; // 1:N 관계 회사는 많은 공고를 올릴수있다
@@ -83,5 +83,4 @@ public class Announcement {
         this.bigJob = bigJob;
         this.smallJob = smallJob;
     }
-
 }

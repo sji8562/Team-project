@@ -3,6 +3,8 @@ package shop.mtcoding.teamproject.resume;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,14 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 import shop.mtcoding.teamproject._core.error.ex.MyException;
 import shop.mtcoding.teamproject.user.User;
 
-@Service
 public class ResumeService {
     @Autowired
     private ResumeRepository resumeRepository;
 
+    @Autowired
+    private HttpSession session;
+
     @Transactional
     public void 이력서등록(Resume resume) {
-        resumeRepository.save(resume);
     }
 
     public List<Resume> 이력서목록보기() {
@@ -68,5 +71,10 @@ public class ResumeService {
         Integer userIndex = resume.getUser().getIndex();
         return resumeRepository.mFindByidJoinResumeInUser(userIndex);
 
+    }
+
+    // 유저가 이력서로 지원할 때 필요
+    public List<Resume> 유저의이력서보기(Integer id) {
+        return resumeRepository.mFindByUserId(id);
     }
 }

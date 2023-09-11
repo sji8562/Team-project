@@ -275,6 +275,19 @@ function getCookie(name) {
   // nav
 
   $(document).ready(function () {
+    let modelResult = document.getElementById("status").value;
+    let buttons = document.querySelectorAll(".apply_stsboard button");
+
+    // 버튼을 활성화 또는 비활성화하는 함수
+
+    function setActiveButton(result) {
+      document.getElementById("accepted").hidden = result !== "1";
+      document.getElementById("denied").hidden = result !== "2";
+      document.getElementById("hold").hidden = result !== "3";
+    }
+
+    setActiveButton(modelResult);
+
     $(".dropdown-submenu").hover(
       function () {
         $(this).find(".dropdown-menu").addClass("show");

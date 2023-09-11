@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 
 @NoArgsConstructor
@@ -16,11 +19,12 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer index;
     private String skillName;
-    
+    @OneToMany(mappedBy = "skill", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<HasSkill> hasSkill = new ArrayList<>();
+
     public Skill(Integer index, String skillName) {
         this.index = index;
         this.skillName = skillName;
     }
 
-    
 }

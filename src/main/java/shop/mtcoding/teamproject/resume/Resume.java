@@ -1,10 +1,10 @@
 package shop.mtcoding.teamproject.resume;
 
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import shop.mtcoding.teamproject.apply.Apply;
 import shop.mtcoding.teamproject.skill.HasSkill;
 import shop.mtcoding.teamproject.user.User;
 
@@ -36,6 +36,9 @@ public class Resume {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
+
+    @OneToMany(mappedBy = "resume", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Apply> applies = new ArrayList<>();
     @OneToMany(mappedBy = "resume", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<HasSkill> hasSkill = new ArrayList<>();
 
@@ -55,9 +58,4 @@ public class Resume {
         this.hasSkill = hasSkill;
     }
 
-   
-    
-
-    
-    
 }

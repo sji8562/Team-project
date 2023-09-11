@@ -26,6 +26,7 @@ public class AnnouncementRequest {
         private MultipartFile pic;
         private String workTime;
         private String workDay;
+
     }
 
     @Getter
