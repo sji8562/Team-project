@@ -2,23 +2,32 @@ package shop.mtcoding.teamproject.user;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import java.util.List;
 
+=======
+>>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< HEAD
 import shop.mtcoding.teamproject.bigjob.BigJob;
 import shop.mtcoding.teamproject.bigjob.BigJobService;
 import shop.mtcoding.teamproject.userscrap.UserScrap;
 import shop.mtcoding.teamproject.userscrap.UserScrapService;
+=======
+import shop.mtcoding.teamproject._core.util.Script;
+>>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 
 @Controller
 public class UserController {
@@ -30,10 +39,14 @@ public class UserController {
     private HttpSession session;
 
     @Autowired
+<<<<<<< HEAD
     private UserScrapService userScrapService;
 
     @Autowired
     private BigJobService bigJobService;
+=======
+    private UserRepository userRepository;
+>>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 
     @GetMapping("/user/kakao")
     public @ResponseBody String kakao(String code, HttpServletResponse response)
@@ -94,6 +107,7 @@ public class UserController {
         response.sendRedirect("/");
     }
 
+<<<<<<< HEAD
     // @PostMapping("/user/scrapList")
     // public String userScraplist(Integer userindex, HttpServletRequest request) {
     // if (userindex != null) {
@@ -106,4 +120,16 @@ public class UserController {
     // }
     // return "/userscrap/userscrapList";
     // }
+=======
+    @GetMapping("/check")
+    public ResponseEntity<String> check(String userId) {
+        System.out.println("++++++++++++++++++유저네임");
+        User user = userRepository.findByUsername(userId);
+        System.out.println("??????????" + user);
+        if (user != null) {
+            return new ResponseEntity<String>("유저네임이 중복 되었습니다", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<String>("유저네임을 사용할 수 있습니다", HttpStatus.OK);
+    }
+>>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 }

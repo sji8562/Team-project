@@ -91,4 +91,12 @@ public class UserRequest {
         public String thumbnail_image;
 
     }
+
+    @Getter
+    @Setter
+    public class JoinDTO {
+        private String username;
+
+    }
+
 }
