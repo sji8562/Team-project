@@ -361,11 +361,7 @@ insert into user_tb(user_id, password, username, email, phone_number, address, a
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('heidi', 'dddd1312!', '김하얀', 'heidi@nate.com', '01033072211', '부산광역시 영도구 영도새싹길 2', '1000번지 1층', '19940319', '1');
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('yhlim', 'hhhh2211$', '윤혜림', 'cutie@naver.com', '01098762345', '부산광역시 수영구 수영로 371(남천동,부광빌딩)', '301호', '19960413', '1');
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('smkyoung', 'eeee333@', '성민경', 'sungsung@gmail.com', '01057638322', '부산광역시 해운대구 해운대로 95-10', '500번지', '19921021', '1');
-<<<<<<< HEAD
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('123', '1234', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', '1');
-=======
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('sjaeick', 'pppp7777@', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', '1');
->>>>>>> resume_revision
 
 
 
@@ -485,8 +481,7 @@ insert into user_scrap_tb(ann_idx,comp_idx,user_idx) values(1,3,2);
 
 insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1111','송재익','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('aaaa', '$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', '1');
-insert into apply_tb(announcement_index, resume_index, user_index, status) values(1, 4, 2, 3);
-insert into apply_tb(announcement_index, resume_index, user_index, status) values(3, 4, 2, 3);
+
 
 
 insert into apply_tb(announcement_index, resume_index, user_index, status) values(1, 4, 2, 3);

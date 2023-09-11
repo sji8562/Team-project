@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import shop.mtcoding.teamproject._core.error.ex.MyException;
 import shop.mtcoding.teamproject.user.User;
 
+@Service
 public class ResumeService {
     @Autowired
     private ResumeRepository resumeRepository;
