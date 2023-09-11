@@ -361,7 +361,7 @@ insert into user_tb(user_id, password, username, email, phone_number, address, a
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('heidi', 'dddd1312!', '김하얀', 'heidi@nate.com', '01033072211', '부산광역시 영도구 영도새싹길 2', '1000번지 1층', '19940319', '1');
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('yhlim', 'hhhh2211$', '윤혜림', 'cutie@naver.com', '01098762345', '부산광역시 수영구 수영로 371(남천동,부광빌딩)', '301호', '19960413', '1');
 insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('smkyoung', 'eeee333@', '성민경', 'sungsung@gmail.com', '01057638322', '부산광역시 해운대구 해운대로 95-10', '500번지', '19921021', '1');
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('sjaeick', 'pppp7777@', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', '1');
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('123', '1234', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', '1');
 
 
 

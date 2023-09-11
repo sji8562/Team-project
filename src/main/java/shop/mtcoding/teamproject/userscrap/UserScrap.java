@@ -23,6 +23,7 @@ public class UserScrap {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer index;
     @Column(nullable = false)
     private Integer userIdx;
@@ -43,5 +44,3 @@ public class UserScrap {
     }
 
 }
-
-    

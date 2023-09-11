@@ -184,11 +184,21 @@
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">이력서</a></li>
             <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="/user/userAppSggList">지원/제안현황</a></li>
+            <li><a class="dropdown-item">지원/제안현황</a></li>
+
+            
+            
+            <li><hr class="dropdown-divider" /></li>
+            <form action="/user/scrapList" method="post">
+            <li><button type="submit" class="dropdown-item">북마크</button></li>
+            <input type="hidden" id="userapplist" name="userindex" value="{{sessionUser.index}}">
+            </form>
+            
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="/logout">로그아웃</a></li>
         </ul>
     </div>
+
             {{/sessionUser}}
             {{^sessionUser}}
 

@@ -1,14 +1,8 @@
 package shop.mtcoding.teamproject.userscrap;
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import shop.mtcoding.teamproject._core.error.ex.MyApiException;
-import shop.mtcoding.teamproject.bigjob.BigJob;
 
 import shop.mtcoding.teamproject.userscrap.UserScrapRequest.bookUserSaveDTO;
 

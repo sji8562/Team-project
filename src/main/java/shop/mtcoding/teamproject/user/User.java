@@ -46,8 +46,6 @@ public class User {
 
     private Timestamp birthday;
 
-    private String scrap;
-
     @Builder
     public User(Integer index, String userid, String username, String password, String email, String address,
             String addressDetail, String phoneNum, String picUrl, Timestamp birthday, int level) {

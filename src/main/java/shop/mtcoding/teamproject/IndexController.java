@@ -17,8 +17,6 @@ import shop.mtcoding.teamproject.bigjob.BigJob;
 import shop.mtcoding.teamproject.bigjob.BigJobService;
 import shop.mtcoding.teamproject.company.Company;
 import shop.mtcoding.teamproject.company.CompanyService;
-import shop.mtcoding.teamproject.reply.Reply;
-import shop.mtcoding.teamproject.smalljob.SmallJobService;
 
 @Controller
 public class IndexController {
@@ -44,7 +42,7 @@ public class IndexController {
         session.setAttribute("bigjobs", bigJobs);
         request.setAttribute("annPG", annPG.getContent());
         request.setAttribute("comPG", comPG.getContent());
-        System.out.println("테스트");
+
         return "/index";
     }
 

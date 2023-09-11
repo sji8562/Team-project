@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import shop.mtcoding.teamproject.bigjob.BigJob;
 import shop.mtcoding.teamproject.bigjob.BigJobService;
+import shop.mtcoding.teamproject.userscrap.UserScrap;
+import shop.mtcoding.teamproject.userscrap.UserScrapService;
 
 @Controller
 public class UserController {
@@ -24,6 +27,9 @@ public class UserController {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private UserScrapService userScrapService;
 
     @Autowired
     private BigJobService bigJobService;
@@ -73,13 +79,16 @@ public class UserController {
         response.sendRedirect("/");
     }
 
-    @GetMapping("/user/userAppSggList")
-    public String userAppSggList() {
-        // User sessionUser = (User) session.getAttribute("sessionUser");
-        // List<BigJob> bigJobList = bigJobService.BigJobList();
-        // session.setAttribute("bigJobList", bigJobList);
-
-        return "/appsgg/userAppSggList";
-    }
-
+    // @PostMapping("/user/scrapList")
+    // public String userScraplist(Integer userindex, HttpServletRequest request) {
+    // if (userindex != null) {
+    // System.out.println("테스트 1 " + userindex);
+    // List<UserScrap> userScraps = userScrapService.scrapList(userindex);
+    // System.out.println(userScraps.get(0));
+    // request.setAttribute("list", userScraps);
+    // } else {
+    // return "/index";
+    // }
+    // return "/userscrap/userscrapList";
+    // }
 }
