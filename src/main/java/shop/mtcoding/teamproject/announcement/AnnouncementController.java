@@ -106,3 +106,6 @@ public class AnnouncementController {
         return "redirect:/annlist";
     }
 }
+
+
+
