@@ -1,0 +1,180 @@
+{{> layout/header}}
+
+<div class="container mt-3 resume_insert">
+  <div class="pageinfo">
+    <h2>이력서 수정</h2>
+  </div>
+  <form>
+    <form action="/resUpdate/{{ res.index }}" method="post"></form>
+    <div class="mb-3">
+      <label for="title" class="title">이력서 제목:</label>
+      <input
+        type="title"
+        class="form-control"
+        id="title"
+        name="title"
+        value="{{ res.title }}"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="name">이름</label>
+      <input type="text" class="form-control" id="name" name="name" value="" />
+    </div>
+    <div class="mb-3">
+      <div>
+        <label for="address">주소</label>
+      </div>
+      <input
+        class="resume_postcode"
+        type="text"
+        id="postcode"
+        placeholder="우편번호"
+      />
+      <input
+        class="resume_addclick"
+        type="button"
+        onclick="DaumPostcode()"
+        value="우편번호 찾기"
+      /><br />
+      <input type="text" id="address" placeholder="주소" /><br />
+      <input type="text" id="detailAddress" placeholder="상세주소" />
+    </div>
+    <div class="mb-3">
+      <label for="phoneNum">전화번호</label>
+      <input
+        type="number"
+        class="form-control"
+        id="phoneNum"
+        name="phoneNum"
+        value=""
+      />
+    </div>
+    <div class="mb-3">
+      <label for="email">이메일</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        value=""
+      />
+    </div>
+    <div class="mb-3">
+      <label for="homepage">깃허브 주소</label>
+      <input
+        type="text"
+        class="form-control"
+        id="homepage"
+        name="homepage"
+        value=""
+      />
+    </div>
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+      <label class="form-label" for="edu">
+        <div class="d-flex">
+          <select name="lastedu">
+            <option>학력 선택</option>
+            <option value="중졸">중학교 졸업</option>
+            <option value="고졸">고등학교 졸업</option>
+            <option value="대재">대학교 재학</option>
+            <option value="대졸예정">대학교 졸업예정</option>
+            <option value="대졸">대학교 졸업</option>
+            <option value="석사">석사</option>
+            <option value="박사">박사</option>
+          </select>
+          <input
+            type="text"
+            class="form-control select_edu"
+            name="edu"
+            id="edu"
+          />
+        </div>
+      </label>
+    </div>
+
+    <div class="mb-3">
+      <div class="skilldropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="classListDropdown"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          클래스 선택
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="classListDropdown">
+          <li>
+            <a class="dropdown-item class-select" data-class="a">리스트 A</a>
+          </li>
+          <li>
+            <a class="dropdown-item class-select" data-class="b">리스트 B</a>
+          </li>
+          <li>
+            <a class="dropdown-item class-select" data-class="c">리스트 C</a>
+          </li>
+          <li>
+            <a class="dropdown-item class-select" data-class="d">리스트 D</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 체크박스 그룹 -->
+    <div class="mb-3">
+      <div class="row" style="font-size: 18px">
+        <div class="리스트a">
+          <div class="form-check form-check-inline stack-item">
+            <input
+              class="form-check-input stack_check a"
+              type="checkbox"
+              name="stack1"
+              value="java"
+              id="stack1"
+            />
+            <label class="form-check-label" for="stack1">자바</label>
+          </div>
+        </label>
+      </div>
+      
+      <div class="mb-3">  
+        <div class="row">
+          {{#skills}}
+            <label class="checkbox-label">
+              <div class="col-md-3">
+              <input type="checkbox" name="skills" value="{{index}}">{{skillName}}
+              </div>
+            </label>
+          {{/skills}}
+        </div>
+      </div>
+      
+      
+  
+      <div class="mb-3">
+        <label class="form-label" for="introduce">자기소개서 :</label>
+  
+      </div>
+      <textarea name="introduce" id="introduce" cols="150" rows="10"></textarea>
+  
+      <button type="submit" class="btn text-white w-100 mb-2" style="background-color: orange; font-size: 0.8rem;">
+        수정
+      </button>
+    </form>
+  </div>
+  <textarea
+    style="width: 77.5vh"
+    name="introduce"
+    id="introduce"
+    cols="150"
+    rows="10"
+  ></textarea>
+  <div class="col-md-12 d-flex justify-content-end">
+    <button type="submit" class="btn btn-primary mb-2 finishbtn">
+      수정 완료
+    </button>
+  </div>
+</div>
+
+{{> layout/footer}}

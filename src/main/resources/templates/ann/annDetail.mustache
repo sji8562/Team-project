@@ -1,0 +1,68 @@
+{{> layout/header}} 
+<div class="container my-5 p-5 border  ann_insert">
+    <div>
+        <div class="container my-2 d-flex justify-content-between align-items-center hr">
+            <div class="anndetail_title">
+                <h2>공고 타이틀</h2>
+            </div>
+            <div>
+                <button type="button" name="button" class="btn btn-primary">지원하기</button>
+                <button type="button" name="button" class="btn btn-warning">수정하기</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="">
+                <img class="ann_mainimg" src="/images/comp1.jpg">
+            </div>
+            <div class="ann_type">
+                <div class="col">회사명</div>
+                <div class="col blue">회사이름</div>
+            </div>
+            <div class="ann_type">
+                <div class="col">경력</div>
+                <div class="col blue">{{#ann.experience}}{{ann.experience}}{{/ann.experience}}</div>
+            </div>
+            <div class="ann_type">
+                <div class="col">학력</div>
+                <div class="col blue">{{#ann.edu}}{{ann.edu}}{{/ann.edu}}</div>
+            </div>
+            <div class="ann_type">
+                <div class="col">급여</div>
+                <div class="col blue">{{#ann.salary}}{{ann.salary}}{{/ann.salary}}</div>
+            </div>
+            <div class="ann_type">
+                <div class="col">근무지역</div>
+                <div class="col blue">{{#ann.location}}{{ann.location}}{{/ann.location}}</div>
+            </div>
+            <div class="ann_type">
+                <div class="col">근무형태</div>
+                <div class="col blue">{{#ann.workType}}{{ann.workType}}{{/ann.workType}}</div>
+            </div>
+        </div>
+        <div>
+            <img src="hamberger.jpg">
+            <div class="container">
+                <h5>접수기간 및 방법</h5>
+                <hr>
+                <div class="row">
+                    <div class="col border text-center p-4">
+                        <div>
+                            <p class="blue">남은 기간</p><br>
+                            <p>남은시간쓰는 자리</p>
+                            <p><b class="border">{{#ann.startTime}}{{ann.startTime}}{{/ann.startTime}}</b></p>
+                            <p><b class="border">{{#ann.endTime}}{{ann.endTime}}{{/ann.endTime}}</b></p>
+                            <button type="button" name="button" class="btn btn-primary">지원하기</button>
+                        </div>
+                    </div>
+
+                    <div class="col bg-gray">
+                        <div class="col"><p>지원 방법 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 사람인 입사지원 </p></div>
+                        <div class="col"><p>접수 양식 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 제출서류 보기 </p></div>
+                    </div>
+                    <div class="col bg-gray"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{> layout/footer}}
