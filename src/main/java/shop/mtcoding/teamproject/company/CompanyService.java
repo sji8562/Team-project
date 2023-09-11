@@ -1,13 +1,10 @@
 package shop.mtcoding.teamproject.company;
 
-<<<<<<< HEAD
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-=======
 import java.util.List;
->>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -120,11 +117,11 @@ public class CompanyService {
                 return company;
         }
 
-    @Transactional
-    public Company 상세보기(Integer id) {
+        @Transactional
+        public Company 상세보기(Integer id) {
 
-        return companyRepository.findById(id).get();
+                return companyRepository.findById(id).get();
 
-    }
+        }
 
 }

@@ -25,12 +25,9 @@ public class CompanyController {
     CompanyService companyService;
 
     @Autowired
-<<<<<<< HEAD
-
     CompanyRepository companyRepository;
-=======
+    @Autowired
     AnnouncementService announcementService;
->>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 
     @Autowired
     private HttpSession session;
@@ -110,15 +107,10 @@ public class CompanyController {
         Company sessionCompany = (Company) session.getAttribute("sessionCompany");
         Company company = companyService.기업정보수정(updateDTO, sessionCompany.getIndex());
         session.setAttribute("sessionCompany", company);
-<<<<<<< HEAD
-
-=======
->>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
         return "redirect:/companyLoginForm";
 
     }
 
-<<<<<<< HEAD
     @PostMapping("/company/compinfoUpdate")
     public String compinfoUpdate(CompanyRequest.UpdatedetailDTO updatedetailDTO) {
         Company sessionCompany = (Company) session.getAttribute("sessionCompany");
@@ -127,7 +119,7 @@ public class CompanyController {
 
         return "redirect:/companyinfoDetail";
     }
-=======
+
     @GetMapping("/compinfoDetail/{id}")
     public String compinfodeatil(@PathVariable Integer id, Model model) {
 
@@ -140,5 +132,4 @@ public class CompanyController {
         return "company/compinfoDetail";
     }
 
->>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 }

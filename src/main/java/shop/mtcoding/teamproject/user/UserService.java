@@ -24,11 +24,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import shop.mtcoding.teamproject._core.error.ex.MyException;
-<<<<<<< HEAD
 import shop.mtcoding.teamproject._core.vo.MyPath;
-=======
 import shop.mtcoding.teamproject.board.Board;
->>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 import shop.mtcoding.teamproject.user.UserRequest.Kakaologin;
 import shop.mtcoding.teamproject.user.UserRequest.OAuthToken;
 import shop.mtcoding.teamproject.user.UserRequest.userJoinDTO;
@@ -56,7 +53,6 @@ public class UserService {
 
         }
 
-<<<<<<< HEAD
         public User userlogin(userLoginDTO loginDTO) {
                 User user = userRepository.findByUserId(loginDTO.getUserId());
                 return user;
@@ -139,14 +135,11 @@ public class UserService {
                         return user2;
                 }
         }
-=======
-    }
->>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 
-    @Transactional
-    public User 유저네임중복체크(String userId) {
+        @Transactional
+        public User 유저네임중복체크(String userId) {
 
-        return userRepository.findByUsername(userId);
+                return userRepository.findByUsername(userId);
 
-    }
+        }
 }

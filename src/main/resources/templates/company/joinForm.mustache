@@ -1,7 +1,12 @@
 {{> layout/header}}
 <div class="join_all">
   <div class="join_title">회원가입 (기업)</div>
-  <form action="/companyJoin" method="post" class="form">
+  <form
+    action="/companyJoin"
+    method="post"
+    class="form"
+    onsubmit="return companyValid()"
+  >
     <div class="mb-2 mt-3">
       <div class="details">아이디<span class="necessity">필수</span></div>
       <input
@@ -10,9 +15,10 @@
         id="id"
         placeholder="아이디를 입력해주세요"
         name="companyId"
+        onchange="companyIdChange()"
         required
       />
-      <button type="button" class="btn btn-warning" onclick="check()">
+      <button type="button" class="btn btn-warning" onclick="companyCheckin()">
         중복체크
       </button>
     </div>

@@ -4,14 +4,10 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 import java.util.Date;
-<<<<<<< HEAD
 
 import java.nio.file.*;
 import java.util.List;
 
-=======
-import java.util.List;
->>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
 import java.util.Optional;
 import java.util.UUID;
 
@@ -146,9 +142,6 @@ public class AnnouncementService {
         }
     }
 
-<<<<<<< HEAD
-}
-=======
     public List<Announcement> 채용공고(Integer compIdx) {
         System.out.println("===================채용공고 잘돌아감" + compIdx);
         System.out.println(announcementRepository.findByCompIdx(compIdx));
@@ -156,4 +149,3 @@ public class AnnouncementService {
     }
 
 }
->>>>>>> 308a388930010861fe1a5d2c318575b24b7b4fa1
