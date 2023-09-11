@@ -16,14 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import shop.mtcoding.teamproject.resume.Resume;
-import shop.mtcoding.teamproject.resume.ResumeService;
 import shop.mtcoding.teamproject.skill.HasSkill;
 import shop.mtcoding.teamproject.skill.HasSkillService;
 import shop.mtcoding.teamproject.skill.Skill;
 import shop.mtcoding.teamproject.skill.SkillService;
 import shop.mtcoding.teamproject.skill.HasSkillRequest.annSaveDTO;
 import shop.mtcoding.teamproject.user.User;
+import shop.mtcoding.teamproject.userscrap.UserScrap;
 import shop.mtcoding.teamproject.userscrap.UserScrapService;
 
 @Controller
@@ -32,29 +31,19 @@ public class AnnouncementController {
     @Autowired
     private AnnouncementService announcementService;
     @Autowired
-    private ResumeService resumeService;
-    @Autowired
     private SkillService skillService;
     @Autowired
     private HasSkillService hasSkillService;
     @Autowired
-    private HttpSession session;
+    private UserScrapService userScrapService;
 
     @Autowired
-    private UserScrapService userScrapService;
+    private HttpSession session;
 
     @GetMapping("/annSaveForm")
     public String annSaveForm(Model model) {
-        List<Skill> listA = skillService.스킬리스트보기(1, 10);
-        List<Skill> listB = skillService.스킬리스트보기(11, 22);
-        List<Skill> listC = skillService.스킬리스트보기(23, 28);
-        List<Skill> listD = skillService.스킬리스트보기(29, 34);
-
-        model.addAttribute("listA", listA);
-        model.addAttribute("listB", listB);
-        model.addAttribute("listC", listC);
-        model.addAttribute("listD", listD);
-
+        List<Skill> skills = skillService.스킬목록보기();
+        model.addAttribute("skills", skills);
         return "ann/annSave";
     }
 
@@ -67,18 +56,10 @@ public class AnnouncementController {
 
     @GetMapping("/annUpdateForm/{id}")
     public String annUpdateForm(@PathVariable Integer id, Model model) {
-        List<Skill> listA = skillService.스킬리스트보기(1, 10);
-        List<Skill> listB = skillService.스킬리스트보기(11, 22);
-        List<Skill> listC = skillService.스킬리스트보기(23, 28);
-        List<Skill> listD = skillService.스킬리스트보기(29, 34);
-
-        model.addAttribute("listA", listA);
-        model.addAttribute("listB", listB);
-        model.addAttribute("listC", listC);
-        model.addAttribute("listD", listD);
-
+        List<Skill> skills = skillService.스킬목록보기();
         Announcement ann = announcementService.공고상세보기(id);
         model.addAttribute("ann", ann);
+        model.addAttribute("skills", skills);
         return "ann/annUpdate";
     }
 
@@ -108,13 +89,12 @@ public class AnnouncementController {
         boolean isBookmarked = false;
         if (user != null) {
             sessionUserId = user.getIndex();
-
             annIdx = id; // Replace with the actual announcement index
         }
         if (sessionUserId != null && !sessionUserId.equals("")) {
             isBookmarked = userScrapService.isBookmarkSaved(annIdx, sessionUserId);
         }
-
+        System.out.println("테스토스테론" + isBookmarked);
         model.addAttribute("isBookmarked", isBookmarked);
         model.addAttribute("ann", ann);
         return "ann/annDetail";
@@ -123,8 +103,6 @@ public class AnnouncementController {
     @PostMapping("/annDelete/{id}")
     public String annDelete(@PathVariable Integer id) {
         announcementService.공고삭제(id);
-
-        hasSkillService.공고스킬삭제(id);
         return "redirect:/annlist";
     }
 

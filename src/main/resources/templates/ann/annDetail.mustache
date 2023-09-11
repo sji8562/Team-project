@@ -1,14 +1,26 @@
 {{> layout/header}}
 <div class="container my-5 p-5 border">
   <div class="container">
-    <div
-      class="container my-2 d-flex justify-content-between align-items-center hr"
-    >
+    <div class="container my-2 d-flex justify-content-between align-items-center hr">
       <div>
         <h5>회사이름</h5>
         <h2>공고 타이틀</h2>
       </div>
-      <button
+      {{#sessionUser}}
+      <div>
+        {{#isBookmarked}}
+        <button
+          class="fas fa-bookmark btn b-blue toggle-orange orange"
+        ></button>
+        {{/isBookmarked}}
+        {{^isBookmarked}}
+        <button class="fas fa-bookmark btn b-blue toggle-orange"></button>
+        {{/isBookmarked}}
+
+        <input id="annIndex" type="hidden" value="{{ ann.index }}" />
+        <input id="compIndex" type="hidden" value="{{ ann.company_id }}" />
+        <input id="userIndex" type="hidden" value="{{ sessionUser.index }}" />
+        <button
         type="button"
         id="apply"
         class="btn btn-primary"
@@ -18,6 +30,25 @@
       >
         지원하기
       </button>
+      </div>
+      {{/sessionUser}}
+      {{^sessionUser}}
+      <div>
+        <button
+        type="button"
+        id="apply"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#myModal"
+        onclick="resList()"
+      >
+        지원하기
+      </button>
+      </div>
+      {{/sessionUser}}
+
+      
+
     </div>
     <div class="container">
       <hr />
@@ -71,24 +102,15 @@
               <br />
               <p>남은시간쓰는 자리</p>
               <p>
-                <b class="border"
-                  >{{#ann.startTime}}{{ ann.startTime }}{{/ann.startTime}}</b
-                >
+                <b class="border">{{#ann.startTime}}{{ ann.startTime }}{{/ann.startTime}}</b>
               </p>
               <p>
-                <b class="border"
-                  >{{#ann.endTime}}{{ ann.endTime }}{{/ann.endTime}}</b
-                >
+                <b class="border">{{#ann.endTime}}{{ ann.endTime }}{{/ann.endTime}}</b>
               </p>
               <div class="container mt-3">
                 <form>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#myModal"
-                    onclick="resList()"
-                  >
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"
+                    onclick="resList()">
                     지원하기
                   </button>
                   <input type="hidden" id="annId" value="{{ ann.index }}" />
@@ -102,11 +124,7 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                       <h4 class="modal-title" id="modalTitle"></h4>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                      ></button>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
 
                     <!-- Modal body -->
@@ -114,11 +132,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-danger"
-                        data-bs-dismiss="modal"
-                      >
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                         Close
                       </button>
                     </div>

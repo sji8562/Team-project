@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,8 @@ public class UserService {
 
         @Transactional
         public void usersave(userJoinDTO joinDTO) {
+                String encPassword = BCrypt.hashpw(joinDTO.getPassword(), BCrypt.gensalt());
+                joinDTO.setPassword(encPassword);
                 User user = User.builder()
                                 .userid(joinDTO.getUserId())
                                 .username(joinDTO.getUsername())
@@ -110,16 +113,15 @@ public class UserService {
 
                 // String salt = BCrypt.hashpw();
                 // userRepository.findByUserIdAndPassword(kakaoid,)
-                User user2 = userRepository.findByUserId(kakaoid);
+                User user = userRepository.findByUserId(kakaoid);
 
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
                 try {
-                        if (user2 != null && !user2.equals("")) {
-                                return user2;
+                        if (user != null) {
+                                return user;
                         } else {
-
-                                User user = User.builder()
+                                User newUser = User.builder()
                                                 .userid(kakaologin.getKakao_account().getEmail() + "_"
                                                                 + kakaologin.getId())
                                                 .email(kakaologin.getKakao_account().getEmail())
@@ -127,13 +129,14 @@ public class UserService {
                                                 .username(kakaologin.getKakao_account().getProfile().nickname)
                                                 .build();
 
-                                userRepository.save(user);
-                                return user;
+                                userRepository.save(newUser);
+                                return newUser;
                         }
                 } catch (Exception e) {
-
-                        return user2;
+                        // 오류 처리
+                        return null;
                 }
+
         }
 
         @Transactional

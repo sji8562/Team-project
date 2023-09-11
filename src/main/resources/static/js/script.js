@@ -139,7 +139,7 @@ $(function () {
 
 $(function () {
   $("#ann-div").slick({
-    slide: "a", //슬라이드 되어야 할 태그 ex) div, li
+    slide: "div", //슬라이드 되어야 할 태그 ex) div, li
     infinite: true, //무한 반복 옵션
     slidesToShow: 4, // 한 화면에 보여질 컨텐츠 개수
     slidesToScroll: 1, //스크롤 한번에 움직일 컨텐츠 개수
@@ -177,7 +177,7 @@ $(function () {
 
 $(function () {
   $("#comp-div").slick({
-    slide: "a", //슬라이드 되어야 할 태그 ex) div, li
+    slide: "div", //슬라이드 되어야 할 태그 ex) div, li
     infinite: true, //무한 반복 옵션
     slidesToShow: 4, // 한 화면에 보여질 컨텐츠 개수
     slidesToScroll: 1, //스크롤 한번에 움직일 컨텐츠 개수
@@ -275,79 +275,44 @@ function getCookie(name) {
   // nav
 
   $(document).ready(function () {
-    let companyIdSameCheck = false;
+    // let companyIdSameCheck = false;
 
-    function companyIdChange() {
-      console.log("변경됨");
-      usernameSameCheck = false;
-    }
+    // function companyIdChange() {
+    //   console.log("변경됨");
+    //   usernameSameCheck = false;
+    // }
 
-    function companyValid() {
-      if (companyIdSameCheck) {
-        return true;
-      } else {
-        alert("유저네임 중복체크를 해주세요");
-        return false;
-      }
-    }
+    // function companyValid() {
+    //   if (companyIdSameCheck) {
+    //     return true;
+    //   } else {
+    //     alert("유저네임 중복체크를 해주세요");
+    //     return false;
+    //   }
+    // }
 
-    // 책임 : input태그로 부터 username을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
-    async function companyCheckin() {
-      // 1. DOM으로 부터 값 가져오기
-      let companyId = document.querySelector("#companyId").value;
-      console.log("유저네임", userId);
-      // 2. 통신하기
-      let response = await fetch(`/check?companyId=${companyId}`);
-      // 3. 파싱하기
-      let responseBody = await response.text(); // response.json();
-      console.log(responseBody);
+    // // 책임 : input태그로 부터 company을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
+    // async function companyCheckin() {
+    //   // 1. DOM으로 부터 값 가져오기
+    //   let companyId = document.querySelector("#companyId").value;
+    //   console.log("유저네임", userId);
+    //   // 2. 통신하기
+    //   let response = await fetch(`/check?companyId=${companyId}`);
+    //   // 3. 파싱하기
+    //   let responseBody = await response.text(); // response.json();
+    //   console.log(responseBody);
 
-      let btnJoin = document.querySelector("#btnJoin");
-      if (response.status == 200) {
-        alert(responseBody);
-        companyIdSameCheck = true;
-      } else {
-        alert(responseBody);
-        companyIdSameCheck = false;
-      }
-    }
+    //   let btnJoin = document.querySelector("#btnJoin");
+    //   if (response.status == 200) {
+    //     alert(responseBody);
+    //     companyIdSameCheck = true;
+    //   } else {
+    //     alert(responseBody);
+    //     companyIdSameCheck = false;
+    //   }
+    // }
 
-    let usernameSameCheck = false;
-
-    function usernameChange() {
-      console.log("변경됨");
-      usernameSameCheck = false;
-    }
-
-    function userValid() {
-      if (usernameSameCheck) {
-        return true;
-      } else {
-        alert("유저네임 중복체크를 해주세요");
-        return false;
-      }
-    }
-
-    // 책임 : input태그로 부터 username을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
-    async function userCheckin() {
-      // 1. DOM으로 부터 값 가져오기
-      let userId = document.querySelector("#userId").value;
-      console.log("유저네임", userId);
-      // 2. 통신하기
-      let response = await fetch(`/check?userId=${userId}`);
-      // 3. 파싱하기
-      let responseBody = await response.text(); // response.json();
-      console.log(responseBody);
-
-      let btnJoin = document.querySelector("#btnJoin");
-      if (response.status == 200) {
-        alert(responseBody);
-        usernameSameCheck = true;
-      } else {
-        alert(responseBody);
-        usernameSameCheck = false;
-      }
-    }
+    
 
     let modelResult = document.getElementById("status").value;
     let buttons = document.querySelectorAll(".apply_stsboard button");
@@ -592,3 +557,41 @@ function changePic(e1) {
   };
   reader.readAsDataURL(f);
 }
+
+
+let usernameSameCheck = false;
+
+    function usernameChange() {
+      console.log("변경됨");
+      usernameSameCheck = false;
+    }
+
+    function userValid() {
+      if (usernameSameCheck) {
+        return true;
+      } else {
+        alert("유저네임 중복체크를 해주세요");
+        return false;
+      }
+    }
+
+    // 책임 : input태그로 부터 username을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
+    async function userCheckin() {
+      // 1. DOM으로 부터 값 가져오기
+      let userId = document.querySelector("#userId").value;
+      console.log("유저네임", userId);
+      // 2. 통신하기
+      let response = await fetch(`/check?userId=${userId}`);
+      // 3. 파싱하기
+      let responseBody = await response.text(); // response.json();
+      console.log(responseBody);
+
+      let btnJoin = document.querySelector("#btnJoin");
+      if (response.status == 200) {
+        alert(responseBody);
+        usernameSameCheck = true;
+      } else {
+        alert(responseBody);
+        usernameSameCheck = false;
+      }
+    }
