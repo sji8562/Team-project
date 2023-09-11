@@ -244,166 +244,155 @@ function getCookie(name) {
   if (parts.length === 2) {
     return parts[1].split(";")[0];
   }
-  $(document).ready(function () {
-    $(".dropdown-submenu").hover(
-      function () {
-        $(this).find(".dropdown-menu").addClass("show");
-      },
-      function () {
-        $(this).find(".dropdown-menu").removeClass("show");
-      }
-    );
-  });
-
-  // skill
-  //   $(document).ready(function () {
-  //     // 페이지 로드 시 모든 체크박스 컨테이너를 숨깁니다.
-  //     // $(".row > div").hide();
-
-  //     $(".class-select").click(function () {
-  //       var selectedClass = $(this).data("class");
-
-  //       // 모든 체크박스 컨테이너를 숨깁니다.
-  //       $(".row > div").hide();
-
-  //       // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
-  //       $(".리스트" + selectedClass).show();
-  //     });
-  //   });
-  // }
-
-  // nav
-
-  $(document).ready(function () {
-    let companyIdSameCheck = false;
-
-    function companyIdChange() {
-      console.log("변경됨");
-      usernameSameCheck = false;
-    }
-
-    function companyValid() {
-      if (companyIdSameCheck) {
-        return true;
-      } else {
-        alert("유저네임 중복체크를 해주세요");
-        return false;
-      }
-    }
-
-    // 책임 : input태그로 부터 username을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
-    async function companyCheckin() {
-      // 1. DOM으로 부터 값 가져오기
-      let companyId = document.querySelector("#companyId").value;
-      console.log("유저네임", userId);
-      // 2. 통신하기
-      let response = await fetch(`/check?companyId=${companyId}`);
-      // 3. 파싱하기
-      let responseBody = await response.text(); // response.json();
-      console.log(responseBody);
-
-      let btnJoin = document.querySelector("#btnJoin");
-      if (response.status == 200) {
-        alert(responseBody);
-        companyIdSameCheck = true;
-      } else {
-        alert(responseBody);
-        companyIdSameCheck = false;
-      }
-    }
-
-    let usernameSameCheck = false;
-
-    function usernameChange() {
-      console.log("변경됨");
-      usernameSameCheck = false;
-    }
-
-    function userValid() {
-      if (usernameSameCheck) {
-        return true;
-      } else {
-        alert("유저네임 중복체크를 해주세요");
-        return false;
-      }
-    }
-
-    // 책임 : input태그로 부터 username을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
-    async function userCheckin() {
-      // 1. DOM으로 부터 값 가져오기
-      let userId = document.querySelector("#userId").value;
-      console.log("유저네임", userId);
-      // 2. 통신하기
-      let response = await fetch(`/check?userId=${userId}`);
-      // 3. 파싱하기
-      let responseBody = await response.text(); // response.json();
-      console.log(responseBody);
-
-      let btnJoin = document.querySelector("#btnJoin");
-      if (response.status == 200) {
-        alert(responseBody);
-        usernameSameCheck = true;
-      } else {
-        alert(responseBody);
-        usernameSameCheck = false;
-      }
-    }
-
-    let modelResult = document.getElementById("status").value;
-    let buttons = document.querySelectorAll(".apply_stsboard button");
-
-    // 버튼을 활성화 또는 비활성화하는 함수
-
-    function setActiveButton(result) {
-      document.getElementById("accepted").hidden = result !== "1";
-      document.getElementById("denied").hidden = result !== "2";
-      document.getElementById("hold").hidden = result !== "3";
-    }
-
-    setActiveButton(modelResult);
-
-    $(".dropdown-submenu").hover(
-      function () {
-        $(this).find(".dropdown-menu").addClass("show");
-      },
-      function () {
-        $(this).find(".dropdown-menu").removeClass("show");
-      }
-    );
-
-    $(".toggle-orange").click(function () {
-      if ($(this).hasClass("orange")) {
-        // The element has the "orange" class, so it's currently bookmarked
-        // Perform bookmark deletion here
-        const annIdx = $("#annIndex").val();
-        const userIdx = $("#userIndex").val();
-        deleteUserBookmark(annIdx, userIdx);
-      } else {
-        // The element does not have the "orange" class, so it's not bookmarked
-        // Perform bookmark saving here
-        bookmarkuserSave();
-      }
-      // Toggle the "orange" class
-      $(this).toggleClass("orange");
-    });
-
-    $(".toggle-orange1").click(function () {
-      if ($(this).hasClass("orange")) {
-        // The element has the "orange" class, so it's currently bookmarked
-        // Perform bookmark deletion here
-        const resumeIdx = $("#resumeIndex").val();
-        const companyIdx = $("#companyIndex").val();
-        deleteCompanyBookmark(resumeIdx, companyIdx);
-      } else {
-        // The element does not have the "orange" class, so it's not bookmarked
-        // Perform bookmark saving here
-        bookmarkcompanySave();
-      }
-      // Toggle the "orange" class
-      $(this).toggleClass("orange");
-    });
-  });
 }
+// skill
+//   $(document).ready(function () {
+//     // 페이지 로드 시 모든 체크박스 컨테이너를 숨깁니다.
+//     // $(".row > div").hide();
+
+//     $(".class-select").click(function () {
+//       var selectedClass = $(this).data("class");
+
+//       // 모든 체크박스 컨테이너를 숨깁니다.
+//       $(".row > div").hide();
+
+//       // 선택된 클래스의 체크박스 컨테이너만 보이도록 합니다.
+//       $(".리스트" + selectedClass).show();
+//     });
+//   });
+// }
+
+// nav
+
+$(document).ready(function () {
+  let companyIdSameCheck = false;
+
+  function companyIdChange() {
+    console.log("변경됨");
+    usernameSameCheck = false;
+  }
+
+  function companyValid() {
+    if (companyIdSameCheck) {
+      return true;
+    } else {
+      alert("유저네임 중복체크를 해주세요");
+      return false;
+    }
+  }
+
+  // 책임 : input태그로 부터 username을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
+  async function companyCheckin() {
+    // 1. DOM으로 부터 값 가져오기
+    let companyId = document.querySelector("#companyId").value;
+    console.log("유저네임", userId);
+    // 2. 통신하기
+    let response = await fetch(`/check?companyId=${companyId}`);
+    // 3. 파싱하기
+    let responseBody = await response.text(); // response.json();
+    console.log(responseBody);
+
+    let btnJoin = document.querySelector("#btnJoin");
+    if (response.status == 200) {
+      alert(responseBody);
+      companyIdSameCheck = true;
+    } else {
+      alert(responseBody);
+      companyIdSameCheck = false;
+    }
+  }
+
+  let usernameSameCheck = false;
+
+  function usernameChange() {
+    console.log("변경됨");
+    usernameSameCheck = false;
+  }
+
+  function userValid() {
+    if (usernameSameCheck) {
+      return true;
+    } else {
+      alert("유저네임 중복체크를 해주세요");
+      return false;
+    }
+  }
+
+  // 책임 : input태그로 부터 username을 가져와서 통신을 요청하고, 중복이 되었는지 확인한다.
+  async function userCheckin() {
+    // 1. DOM으로 부터 값 가져오기
+    let userId = document.querySelector("#userId").value;
+    console.log("유저네임", userId);
+    // 2. 통신하기
+    let response = await fetch(`/check?userId=${userId}`);
+    // 3. 파싱하기
+    let responseBody = await response.text(); // response.json();
+    console.log(responseBody);
+
+    let btnJoin = document.querySelector("#btnJoin");
+    if (response.status == 200) {
+      alert(responseBody);
+      usernameSameCheck = true;
+    } else {
+      alert(responseBody);
+      usernameSameCheck = false;
+    }
+  }
+
+  let modelResult = document.getElementById("status").value;
+  let buttons = document.querySelectorAll(".apply_stsboard button");
+
+  // 버튼을 활성화 또는 비활성화하는 함수
+
+  function setActiveButton(result) {
+    document.getElementById("accepted").hidden = result !== "1";
+    document.getElementById("denied").hidden = result !== "2";
+    document.getElementById("hold").hidden = result !== "3";
+  }
+
+  setActiveButton(modelResult);
+
+  $(".dropdown-submenu").hover(
+    function () {
+      $(this).find(".dropdown-menu").addClass("show");
+    },
+    function () {
+      $(this).find(".dropdown-menu").removeClass("show");
+    }
+  );
+
+  $(".toggle-orange").click(function () {
+    if ($(this).hasClass("orange")) {
+      // The element has the "orange" class, so it's currently bookmarked
+      // Perform bookmark deletion here
+      const annIdx = $("#annIndex").val();
+      const userIdx = $("#userIndex").val();
+      deleteUserBookmark(annIdx, userIdx);
+    } else {
+      // The element does not have the "orange" class, so it's not bookmarked
+      // Perform bookmark saving here
+      bookmarkuserSave();
+    }
+    // Toggle the "orange" class
+    $(this).toggleClass("orange");
+  });
+
+  $(".toggle-orange1").click(function () {
+    if ($(this).hasClass("orange")) {
+      // The element has the "orange" class, so it's currently bookmarked
+      // Perform bookmark deletion here
+      const resumeIdx = $("#resumeIndex").val();
+      const companyIdx = $("#companyIndex").val();
+      deleteCompanyBookmark(resumeIdx, companyIdx);
+    } else {
+      // The element does not have the "orange" class, so it's not bookmarked
+      // Perform bookmark saving here
+      bookmarkcompanySave();
+    }
+    // Toggle the "orange" class
+    $(this).toggleClass("orange");
+  });
+});
 
 async function deleteReply(id) {
   let response = await fetch(`/api/reply/${id}/delete`, {
