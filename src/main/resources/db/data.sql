@@ -357,15 +357,11 @@ insert into edu_tb(edu_name) values('대학교 졸업');
 insert into edu_tb(edu_name) values('석사');
 insert into edu_tb(edu_name) values('박사');
 
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('ssar', '1234', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', '1');
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('heidi', 'dddd1312!', '김하얀', 'heidi@nate.com', '01033072211', '부산광역시 영도구 영도새싹길 2', '1000번지 1층', '19940319', '1');
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('yhlim', 'hhhh2211$', '윤혜림', 'cutie@naver.com', '01098762345', '부산광역시 수영구 수영로 371(남천동,부광빌딩)', '301호', '19960413', '1');
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('smkyoung', 'eeee333@', '성민경', 'sungsung@gmail.com', '01057638322', '부산광역시 해운대구 해운대로 95-10', '500번지', '19921021', '1');
-<<<<<<< HEAD
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('123', '1234', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', '1');
-=======
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('sjaeick', 'pppp7777@', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', '1');
->>>>>>> resume_revision
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('aaaa', '$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', 1);
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('heidi', '$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696!', '김하얀', 'heidi@nate.com', '01033072211', '부산광역시 영도구 영도새싹길 2', '1000번지 1층', '19940319', 1);
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('yhlim', '$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696', '윤혜림', 'cutie@naver.com', '01098762345', '부산광역시 수영구 수영로 371(남천동,부광빌딩)', '301호', '19960413', 1);
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('smkyoung', '$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696', '성민경', 'sungsung@gmail.com', '01057638322', '부산광역시 해운대구 해운대로 95-10', '500번지', '19921021', 1);
+insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('123', '$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696', '송재익', 'leader@gmail.com', '01089896767', '경상남도 진주시 강남동 1 - 3', '305호', '19951212', 1);
 
 
 
@@ -446,16 +442,16 @@ values('그거 그냥 하면 되던데요', 3, 2);
 
 insert into reply_tb(comment, user_index, board_index)
 values('절대 그러지 마세여', 4, 3);
-insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1234','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
-insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('5678','송재익',1234,'wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
-insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('red','qqqq0000!','카카오','red@nate.com','01011111111','부산광역시 동래구 명륜동 456번지','탑타워101호',2);
+insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1234','송재익','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
+insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('5678','송재익','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
+insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('red','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','카카오','red@nate.com','01011111111','부산광역시 동래구 명륜동 456번지','탑타워101호',2);
 
-insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('orange','qqqq1111!','쿠팡','orange@nate.com','01011111111','서울특별시 강남구 역삼동 123번지','별빛센터101호',2);
+insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('orange','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','쿠팡','orange@nate.com','01011111111','서울특별시 강남구 역삼동 123번지','별빛센터101호',2);
 
-insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('green','qqqq2222!','삼성물산','green@nate.com','01011111111','부산광역시 해운대구 좌동 123번지','황금하이츠501호', 2);
+insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('green','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','삼성물산','green@nate.com','01011111111','부산광역시 해운대구 좌동 123번지','황금하이츠501호', 2);
 
 
-insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('blue','blue3333!','바론','blue@nate.com','01011111111','서울특별시 마포구 서교동 456번지','세실빌딩201호',2);
+insert into company_tb (company_id,password,company_name,email,phone_num,address,address_detail,level) values('blue','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','바론','blue@nate.com','01011111111','서울특별시 마포구 서교동 456번지','세실빌딩201호',2);
 
 
 insert into Has_Skill_tb(announcement_index, skill_index) values(1,1);
@@ -484,9 +480,6 @@ insert into user_scrap_tb(ann_idx,comp_idx,user_idx) values(4,3,1);
 insert into user_scrap_tb(ann_idx,comp_idx,user_idx) values(1,3,2);
 
 insert into company_tb(company_id, company_name, password, email, phone_num, address, address_detail,level) values('1111','송재익','$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696','wha@naver.com','0101010101','어디어디어디','어디어디어디',2);
-insert into user_tb(user_id, password, username, email, phone_number, address, address_detail, birthday, level) values('aaaa', '$2a$10$SK1CtICaEaoIa3S8QR0rL.fzw2u17XD8s2vd999Ric96G6P4g1696', '최주호', 'ssar@nate.com', '01044442222', '서울특별시 서초구 반포대로23길 6', '201호', '19860705', '1');
-insert into apply_tb(announcement_index, resume_index, user_index, status) values(1, 4, 2, 3);
-insert into apply_tb(announcement_index, resume_index, user_index, status) values(3, 4, 2, 3);
 
 
 insert into apply_tb(announcement_index, resume_index, user_index, status) values(1, 4, 2, 3);
