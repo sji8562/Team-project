@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import shop.mtcoding.teamproject.announcement.Announcement;
@@ -61,8 +62,8 @@ public class IndexController {
         return "redirect:/";
     }
 
-    @GetMapping("/searchForm")
-    public String searching() {
+    @GetMapping("/search/{index}")
+    public String searching(@PathVariable Integer id) {
         return "/search/searchForm";
     }
 

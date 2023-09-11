@@ -54,25 +54,15 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col"></div>
-  <div class="search-container col">
-    <i class="fas fa-search search-icon"></i>
-    <input type="text" class="search-input" placeholder="검색어를 입력하세요" />
-    <button class="search-button">검색</button>
-  </div>
-  <div class="col"></div>
-</div>
-
 <div class="container my-2 p-1 text-center">
   <h1>채용공고</h1>
   <div class="index_fourcad" id="ann-div">
     {{#annPG}}
-    <a class="card fourcard_form" href="#">
+    <a class="card fourcard_form" href="/annDetail/{{ index }}">
       <img class="Card_fourcard" src="./images/comp1.jpg" alt="Card image" />
       <div class="card-body">
         <h4 class="card-title">{{ title }}</h4>
-        <p class="card-text">기업설명</p>
+        <p class="card-text">기업이름</p>
       </div>
     </a>
     {{/annPG}}
@@ -91,11 +81,11 @@
   <h1>추천 기업</h1>
   <div class="index_fourcad" id="comp-div">
     {{#comPG}}
-    <a class="card fourcard_form" href="#">
+    <a class="card fourcard_form" href="/compinfoDetail/{{ index }}">
       <img class="Card_fourcard" src="./images/comp4.jpg" alt="Card image" />
       <div class="card-body">
-        <h4 class="card-title">기업명</h4>
-        <p class="card-text">기업설명</p>
+        <h4 class="card-title">{{ companyName }}</h4>
+        <p class="card-text">빅잡 넣을꺼</p>
       </div>
     </a>
     {{/comPG}}

@@ -89,7 +89,7 @@ public class AnnouncementController {
         return "redirect:/annDetail/" + id;
     }
 
-    @GetMapping("/annlist")
+    @GetMapping("/ann/annlist")
     public String annList(@RequestParam(defaultValue = "0") Integer page, HttpServletRequest request) {
         Page<Announcement> annPG = announcementService.공고목록보기(page);
         request.setAttribute("annPG", annPG.getContent());

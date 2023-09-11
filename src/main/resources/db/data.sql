@@ -423,6 +423,11 @@ insert into announcement_tb (title, work_type, experience, graduation, task, loc
 values('이런사람 뽑습니다3','계약직','신입','대졸','신제품 런칭','대구','2023-03-05','2023-07-05','5000만원','oracle', '사원','8시~5시','주5일','송재익',1,1,1,DATE_TRUNC('DAY', NOW()));
 
 insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index,update_time)
+values('이런사람 뽑습니다3','계약직','신입','대졸','신제품 런칭','대구','2023-03-05','2023-07-05','5000만원','oracle', '사원','8시~5시','주5일','송재익',1,1,1,DATE_TRUNC('DAY', NOW()));
+insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index,update_time)
+values('이런사람 뽑습니다3','계약직','신입','대졸','신제품 런칭','대구','2023-03-05','2023-07-05','5000만원','oracle', '사원','8시~5시','주5일','송재익',1,1,1,DATE_TRUNC('DAY', NOW()));
+
+insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index,update_time)
 values('이런사람 뽑습니다4','정규직','경력','학력 무관','영업 관리','하동','2023-03-18','2023-08-18','100000000','스프링부트','과장', '9시~4시','월~금','윤혜림',3,1,1,DATE_TRUNC('DAY', NOW()));
 
 insert into announcement_tb (title, work_type, experience, graduation, task, location, start_time,end_time,salary,preference,position,work_time,work_day,manager_name,company_id,big_job_index,small_job_index,update_time)

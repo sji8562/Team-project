@@ -35,7 +35,7 @@ public class ResumeController {
     @Autowired
     private HttpSession session;
 
-    @GetMapping("/resList")
+    @GetMapping("/resume/resumeList")
     public String resumeList(Model model) {
         List<Resume> res = resumeService.이력서목록보기();
         model.addAttribute("res", res);
