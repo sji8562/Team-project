@@ -74,7 +74,7 @@ public class UserController {
     @PostMapping("/userJoin")
     public void userJoin(UserRequest.userJoinDTO joinDTO, HttpServletResponse response) throws IOException {
         userService.usersave(joinDTO);
-        response.sendRedirect("/userloginForm");
+        response.sendRedirect("/userLoginForm");
     }
 
     @PostMapping("/userLogin")

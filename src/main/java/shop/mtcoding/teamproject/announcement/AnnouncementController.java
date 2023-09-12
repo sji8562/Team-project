@@ -127,11 +127,12 @@ public class AnnouncementController {
     }
 
     @PostMapping("/annDelete/{id}")
-    public String annDelete(@PathVariable Integer id) {
+    public void annDelete(@PathVariable Integer id, HttpServletResponse response) throws IOException {
         announcementService.공고삭제(id);
 
         hasSkillService.공고스킬삭제(id);
-        return "redirect:/annlist";
+        response.sendRedirect("/ann/list");
+
     }
 
 }

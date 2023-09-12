@@ -26,11 +26,11 @@ public class HasSkill {
     @JoinColumn(name = "announcement_index")
     private Announcement announcement;
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "resume_index")
     private Resume resume;
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "skill_index")
     private Skill skill;
 

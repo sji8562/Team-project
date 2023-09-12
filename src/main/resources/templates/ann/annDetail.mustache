@@ -27,8 +27,10 @@
         <input id="userIndex" type="hidden" value="{{ sessionUser.index }}" />
         <button
           type="button"
-          name="button"
+          id="apply"
           class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
           onclick="resList()"
         >
           지원하기
@@ -37,7 +39,14 @@
       {{/sessionUser}}
       {{^sessionUser}}
       <div>
-        <button type="button" name="button" class="btn btn-primary">
+        <button
+          type="button"
+          id="apply"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#myModal"
+          onclick="resList()"
+        >
           지원하기
         </button>
       </div>
@@ -131,40 +140,162 @@
                     ></button>
                   </div>
 
-                  <!-- Modal body -->
-                  <div class="modal-body"></div>
+                  <div>
+                    <p class="blue">남은 기간</p>
+                    <br />
+                    <p>남은시간쓰는 자리</p>
+                    <p>
+                      <b class="border"
+                        >{{#ann.startTime}}{{ ann.startTime
+                        }}{{/ann.startTime}}</b
+                      >
+                    </p>
+                    <p>
+                      <b class="border"
+                        >{{#ann.endTime}}{{ ann.endTime }}{{/ann.endTime}}</b
+                      >
+                    </p>
+                    <div class="container mt-3">
+                      <form>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          data-bs-toggle="modal"
+                          data-bs-target="#myModal"
+                          onclick="resList()"
+                        >
+                          지원하기
+                        </button>
+                        <input
+                          type="hidden"
+                          id="annId"
+                          value="{{ ann.index }}"
+                        />
+                      </form>
+                    </div>
 
-                  <!-- Modal footer -->
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-danger"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <!-- Modal Header -->
+                          <div class="modal-header">
+                            <h4 class="modal-title" id="modalTitle"></h4>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                            ></button>
+                          </div>
+
+                          <!-- Modal body -->
+                          <div class="modal-body"></div>
+
+                          <!-- Modal footer -->
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-danger"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-danger"
+                                data-bs-dismiss="modal"
+                              >
+                                Close
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  <div class="col bg-gray">
+                    <div class="col">
+                      <p>
+                        지원 방법 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 사람인
+                        입사지원
+                      </p>
+                    </div>
+                    <div class="col">
+                      <p>
+                        접수 양식 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 제출서류
+                        보기
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col bg-gray"></div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div class="col bg-gray">
-            <div class="col">
-              <p>
-                지원 방법 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 사람인 입사지원
-              </p>
-            </div>
-            <div class="col">
-              <p>
-                접수 양식 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 제출서류 보기
-              </p>
-            </div>
-          </div>
-          <div class="col bg-gray"></div>
         </div>
+
+        <script>
+          async function resList() {
+            let response = await fetch(`/api/applyRes`);
+            let resume = await response.json();
+
+            modalBody = document.querySelector(".modal-body");
+            modalHeader = document.querySelector(".modal-header");
+            modalHeader.innerHTML = "내 이력서 목록";
+            modalBody.innerHTML = "";
+
+            if (resume.length === 0) {
+              alert(
+                "이력서가 없으면 공고에 지원할 수 없습니다. 이력서를 먼저 작성해주세요"
+              );
+              modalBody.innerHTML = "내 이력서가 없습니다.";
+            } else {
+              modalBody = document.querySelector(".modal-body");
+              resume.forEach((resume, index) => {
+                const resumeItem = document.createElement("div");
+                resumeItem.classList.add("resume-item"); // 필요에 따라 CSS 클래스를 추가할 수 있습니다.
+
+                // 제목을 표시하는 요소 (예시로 h3 사용)
+                const titleElement = document.createElement("button");
+                titleElement.innerHTML = resume.title;
+                titleElement.addEventListener("click", () => {
+                  applyInsert(resume);
+                });
+
+                // 모달 바디에 추가
+                resumeItem.appendChild(titleElement);
+                modalBody.appendChild(resumeItem);
+              });
+            }
+          }
+
+          async function applyInsert(resume) {
+            let ann = document.getElementById("annId").value;
+            let requestBody = {
+              annId: ann,
+              resume: resume,
+            };
+            console.log(requestBody);
+
+            let response = await fetch("/api/apply/save", {
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(requestBody),
+            });
+
+            let responseBody = await response.json();
+            alert(responseBody.data);
+          }
+        </script>
       </div>
     </div>
   </div>
 </div>
+
 {{> layout/footer}}
