@@ -40,3 +40,19 @@
   8. 채용 공고 상세보기
 - 윤혜림: 팀원 /
 - 성민경: 팀원 /
+
+## 사용한 기술
+### 기술 스택
+- spring boot 2.7
+- JDK 11
+- VSCODE
+- MySQL8.0
+- Junit
+### 의존성
+- qlrm 1.7
+- jpa
+- mustache
+- lombok
+- devtools
+- h2 DB
+- jbcrypt
